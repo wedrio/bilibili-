@@ -1,0 +1,3467 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>热门视频排行榜 - 哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</title>
+    <meta name="referrer" content="no-referrer">
+    <meta charset="utf-8">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .top-box{
+        width: 100%;
+        height: 150px;
+        border: 1px solid black;
+        background-image: url('image/top-img.jpg');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    .text-box{
+        position: relative;
+        top: -40px;
+        width: 75%;
+        margin: 0 auto;
+    } 
+    .nav-box{
+        width: 100%;
+        height: 90px;
+    }
+    .rank-name-box{
+        width: 100%;
+        height: 60px;
+        align-items: center;
+        justify-content: space-around;
+        border-top: 1px solid rgba(235, 222, 222, 0.959);
+    }
+    .rank-category-box{
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        background-color: #edf2f9;
+        border-radius: 5px;
+    }
+    .rank-works-box{
+        width: 100%;
+    }
+    .bottom-box{
+        line-height:normal;
+        font-family:"Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+        position:relative;
+        background-color:#f6f9fa;
+        padding:30px;
+    }
+    .bottom-box1{
+        font-size:14px;
+        display:flex;
+        justify-content:space-between;
+        width: 79%;
+        margin:0 auto;
+    }
+    .bottom-works{
+        flex-grow:4;
+        flex-shrink:1;
+        flex-basis:0%;
+        display:flex;
+        justify-content:space-between;
+    }
+    .bilibili,.chuansongmen{
+        flex-grow:2;
+        flex-shrink:1;
+        flex-basis:0%;
+        padding-right:40px;
+        margin-right:40px;
+        border-right:1px solid #eee;
+    }
+    .guanzhufangshi{
+        width: 250px;
+        height: 180px;
+        display: inline-flex;
+        text-align: center;
+        padding-left: 20px;
+    }
+    .bilibili ul,.chuansongmen ul{
+        height: 140px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        list-style: none;
+    }
+    .bilibili span,.chuansongmen span{
+        font-size:16px;
+        color:#999;
+        display:block;
+        height:20px;
+        margin-bottom:20px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .bilibili ul a,.chuansongmen ul a{
+        display:inline-block;
+        margin-bottom:10px;
+        height:20px;
+        cursor:pointer;
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+        transition-property:color;
+        transition-duration:0.3s;
+        transition-timing-function:ease;
+        transition-delay:0s;
+    }
+    .bilibili ul a{
+        width: 50%;
+    }
+    .chuansongmen ul a{
+        width: 33%;
+    }
+    .wraper{
+        margin-left: 30px;
+        display: inline-flex;
+        text-align: center;
+        align-items: center;
+    }
+    .wraper a{
+        color: black;
+    }
+    .top-box,.nav-box,.rank-name-box{
+        display: flex;
+    }
+    .nav-box{
+        align-items: center;
+        justify-content: space-between;
+    }
+    .top-nav,.search-box,.login-box,.contribution-box{
+        height: 36px; 
+    }
+    .top-nav{
+        margin-left: 20px;
+        margin-top: 10px;
+        width: 440px;
+    }
+    .search-box{
+        margin-left: 40px;
+        margin-top: 10px;
+        width: 500px;
+    }
+    .login-box{
+        margin-left: 90px;
+        margin-top: 10px;
+        width: 140px;
+    }
+    .contribution-box{
+        margin-top: 10px;
+        width: 100px;
+        background-color: #FB7299;
+        line-height: 36px;
+        text-align: center;
+        cursor: pointer;
+        color: white;
+        border-radius: 2px;
+        display: block;
+    }
+    .blili-logo{
+        position: relative;
+        left:200px;
+        top:-80px;
+        width: 120px;
+        height: 60px;
+        background-image: url('image/61.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    .nav-nav1,.nav-nav2,.nav-nav3{
+        height: 80px;
+    }
+    .nav-nav1{
+        width: 20%;
+    }
+    .nav-nav2{
+        width: 58%;
+    }
+    .nav-nav3{
+        padding: 0 0 0 5px;
+        width: 22%;
+    }
+    .works-list,.rank-category-box ul,
+    .nav3-list1,.nav3-list2,.top-nav ul,
+    .login-box ul,.nav-nav1 ul,
+    .nav2-list1,.nav2-list2{
+        list-style: none;
+    }
+    .rank-category-box ul li,
+    .nav3-list1 li,.nav3-list2 li,
+    .top-nav ul li,.login-box ul li,
+    .nav-nav1 ul li,.nav2-list1 li,
+    .nav2-list2 li{
+        color: white;
+        font-size: 14px;
+        line-height: 36px;
+        float: left;
+        font-family: Arial, Helvetica, sans-serif;
+        cursor: pointer;
+    }
+   .top-nav ul li,.login-box ul li,.nav-nav1 ul li,.nav2-list1 li,.nav2-list2 li{
+        margin-left: 10px;
+    }
+    .nav-nav1 ul li div{
+        position:relative;
+        width:36px;
+        height:36px;
+        background:#FF5C7C;
+        border-radius:36px;
+        line-height:36px;
+        text-align:center;
+        margin: 0 auto 4px auto;
+    }
+    .nav-nav1 ul li span{
+        position: relative;
+        left: 4px;
+        text-align:center;
+        top: -10px;
+        margin: 0 auto 4px auto;
+    }
+    .nav1-con li a div img{
+        position: relative;
+        top: 7px;
+    }
+    .text-con a:hover,.chuansongmen ul a:hover,
+    .bilibili ul a:hover,.nav3-list1 li a span:hover,
+    .nav3-list2 li a span:hover,.nav-nav1 ul li span:hover,
+    .nav2-list1 li a span:hover,.nav2-list2 li a span:hover{
+        color: #00a1d6;
+    }
+    .link a,.rank-category-box ul li,
+    .nav2-list1 li span,.nav2-list2 li span,
+    .nav-nav1 ul li span,.nav-nav3 ul li span{
+        color: black;
+    }
+    .wraper a,.chuansongmen ul a,
+    .bilibili ul a,.works a,
+    .nav2-list1 li a,.nav2-list2 li a,
+    .nav3-list1 li a,.nav3-list2 li a{
+        text-decoration: none;
+    }
+    .nav2-list1 li text,.nav2-list2 li text{
+      
+        background-color: #73C9E5;
+        color: white;
+        font-size: 10px;
+        border-radius: 2px;
+        padding:0 2px 0 2px;
+    }
+    .nav3-list1 li img,.nav3-list2 li img{
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        margin-left: 5px;
+    }
+    .bilifon{
+        color: white;
+        font-family:"bilifont" !important;
+        font-size:16px;
+        font-style:normal;
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+    }
+    .top-nav ul li img{
+        width: 20px;
+        height: 25px;
+        display: inline;
+        vertical-align: middle;
+    }
+    .search-button,.search-text{
+        display: inline-block;
+
+    }
+    .search-text{
+        width: 88%;
+        height: 95%;
+        vertical-align: top;
+    }
+    .search-button{
+        margin-left: -7px;
+        width: 10%; 
+        height: 100%;
+        background-color: #E7E7E7;
+        cursor: pointer;
+    }
+    .login-box img{
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        vertical-align: middle;
+        display: inline;
+    }
+    .rank-name{
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        width: 200px;
+        height: 50px;
+    }
+    .rank-name img{  
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+    }
+    .rank-name span{
+        margin-left: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+        cursor: pointer;
+    }
+    .rank-category-box ul li{
+        cursor: pointer;
+        margin-right: 30px;
+    }
+    .rank-category-box div select{
+        border-radius: 2px;
+    }
+    .first{
+        margin-left: 5px;
+    }
+    .works-top
+    {
+        margin-bottom: 15px;
+        margin-top: 15px;
+        font-size: 12px;
+        width: 100%;
+        height: 30px;
+        background-color:  #edf2f9;
+        border-radius: 2px;
+    }
+    .works-top span{
+        line-height: 30px;
+        display: inline;
+    }
+    .works{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        border-bottom: 1px solid #e5e9ef;
+    }
+    #work-list2{
+        display: none;
+    }
+    .num{
+        line-height: 70px;
+        width: 70px;
+        height: 70px;
+        text-align: center;
+        font-size: 36px;
+        font-weight: 700;
+        font-family: simhei;
+        color: #b8c0cc;
+    }
+    .works img{
+        border-radius: 5px;
+        width: 100px;
+        height: 70px;
+        border: 1px solid green;
+        vertical-align: top;
+    }
+    .link{
+        width: 80%;
+        height: 70px;
+        display: inline-block;
+    }
+    .link a{
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 15px;
+        font-weight: 700;
+        font-size: 14px;
+    }
+    .view{
+        width: 70%;
+        height: 20px;
+        margin-top: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .view-logo1,.view-logo2,.view-logo3{
+        margin-left: 15px;
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+    }
+    .view-logo1{
+        background-image: url('image/播放器.png');
+        background-size: 100% 100%;
+    }
+    .view-logo2{
+        background-image: url('image/浏览量.png');
+        background-size: 100% 100%;
+    }
+    .view-logo3{
+        background-image: url('image/人.png');
+        background-size: 100% 100%;
+    }
+    .text-zonghe,.view{
+        color: #99a2aa;
+        font-size: 12px;
+    }
+    .zonghedefen{
+        font-weight: 700;
+        color: #00a1d6;
+        text-align: center;
+        margin-top: -30px;
+        width: 80px;
+        height: 50px;
+        float: right;
+    }
+    .text-zonghe{
+        margin-top: 10px;
+    }
+    .pic-box{
+        width: 200px;
+        margin-right: 20px;
+    }
+    .text-con{
+
+        color: #999;
+        font-size: 12px;
+    }
+    .text-con a{
+        color: #999;
+    }
+    .text-con p,.text-con span{
+        line-height: 24px;
+    }
+    .text-con span{
+        margin-right: 15px;
+        display: inline-block;
+    }
+    .wrap-box{ 
+        width: 80%;
+        display: flex;
+        margin: 0 auto;
+    }
+</style>
+<script>
+    window.onload=function(){
+        var odiv1=document.getElementById('rank-data1');
+        odiv1.onmouseover=function(){
+            odiv1.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv1.onmouseout=function(){
+            odiv1.style.boxShadow='0 0 0 0';
+        }
+        var odiv2=document.getElementById('rank-data2');
+        odiv2.onmouseover=function(){
+            odiv2.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv2.onmouseout=function(){
+            odiv2.style.boxShadow='0 0 0 0';
+        }
+        var odiv3=document.getElementById('rank-data3');
+        odiv3.onmouseover=function(){
+            odiv3.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv3.onmouseout=function(){
+            odiv3.style.boxShadow='0 0 0 0';
+        }
+        var odiv4=document.getElementById('rank-data4');
+        odiv4.onmouseover=function(){
+            odiv4.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv4.onmouseout=function(){
+            odiv4.style.boxShadow='0 0 0 0';
+        }
+        var odiv5=document.getElementById('rank-data5');
+        odiv5.onmouseover=function(){
+            odiv5.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv5.onmouseout=function(){
+            odiv5.style.boxShadow='0 0 0 0';
+        }
+        var odiv6=document.getElementById('rank-data6');
+        odiv6.onmouseover=function(){
+            odiv6.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv6.onmouseout=function(){
+            odiv6.style.boxShadow='0 0 0 0';
+        }
+        var odiv7=document.getElementById('rank-data7');
+        odiv7.onmouseover=function(){
+            odiv7.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv7.onmouseout=function(){
+            odiv7.style.boxShadow='0 0 0 0';
+        }
+        var odiv8=document.getElementById('rank-data8');
+        odiv8.onmouseover=function(){
+            odiv8.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv8.onmouseout=function(){
+            odiv8.style.boxShadow='0 0 0 0';
+        }
+        var odiv9=document.getElementById('rank-data9');
+        odiv9.onmouseover=function(){
+            odiv9.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv9.onmouseout=function(){
+            odiv9.style.boxShadow='0 0 0 0';
+        }
+        var odiv10=document.getElementById('rank-data10');
+        odiv10.onmouseover=function(){
+            odiv10.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv10.onmouseout=function(){
+            odiv10.style.boxShadow='0 0 0 0';
+        }
+        var odiv11=document.getElementById('rank-data11');
+        odiv11.onmouseover=function(){
+            odiv11.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv11.onmouseout=function(){
+            odiv11.style.boxShadow='0 0 0 0';
+        }
+        var odiv12=document.getElementById('rank-data12');
+        odiv12.onmouseover=function(){
+            odiv12.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv12.onmouseout=function(){
+            odiv12.style.boxShadow='0 0 0 0';
+        }
+        var odiv13=document.getElementById('rank-data13');
+        odiv13.onmouseover=function(){
+            odiv13.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv13.onmouseout=function(){
+            odiv13.style.boxShadow='0 0 0 0';
+        }
+        var odiv14=document.getElementById('rank-data14');
+        odiv14.onmouseover=function(){
+            odiv14.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv14.onmouseout=function(){
+            odiv14.style.boxShadow='0 0 0 0';
+        }
+        var odiv15=document.getElementById('rank-data15');
+        odiv15.onmouseover=function(){
+            odiv15.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv15.onmouseout=function(){
+            odiv15.style.boxShadow='0 0 0 0';
+        }
+        var odiv16=document.getElementById('rank-data16');
+        odiv16.onmouseover=function(){
+            odiv16.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv16.onmouseout=function(){
+            odiv16.style.boxShadow='0 0 0 0';
+        }
+        var odiv17=document.getElementById('rank-data17');
+        odiv17.onmouseover=function(){
+            odiv17.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv17.onmouseout=function(){
+            odiv17.style.boxShadow='0 0 0 0';
+        }
+        var odiv18=document.getElementById('rank-data18');
+        odiv18.onmouseover=function(){
+            odiv18.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv18.onmouseout=function(){
+            odiv18.style.boxShadow='0 0 0 0';
+        }
+        var odiv19=document.getElementById('rank-data19');
+        odiv19.onmouseover=function(){
+            odiv19.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv19.onmouseout=function(){
+            odiv19.style.boxShadow='0 0 0 0';
+        }
+        var odiv20=document.getElementById('rank-data20');
+        odiv20.onmouseover=function(){
+            odiv20.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv20.onmouseout=function(){
+            odiv20.style.boxShadow='0 0 0 0';
+        }
+        var odiv21=document.getElementById('rank-data21');
+        odiv21.onmouseover=function(){
+            odiv21.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv21.onmouseout=function(){
+            odiv21.style.boxShadow='0 0 0 0';
+        }
+        var odiv22=document.getElementById('rank-data22');
+        odiv22.onmouseover=function(){
+            odiv22.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv22.onmouseout=function(){
+            odiv22.style.boxShadow='0 0 0 0';
+        }
+        var odiv23=document.getElementById('rank-data23');
+        odiv23.onmouseover=function(){
+            odiv23.style.boxShadow='1px 2px 2px 2px black';
+        }
+        odiv23.onmouseout=function(){
+            odiv23.style.boxShadow='0 0 0 0';
+        }
+    }
+    function qzbtoycb1(){
+        var itme=document.getElementsByClassName('works-list');
+        itme[0].style.display='block';
+        itme[1].style.display='none';
+        itme[2].style.display='none';
+        itme[3].style.display='none';
+        itme[4].style.display='none';
+    }
+    function qzbtoycb2(){
+        var itme=document.getElementsByClassName('works-list');
+        itme[1].style.display='block';
+        itme[0].style.display='none';
+        itme[2].style.display='none';
+        itme[3].style.display='none';
+        itme[4].style.display='none';
+    }
+    function qzbtoycb3(){
+        var itme=document.getElementsByClassName('works-list');
+        itme[2].style.display='block';
+        itme[0].style.display='none';
+        itme[1].style.display='none';
+        itme[3].style.display='none';
+        itme[4].style.display='none';
+    }
+    function qzbtoycb4(){
+        var itme=document.getElementsByClassName('works-list');
+        itme[3].style.display='block';
+        itme[0].style.display='none';
+        itme[1].style.display='none';
+        itme[2].style.display='none';
+        itme[4].style.display='none';
+    }
+    function qzbtoycb5(){
+        var itme=document.getElementsByClassName('works-list');
+        itme[4].style.display='block';
+        itme[0].style.display='none';
+        itme[1].style.display='none';
+        itme[2].style.display='none';
+        itme[3].style.display='none';
+    }
+</script>
+<body>
+    <div class="top-box">
+        <div class="top-nav">
+            <ul>
+                <li><img src="image/im1.PNG"><a href="../../index.html" style="text-decoration: none;color: white">主站</a></li>
+                <li>番剧</li>
+                <li>游戏中心</li>
+                <li>直播</li>
+                <li>会员购</li>
+                <li><a href="../comic/index.html" style="text-decoration: none;color: white">漫画</a></li>
+                <li>赛事</li>
+                <li><img src="image/App.PNG">下载APP</li>
+            </ul>
+        </div>
+        <div class="search-box">
+            <input type="text" class="search-text" placeholder="新款机器人vs Siri 谁胜？">
+            <input type="button" class="search-button" value="搜索" onclick="cstz">
+        </div>
+        <div class="login-box"> 
+            <ul>
+                <li class="cs123">
+                    <img src="image/头像.PNG" alt="">
+                    <span>登录</span>
+                </li>
+                <li onclick="location.href='注册.html'">注册</li>
+            </ul>
+        </div>
+        <div class="contribution-box">投稿</div>
+        
+    </div>
+    <div class="blili-logo"></div>
+    <div class="text-box">
+        <div class="nav-box">
+            <div class="nav-nav1">
+                <ul class="nav1-con">
+                    <li>
+                        <a href="../../index.html">
+                            <div>
+                                <img class="bilifon" src="image/首页.PNG"></img>
+                            </div>
+                            <span>首页</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../dynamic/动态.html">
+                            <div style="background-color: #fcba2a;">
+                                <img style="margin-top: -1px;" class="bilifon" src="image/风车.PNG">
+                            </div>
+                            <span>动态</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div style="background-color: #00a1d6;">
+                                <img style="margin-top: -1px; margin-left: 1px;" class="bilifon" src="image/排行榜.png">
+                            </div>
+                            <span>排行榜</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../channel/bili.html">
+                            <div style="background-color: #6dc781;">
+                                <img style="margin-top: -1px;" class="bilifon" src="image/频道.PNG">
+                            </div>
+                            <span>频道</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-nav2">
+                <ul class="nav2-list1">
+                    <li>
+                        <a href="">
+                            <span class="cs124">动画</span>
+                            <text>999+</text>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>音乐</span>
+                            <text>999+</text>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>舞蹈</span>
+                            <text>999+</text>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>知识</span>
+                            <text>999+</text>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>生活</span>
+                            <text>999+</text>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>时尚</span>
+                            <text>999+</text>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>娱乐</span>
+                            <text>999+</text>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>放映厅</span>
+                            <text>90</text>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav2-list2">
+                    <li>
+                        <a href="">
+                            <span>番剧</span>
+                            <text>101</text>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>国创</span>
+                            <text>290</text>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>游戏</span>
+                            <text>999+</text>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>数码</span>
+                            <text>852</text>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>鬼畜</span>
+                            <text>126</text>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>资讯</span>
+                            <text>284</text>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>影视</span>
+                            <text>999+</text>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span>更多</span>
+                            <text></text>
+                        </a>
+                    </li>
+					<li>
+					    <a href="">
+					        <span>VLOG</span>
+					    </a>
+					</li>
+                </ul>
+            </div>
+            <div class="nav-nav3">
+                <ul class="nav3-list1">
+                    <li>
+                        <a href="">
+                            <img src="image/专栏-点击.png" alt="">
+                            <span>专栏</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="image/活动.png" alt="">
+                            <span>活动</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="image/哔哩哔哩_小黑屋ico.png" alt="">
+                            <span>小黑屋</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav3-list2">
+                    <li>
+                        <a href="">
+                            <img src="image/直播%20播放%20摄像机%20观看%20面性.png" alt="">
+                            <span>直播</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="image/课堂行为.png" alt="">
+                            <span>课堂</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="image/音乐.png" alt="">
+                            <span>音乐PLUS</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="rank-name-box">
+            <a>
+                <div class="rank-name">
+                    <img src="image/总榜.png" alt="">
+                    <span onclick="qzbtoycb1()">全站榜</span>
+                </div>
+            </a>
+            <a>
+                <div class="rank-name">
+                    <img src="image/vip.png" alt="">
+                    <span onclick="qzbtoycb2()">原创榜</span>
+                </div>
+            </a>
+            <a>
+                <div class="rank-name">
+                    <img src="image/新番榜.png" alt="">
+                    <span onclick="qzbtoycb3()">新番榜</span>
+                </div>
+            </a>
+            <a>
+                <div class="rank-name">
+                    <img src="image/影视.png" alt="">
+                    <span onclick="qzbtoycb4()">影视榜</span>
+                </div>
+            </a>
+            <a>
+                <div class="rank-name">
+                    <img src="image/新人.png" alt="">
+                    <span onclick="qzbtoycb5()">新人榜</span>
+                </div>
+            </a>
+        </div>
+        <div class="rank-category-box">
+            <ul>
+                <li class="first">全站</li>
+                <li>动画</li>
+                <li>国创相关</li>
+                <li>音乐</li>
+                <li>舞蹈</li>
+                <li>游戏</li>
+                <li>知识</li>
+                <li>数码</li>
+                <li>生活</li>
+                <li>美食</li>
+                <li>鬼畜</li>
+                <li>时尚</li>
+                <li>娱乐</li>
+                <li>影视</li>
+            </ul>
+            <div>
+                <select name="" id="">
+                    <option value="全部排行">全部投票</option>
+                    <option value="近期排行">近期投票</option>
+                </select>
+                <select name="" id="">
+                    <option value="三日排行">三日排行</option>
+                    <option value="日排行">日排行</option>
+                    <option value="周排行">周排行</option>
+                    <option value="月排行">月排行</option>
+                </select>
+            </div>
+        </div>
+        <div class="rank-works-box">
+            <div class="works-top">
+                <span>根据稿件的内容质量，近期的数据综合展示，动态更新</span>
+            </div>
+            <!--全站榜-->
+            <ul class="works-list">
+                <li>
+                    <div class="works" id="rank-data1">
+                        <div class="num">1</div>    
+                        <img src="image/1.png" alt="">          
+                        <div class="link">
+                            <a href="">花两万多买的Python教程全套，现在分享给大家，入门到精通(Python全栈开发教程)</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>271.7万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.7万</span>
+                                <div class="view-logo3"></div>
+                                <span>Python_子木</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>3513141</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="works" id="rank-data2">
+                        <div class="num">2</div>
+                        <img src="image/2.png" alt="">
+                        <div class="link">
+                            <a href="">儿子，你赢了吗？</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>35.5万</span>
+                                <div class="view-logo2"></div>
+                                <span>2037</span>
+                                <div class="view-logo3"></div>
+                                <span>GODVCENT</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>3480336</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="works" id="rank-data3">
+                        <div class="num">3</div>
+                        <img src="image/3.png" alt="">
+                        <div class="link">
+                            <a href="">论:如何足不出户，量产粉丝</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>244.4万</span>
+                                <div class="view-logo2"></div>
+                                <span>5万</span>
+                                <div class="view-logo3"></div>
+                                <span>绵羊料理</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>3085420</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li> 
+                <li>
+                    <div class="works" id="rank-data4">
+                        <div class="num">4</div>
+                        <img src="image/4.png" alt="">
+                        <div class="link"> 
+                            <a href="">新 概 念 健 身</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>128.4万</span>
+                                <div class="view-logo2"></div>
+                                <span>1750</span>
+                                <div class="view-logo3"></div>
+                                <span>花少北丶</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>2848094</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="works" id="rank-data5">
+                        <div class="num">5</div>
+                        <img src="image/5.png" alt="">
+                        <div class="link">
+                            <a href="">豫章书院曝光者温柔，深陷“网络暴力”泥潭……</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>154.5万</span>
+                                <div class="view-logo2"></div>
+                                <span>5.1万</span>
+                                <div class="view-logo3"></div>
+                                <span>温柔JUNZ</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>2311172</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+				<li>
+				    <div class="works" id="rank-data6">
+				        <div class="num">6</div>
+                        <img src="image/6.png" alt="">
+                        <div class="link">
+                            <a href="">【别丧了】看完这些纪录片你会发现人间值得！励志向纪录片TOP10</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>85.8万</span>
+                                <div class="view-logo2"></div>
+                                <span>8561</span>
+                                <div class="view-logo3"></div>
+                                <span>看不见的罗杰</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1938858</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data7">
+				        <div class="num">7</div>
+                        <img src="image/7.png" alt="">
+                        <div class="link">
+                            <a href="">《耗时半年!3000张板绘完成[石之海]三重特效动画》</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>244.8万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.8万</span>
+                                <div class="view-logo3"></div>
+                                <span>ZALSTGAMING</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1911442</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data8">
+				        <div class="num">8</div>
+                        <img src="image/8.png" alt="">
+                        <div class="link">
+                            <a href="">中美竞争的脚本：中国是市场经济，美国是计划经济？！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>126.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>8258</span>
+                                <div class="view-logo3"></div>
+                                <span>沈逸老师</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1799835</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data9">
+				        <div class="num">9</div>
+                        <img src="image/9.png" alt="">
+                        <div class="link">
+                            <a href="">【毕导】大学如何不虚度？清华辅导员的50条真诚建议</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>196.1万</span>
+                                <div class="view-logo2"></div>
+                                <span>7.4万</span>
+                                <div class="view-logo3"></div>
+                                <span>毕导THU</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1764525</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data10">
+				        <div class="num">10</div>
+                        <img src="image/10.png" alt="">
+                        <div class="link">
+                            <a href="">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>31.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>453</span>
+                                <div class="view-logo3"></div>
+                                <span>凉风Kaze</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1551255</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data11">
+				        <div class="num">11</div>
+                        <img src="image/11.png" alt="">
+                        <div class="link">
+                            <a href="">从木头里取出进击的巨人 兵长利威尔</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>97.7万</span>
+                                <div class="view-logo2"></div>
+                                <span>8671</span>
+                                <div class="view-logo3"></div>
+                                <span>卢正义的雕刻时光</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1440555</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data12">
+				        <div class="num">12</div>
+                        <img src="image/12.png" alt="">
+                        <div class="link">
+                            <a href="">【Clash动画短片】《丢失的皇冠》</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>103.1万</span>
+                                <div class="view-logo2"></div>
+                                <span>8375</span>
+                                <div class="view-logo3"></div>
+                                <span>Supercell游戏</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1326308</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				
+				<li>
+				    <div class="works" id="rank-data13">
+				        <div class="num">13</div>
+                        <img src="image/13.png" alt="">
+                        <div class="link">
+                            <a href="">女 装 全 B 站（一）</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>111.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.5万</span>
+                                <div class="view-logo3"></div>
+                                <span>机智的党妹</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1318826</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data14">
+				        <div class="num">14</div>
+                        <img src="image/14.png" alt="">
+                        <div class="link">
+                            <a href="">被判死刑 被告律师: 完全同意！请立刻执行！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>84.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>3978</span>
+                                <div class="view-logo3"></div>
+                                <span>逗比的雀巢</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1277899</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data15">
+				        <div class="num">15</div>
+                        <img src="image/15.png" alt="">
+                        <div class="link">
+                            <a href="">汽油桶+C4=？ 【C4快乐阴人流】</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>93.4万</span>
+                                <div class="view-logo2"></div>
+                                <span>2078</span>
+                                <div class="view-logo3"></div>
+                                <span>鲁大能</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1274697</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data16">
+				        <div class="num">16</div>
+                        <img src="image/16.png" alt="">
+                        <div class="link">
+                            <a href="">女朋友的秘密2</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>204.2万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.7万</span>
+                                <div class="view-logo3"></div>
+                                <span>小潮院长</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1272615</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data17">
+				        <div class="num">17</div>
+                        <img src="image/17.png" alt="">
+                        <div class="link">
+                            <a href="">【片片】《白夜追凶》最终案！神秘组织大开杀戒！是谁惨遭毒手？深度解析第</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>90.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>6872</span>
+                                <div class="view-logo3"></div>
+                                <span>小片片说大片</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1236183</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data18">
+				        <div class="num">18</div>
+                        <img src="image/18.png" alt="">
+                        <div class="link">
+                            <a href="">Papi酱的周一放送——休完产假的我回来了</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>33.2万</span>
+                                <div class="view-logo2"></div>
+                                <span>1479</span>
+                                <div class="view-logo3"></div>
+                                <span>papi酱</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1209323</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data19">
+				        <div class="num">19</div>
+                        <img src="image/19.png" alt="">
+                        <div class="link">
+                            <a href="">跳水运动：3秒的奇迹</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>力元君</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1191186</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data20">
+				        <div class="num">20</div>
+                        <img src="image/20.png" alt="">
+                        <div class="link">
+                            <a href="">好起来了？2020十月新番毒奶推荐</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>瓶子君152</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1170656</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data21">
+				        <div class="num">21</div>
+                        <img src="image/21.png" alt="">
+                        <div class="link">
+                            <a href="">不 要 笑 挑 战 ！【第1000期】</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>徐大虾咯</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1118584</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data22">
+				        <div class="num">22</div>
+                        <img src="image/22.png" alt="">
+                        <div class="link">
+                            <a href="">无 限 火 力</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>百蝎奇天</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1056662</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data23">
+				        <div class="num">23</div>
+                        <img src="image/23.png" alt="">
+                        <div class="link">
+                            <a href="">【火影人物志61】超越一切的羁绊，佐助和鸣人 救赎彼此的唯一！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>85.7万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.8万</span>
+                                <div class="view-logo3"></div>
+                                <span>四季萌芽</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1052438</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+			<!--原创榜--->	
+            </ul>
+            <ul class="works-list" style="display: none;">
+                <li>
+                    <div class="works" id="rank-data1">
+                        <div class="num">1</div>    
+                        <img src="image/29.png" alt="">          
+                        <div class="link">
+                            <a href="">跨次元无缝衔接！看完之后世界都惊呆了！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>288.7万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.9万</span>
+                                <div class="view-logo3"></div>
+                                <span>Python_子木</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>3513141</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="works" id="rank-data2">
+                        <div class="num">2</div>
+                        <img src="image/30.png" alt="">
+                        <div class="link">
+                            <a href="">论：如何将肉丸塞进蛋黄</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>39.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>2894</span>
+                                <div class="view-logo3"></div>
+                                <span>GODVCENT</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>3480336</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="works" id="rank-data3">
+                        <div class="num">3</div>
+                        <img src="image/31.png" alt="">
+                        <div class="link">
+                            <a href="">良心到难以置信的网站推荐第6期丨上网必备</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>233.3万</span>
+                                <div class="view-logo2"></div>
+                                <span>4万</span>
+                                <div class="view-logo3"></div>
+                                         <a href=""></a>
+                   <span>绵羊料理</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>3085420</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li> 
+                <li>
+                    <div class="works" id="rank-data4">
+                        <div class="num">4</div>
+                        <img src="image/32.png" alt="">
+                        <div class="link"> 
+                            <a href="">蝎子精：“住在山里真不错！”</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>128.4万</span>
+                                <div class="view-logo2"></div>
+                                <span>1750</span>
+                                <div class="view-logo3"></div>
+                                <span>花少北丶</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>2848094</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="works" id="rank-data5">
+                        <div class="num">5</div>
+                        <img src="image/5.png" alt="">
+                        <div class="link">
+                            <a href="">豫章书院曝光者温柔，深陷“网络暴力”泥潭……</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>154.5万</span>
+                                <div class="view-logo2"></div>
+                                <span>5.1万</span>
+                                <div class="view-logo3"></div>
+                                <span>温柔JUNZ</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>2311172</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+				<li>
+				    <div class="works" id="rank-data6">
+				        <div class="num">6</div>
+                        <img src="image/6.png" alt="">
+                        <div class="link">
+                            <a href="">【别丧了】看完这些纪录片你会发现人间值得！励志向纪录片TOP10</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>85.8万</span>
+                                <div class="view-logo2"></div>
+                                <span>8561</span>
+                                <div class="view-logo3"></div>
+                                <span>看不见的罗杰</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1938858</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data7">
+				        <div class="num">7</div>
+                        <img src="image/7.png" alt="">
+                        <div class="link">
+                            <a href="">《耗时半年!3000张板绘完成[石之海]三重特效动画》</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>244.8万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.8万</span>
+                                <div class="view-logo3"></div>
+                                <span>ZALSTGAMING</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1911442</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data8">
+				        <div class="num">8</div>
+                        <img src="image/8.png" alt="">
+                        <div class="link">
+                            <a href="">中美竞争的脚本：中国是市场经济，美国是计划经济？！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>126.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>8258</span>
+                                <div class="view-logo3"></div>
+                                <span>沈逸老师</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1799835</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data9">
+				        <div class="num">9</div>
+                        <img src="image/9.png" alt="">
+                        <div class="link">
+                            <a href="">【毕导】大学如何不虚度？清华辅导员的50条真诚建议</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>196.1万</span>
+                                <div class="view-logo2"></div>
+                                <span>7.4万</span>
+                                <div class="view-logo3"></div>
+                                <span>毕导THU</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1764525</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data10">
+				        <div class="num">10</div>
+                        <img src="image/10.png" alt="">
+                        <div class="link">
+                            <a href="">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>31.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>453</span>
+                                <div class="view-logo3"></div>
+                                <span>凉风Kaze</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1551255</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data11">
+				        <div class="num">11</div>
+                        <img src="image/11.png" alt="">
+                        <div class="link">
+                            <a href="">从木头里取出进击的巨人 兵长利威尔</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>97.7万</span>
+                                <div class="view-logo2"></div>
+                                <span>8671</span>
+                                <div class="view-logo3"></div>
+                                <span>卢正义的雕刻时光</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1440555</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data12">
+				        <div class="num">12</div>
+                        <img src="image/12.png" alt="">
+                        <div class="link">
+                            <a href="">【Clash动画短片】《丢失的皇冠》</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>103.1万</span>
+                                <div class="view-logo2"></div>
+                                <span>8375</span>
+                                <div class="view-logo3"></div>
+                                <span>Supercell游戏</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1326308</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				
+				<li>
+				    <div class="works" id="rank-data13">
+				        <div class="num">13</div>
+                        <img src="image/13.png" alt="">
+                        <div class="link">
+                            <a href="">女 装 全 B 站（一）</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>111.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.5万</span>
+                                <div class="view-logo3"></div>
+                                <span>机智的党妹</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1318826</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data14">
+				        <div class="num">14</div>
+                        <img src="image/14.png" alt="">
+                        <div class="link">
+                            <a href="">被判死刑 被告律师: 完全同意！请立刻执行！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>84.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>3978</span>
+                                <div class="view-logo3"></div>
+                                <span>逗比的雀巢</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1277899</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data15">
+				        <div class="num">15</div>
+                        <img src="image/15.png" alt="">
+                        <div class="link">
+                            <a href="">汽油桶+C4=？ 【C4快乐阴人流】</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>93.4万</span>
+                                <div class="view-logo2"></div>
+                                <span>2078</span>
+                                <div class="view-logo3"></div>
+                                <span>鲁大能</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1274697</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data16">
+				        <div class="num">16</div>
+                        <img src="image/16.png" alt="">
+                        <div class="link">
+                            <a href="">女朋友的秘密2</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>204.2万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.7万</span>
+                                <div class="view-logo3"></div>
+                                <span>小潮院长</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1272615</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data17">
+				        <div class="num">17</div>
+                        <img src="image/17.png" alt="">
+                        <div class="link">
+                            <a href="">【片片】《白夜追凶》最终案！神秘组织大开杀戒！是谁惨遭毒手？深度解析第</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>90.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>6872</span>
+                                <div class="view-logo3"></div>
+                                <span>小片片说大片</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1236183</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data18">
+				        <div class="num">18</div>
+                        <img src="image/18.png" alt="">
+                        <div class="link">
+                            <a href="">Papi酱的周一放送——休完产假的我回来了</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>33.2万</span>
+                                <div class="view-logo2"></div>
+                                <span>1479</span>
+                                <div class="view-logo3"></div>
+                                <span>papi酱</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1209323</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data19">
+				        <div class="num">19</div>
+                        <img src="image/19.png" alt="">
+                        <div class="link">
+                            <a href="">跳水运动：3秒的奇迹</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>力元君</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1191186</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data20">
+				        <div class="num">20</div>
+                        <img src="image/20.png" alt="">
+                        <div class="link">
+                            <a href="">好起来了？2020十月新番毒奶推荐</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>瓶子君152</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1170656</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data21">
+				        <div class="num">21</div>
+                        <img src="image/21.png" alt="">
+                        <div class="link">
+                            <a href="">不 要 笑 挑 战 ！【第1000期】</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>徐大虾咯</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1118584</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data22">
+				        <div class="num">22</div>
+                        <img src="image/22.png" alt="">
+                        <div class="link">
+                            <a href="">无 限 火 力</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>百蝎奇天</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1056662</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data23">
+				        <div class="num">23</div>
+                        <img src="image/23.png" alt="">
+                        <div class="link">
+                            <a href="">【火影人物志61】超越一切的羁绊，佐助和鸣人 救赎彼此的唯一！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>85.7万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.8万</span>
+                                <div class="view-logo3"></div>
+                                <span>四季萌芽</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1052438</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+			<!--新番榜-->	
+            </ul>
+            <ul class="works-list" style="display: none;">
+                <li>
+                    <div class="works" id="rank-data1">
+                        <div class="num">1</div>    
+                        <img src="image/33.png" alt="">          
+                        <div class="link">
+                            <a href="">当代大学生毕业现状</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>321.7万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.9万</span>
+                                <div class="view-logo3"></div>
+                                <span>Python_子木</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>3513141</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="works" id="rank-data2">
+                        <div class="num">2</div>
+                        <img src="image/34.png" alt="">
+                        <div class="link">
+                            <a href="">【孙悟空×林黛玉】名著联姻 | 佛度众生不度我 宁负如来不负卿</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>35.5万</span>
+                                <div class="view-logo2"></div>
+                                <span>2037</span>
+                                <div class="view-logo3"></div>
+                                <span>GODVCENT</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>3480336</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="works" id="rank-data3">
+                        <div class="num">3</div>
+                        <img src="image/35.png" alt="">
+                        <div class="link">
+                            <a href="">做梦都想吃鱼</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>244.4万</span>
+                                <div class="view-logo2"></div>
+                                <span>5万</span>
+                                <div class="view-logo3"></div>
+                                <span>绵羊料理</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>3085420</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li> 
+                <li>
+                    <div class="works" id="rank-data4">
+                        <div class="num">4</div>
+                        <img src="image/36.png" alt="">
+                        <div class="link"> 
+                            <a href="">痛 并 快 乐</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>123.5万</span>
+                                <div class="view-logo2"></div>
+                                <span>1410</span>
+                                <div class="view-logo3"></div>
+                                <span>花少北丶</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>2848094</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="works" id="rank-data5">
+                        <div class="num">5</div>
+                        <img src="image/5.png" alt="">
+                        <div class="link">
+                            <a href="">豫章书院曝光者温柔，深陷“网络暴力”泥潭……</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>154.5万</span>
+                                <div class="view-logo2"></div>
+                                <span>5.1万</span>
+                                <div class="view-logo3"></div>
+                                <span>温柔JUNZ</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>2311172</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+				<li>
+				    <div class="works" id="rank-data6">
+				        <div class="num">6</div>
+                        <img src="image/6.png" alt="">
+                        <div class="link">
+                            <a href="">【别丧了】看完这些纪录片你会发现人间值得！励志向纪录片TOP10</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>85.8万</span>
+                                <div class="view-logo2"></div>
+                                <span>8561</span>
+                                <div class="view-logo3"></div>
+                                <span>看不见的罗杰</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1938858</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data7">
+				        <div class="num">7</div>
+                        <img src="image/7.png" alt="">
+                        <div class="link">
+                            <a href="">《耗时半年!3000张板绘完成[石之海]三重特效动画》</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>244.8万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.8万</span>
+                                <div class="view-logo3"></div>
+                                <span>ZALSTGAMING</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1911442</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data8">
+				        <div class="num">8</div>
+                        <img src="image/8.png" alt="">
+                        <div class="link">
+                            <a href="">中美竞争的脚本：中国是市场经济，美国是计划经济？！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>126.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>8258</span>
+                                <div class="view-logo3"></div>
+                                <span>沈逸老师</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1799835</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data9">
+				        <div class="num">9</div>
+                        <img src="image/9.png" alt="">
+                        <div class="link">
+                            <a href="">【毕导】大学如何不虚度？清华辅导员的50条真诚建议</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>196.1万</span>
+                                <div class="view-logo2"></div>
+                                <span>7.4万</span>
+                                <div class="view-logo3"></div>
+                                <span>毕导THU</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1764525</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data10">
+				        <div class="num">10</div>
+                        <img src="image/10.png" alt="">
+                        <div class="link">
+                            <a href="">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>31.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>453</span>
+                                <div class="view-logo3"></div>
+                                <span>凉风Kaze</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1551255</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data11">
+				        <div class="num">11</div>
+                        <img src="image/11.png" alt="">
+                        <div class="link">
+                            <a href="">从木头里取出进击的巨人 兵长利威尔</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>97.7万</span>
+                                <div class="view-logo2"></div>
+                                <span>8671</span>
+                                <div class="view-logo3"></div>
+                                <span>卢正义的雕刻时光</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1440555</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data12">
+				        <div class="num">12</div>
+                        <img src="image/12.png" alt="">
+                        <div class="link">
+                            <a href="">【Clash动画短片】《丢失的皇冠》</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>103.1万</span>
+                                <div class="view-logo2"></div>
+                                <span>8375</span>
+                                <div class="view-logo3"></div>
+                                <span>Supercell游戏</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1326308</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				
+				<li>
+				    <div class="works" id="rank-data13">
+				        <div class="num">13</div>
+                        <img src="image/13.png" alt="">
+                        <div class="link">
+                            <a href="">女 装 全 B 站（一）</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>111.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.5万</span>
+                                <div class="view-logo3"></div>
+                                <span>机智的党妹</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1318826</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data14">
+				        <div class="num">14</div>
+                        <img src="image/14.png" alt="">
+                        <div class="link">
+                            <a href="">被判死刑 被告律师: 完全同意！请立刻执行！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>84.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>3978</span>
+                                <div class="view-logo3"></div>
+                                <span>逗比的雀巢</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1277899</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data15">
+				        <div class="num">15</div>
+                        <img src="image/15.png" alt="">
+                        <div class="link">
+                            <a href="">汽油桶+C4=？ 【C4快乐阴人流】</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>93.4万</span>
+                                <div class="view-logo2"></div>
+                                <span>2078</span>
+                                <div class="view-logo3"></div>
+                                <span>鲁大能</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1274697</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data16">
+				        <div class="num">16</div>
+                        <img src="image/16.png" alt="">
+                        <div class="link">
+                            <a href="">女朋友的秘密2</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>204.2万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.7万</span>
+                                <div class="view-logo3"></div>
+                                <span>小潮院长</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1272615</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data17">
+				        <div class="num">17</div>
+                        <img src="image/17.png" alt="">
+                        <div class="link">
+                            <a href="">【片片】《白夜追凶》最终案！神秘组织大开杀戒！是谁惨遭毒手？深度解析第</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>90.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>6872</span>
+                                <div class="view-logo3"></div>
+                                <span>小片片说大片</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1236183</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data18">
+				        <div class="num">18</div>
+                        <img src="image/18.png" alt="">
+                        <div class="link">
+                            <a href="">Papi酱的周一放送——休完产假的我回来了</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>33.2万</span>
+                                <div class="view-logo2"></div>
+                                <span>1479</span>
+                                <div class="view-logo3"></div>
+                                <span>papi酱</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1209323</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data19">
+				        <div class="num">19</div>
+                        <img src="image/19.png" alt="">
+                        <div class="link">
+                            <a href="">跳水运动：3秒的奇迹</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>力元君</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1191186</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data20">
+				        <div class="num">20</div>
+                        <img src="image/20.png" alt="">
+                        <div class="link">
+                            <a href="">好起来了？2020十月新番毒奶推荐</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>瓶子君152</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1170656</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data21">
+				        <div class="num">21</div>
+                        <img src="image/21.png" alt="">
+                        <div class="link">
+                            <a href="">不 要 笑 挑 战 ！【第1000期】</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>徐大虾咯</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1118584</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data22">
+				        <div class="num">22</div>
+                        <img src="image/22.png" alt="">
+                        <div class="link">
+                            <a href="">无 限 火 力</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>百蝎奇天</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1056662</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data23">
+				        <div class="num">23</div>
+                        <img src="image/23.png" alt="">
+                        <div class="link">
+                            <a href="">【火影人物志61】超越一切的羁绊，佐助和鸣人 救赎彼此的唯一！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>85.7万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.8万</span>
+                                <div class="view-logo3"></div>
+                                <span>四季萌芽</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1052438</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+			<!--影视榜--->	
+            </ul>
+            <ul class="works-list" style="display: none;">
+                <li>
+                    <div class="works" id="rank-data1">
+                        <div class="num">1</div>    
+                        <img src="image/24%20.png"">          
+                        <div class="link">
+                            <a href="">我和我的家乡</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>333.7万</span>
+                                <div class="view-logo2"></div>
+                                <span>12.7万</span>
+                                <div class="view-logo3"></div>
+                                <span>jkdsaa</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>5264132</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="works" id="rank-data2">
+                        <div class="num">2</div>
+                        <img src="image/25.png"">
+                        <div class="link">
+                            <a href="">《中餐厅》林大厨带你领略“水煮肥牛”的威力！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>30.2万</span>
+                                <div class="view-logo2"></div>
+                                <span>1110</span>
+                                <div class="view-logo3"></div>
+                                <span>GODVCENT</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>3480336</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="works" id="rank-data3">
+                        <div class="num">3</div>
+                        <img src="image/27.png" alt="">
+                        <div class="link">
+                            <a href="">【真人GTA】懂 得 都 懂</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>233.3万</span>
+                                <div class="view-logo2"></div>
+                                <span>4万</span>
+                                <div class="view-logo3"></div>
+                                <span>绵羊料理</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>3085420</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li> 
+                <li>
+                    <div class="works" id="rank-data4">
+                        <div class="num">4</div>
+                        <img src="image/28.png" alt="">
+                        <div class="link"> 
+                            <a href="">【原神】蒙 德 人</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>123.4万</span>
+                                <div class="view-logo2"></div>
+                                <span>1113</span>
+                                <div class="view-logo3"></div>
+                                <span>花少北丶</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>2848094</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="works" id="rank-data5">
+                        <div class="num">5</div>
+                        <img src="image/5.png" alt="">
+                        <div class="link">
+                            <a href="">豫章书院曝光者温柔，深陷“网络暴力”泥潭……</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>154.5万</span>
+                                <div class="view-logo2"></div>
+                                <span>5.1万</span>
+                                <div class="view-logo3"></div>
+                                <span>温柔JUNZ</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>2311172</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+				<li>
+				    <div class="works" id="rank-data6">
+				        <div class="num">6</div>
+                        <img src="image/6.png" alt="">
+                        <div class="link">
+                            <a href="">【别丧了】看完这些纪录片你会发现人间值得！励志向纪录片TOP10</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>85.8万</span>
+                                <div class="view-logo2"></div>
+                                <span>8561</span>
+                                <div class="view-logo3"></div>
+                                <span>看不见的罗杰</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1938858</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data7">
+				        <div class="num">7</div>
+                        <img src="image/7.png" alt="">
+                        <div class="link">
+                            <a href="">《耗时半年!3000张板绘完成[石之海]三重特效动画》</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>244.8万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.8万</span>
+                                <div class="view-logo3"></div>
+                                <span>ZALSTGAMING</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1911442</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data8">
+				        <div class="num">8</div>
+                        <img src="image/8.png" alt="">
+                        <div class="link">
+                            <a href="">中美竞争的脚本：中国是市场经济，美国是计划经济？！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>126.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>8258</span>
+                                <div class="view-logo3"></div>
+                                <span>沈逸老师</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1799835</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data9">
+				        <div class="num">9</div>
+                        <img src="image/9.png" alt="">
+                        <div class="link">
+                            <a href="">【毕导】大学如何不虚度？清华辅导员的50条真诚建议</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>196.1万</span>
+                                <div class="view-logo2"></div>
+                                <span>7.4万</span>
+                                <div class="view-logo3"></div>
+                                <span>毕导THU</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1764525</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data10">
+				        <div class="num">10</div>
+                        <img src="image/10.png" alt="">
+                        <div class="link">
+                            <a href="">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>31.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>453</span>
+                                <div class="view-logo3"></div>
+                                <span>凉风Kaze</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1551255</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data11">
+				        <div class="num">11</div>
+                        <img src="image/11.png" alt="">
+                        <div class="link">
+                            <a href="">从木头里取出进击的巨人 兵长利威尔</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>97.7万</span>
+                                <div class="view-logo2"></div>
+                                <span>8671</span>
+                                <div class="view-logo3"></div>
+                                <span>卢正义的雕刻时光</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1440555</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data12">
+				        <div class="num">12</div>
+                        <img src="image/12.png" alt="">
+                        <div class="link">
+                            <a href="">【Clash动画短片】《丢失的皇冠》</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>103.1万</span>
+                                <div class="view-logo2"></div>
+                                <span>8375</span>
+                                <div class="view-logo3"></div>
+                                <span>Supercell游戏</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1326308</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				
+				<li>
+				    <div class="works" id="rank-data13">
+				        <div class="num">13</div>
+                        <img src="image/13.png" alt="">
+                        <div class="link">
+                            <a href="">女 装 全 B 站（一）</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>111.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.5万</span>
+                                <div class="view-logo3"></div>
+                                <span>机智的党妹</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1318826</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data14">
+				        <div class="num">14</div>
+                        <img src="image/14.png" alt="">
+                        <div class="link">
+                            <a href="">被判死刑 被告律师: 完全同意！请立刻执行！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>84.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>3978</span>
+                                <div class="view-logo3"></div>
+                                <span>逗比的雀巢</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1277899</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data15">
+				        <div class="num">15</div>
+                        <img src="image/15.png" alt="">
+                        <div class="link">
+                            <a href="">汽油桶+C4=？ 【C4快乐阴人流】</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>93.4万</span>
+                                <div class="view-logo2"></div>
+                                <span>2078</span>
+                                <div class="view-logo3"></div>
+                                <span>鲁大能</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1274697</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data16">
+				        <div class="num">16</div>
+                        <img src="image/16.png" alt="">
+                        <div class="link">
+                            <a href="">女朋友的秘密2</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>204.2万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.7万</span>
+                                <div class="view-logo3"></div>
+                                <span>小潮院长</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1272615</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data17">
+				        <div class="num">17</div>
+                        <img src="image/17.png" alt="">
+                        <div class="link">
+                            <a href="">【片片】《白夜追凶》最终案！神秘组织大开杀戒！是谁惨遭毒手？深度解析第</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>90.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>6872</span>
+                                <div class="view-logo3"></div>
+                                <span>小片片说大片</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1236183</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data18">
+				        <div class="num">18</div>
+                        <img src="image/18.png" alt="">
+                        <div class="link">
+                            <a href="">Papi酱的周一放送——休完产假的我回来了</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>33.2万</span>
+                                <div class="view-logo2"></div>
+                                <span>1479</span>
+                                <div class="view-logo3"></div>
+                                <span>papi酱</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1209323</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data19">
+				        <div class="num">19</div>
+                        <img src="image/19.png" alt="">
+                        <div class="link">
+                            <a href="">跳水运动：3秒的奇迹</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>力元君</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1191186</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data20">
+				        <div class="num">20</div>
+                        <img src="image/20.png" alt="">
+                        <div class="link">
+                            <a href="">好起来了？2020十月新番毒奶推荐</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>瓶子君152</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1170656</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data21">
+				        <div class="num">21</div>
+                        <img src="image/21.png" alt="">
+                        <div class="link">
+                            <a href="">不 要 笑 挑 战 ！【第1000期】</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>徐大虾咯</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1118584</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data22">
+				        <div class="num">22</div>
+                        <img src="image/22.png" alt="">
+                        <div class="link">
+                            <a href="">无 限 火 力</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>百蝎奇天</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1056662</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data23">
+				        <div class="num">23</div>
+                        <img src="image/23.png" alt="">
+                        <div class="link">
+                            <a href="">【火影人物志61】超越一切的羁绊，佐助和鸣人 救赎彼此的唯一！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>85.7万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.8万</span>
+                                <div class="view-logo3"></div>
+                                <span>四季萌芽</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1052438</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+			<!--新人榜-->	
+            </ul>
+            <ul class="works-list" style="display: none;">
+                <li>
+                    <div class="works" id="rank-data1">
+                        <div class="num">1</div>    
+                        <img src="image/37.png" alt="">          
+                        <div class="link">
+                            <a href="">“兄弟，这是你最后一次插队”</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>271.7万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.7万</span>
+                                <div class="view-logo3"></div>
+                                <span>Python_子木</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>3513141</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="works" id="rank-data2">
+                        <div class="num">2</div>
+                        <img src="image/38.png" alt="">
+                        <div class="link">
+                            <a href="">“兄弟，这是你最后一次插队”</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>35.5万</span>
+                                <div class="view-logo2"></div>
+                                <span>2037</span>
+                                <div class="view-logo3"></div>
+                                <span>GODVCENT</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>3480336</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="works" id="rank-data3">
+                        <div class="num">3</div>
+                        <img src="image/39.png" alt="">
+                        <div class="link">
+                            <a href="">我感觉能火！用仙剑三的方式打开英雄联盟！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>244.4万</span>
+                                <div class="view-logo2"></div>
+                                <span>5万</span>
+                                <div class="view-logo3"></div>
+                                <span>绵羊料理</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>3085420</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li> 
+                <li>
+                    <div class="works" id="rank-data4">
+                        <div class="num">4</div>
+                        <img src="image/40.png" alt="">
+                        <div class="link"> 
+                            <a href="">高中生个人开发的CS:GO,附下载,欢迎体验!</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>128.4万</span>
+                                <div class="view-logo2"></div>
+                                <span>1750</span>
+                                <div class="view-logo3"></div>
+                                <span>花少北丶</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>2848094</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="works" id="rank-data5">
+                        <div class="num">5</div>
+                        <img src="image/5.png" alt="">
+                        <div class="link">
+                            <a href="">豫章书院曝光者温柔，深陷“网络暴力”泥潭……</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>154.5万</span>
+                                <div class="view-logo2"></div>
+                                <span>5.1万</span>
+                                <div class="view-logo3"></div>
+                                <span>温柔JUNZ</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>2311172</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+				<li>
+				    <div class="works" id="rank-data6">
+				        <div class="num">6</div>
+                        <img src="image/6.png" alt="">
+                        <div class="link">
+                            <a href="">【别丧了】看完这些纪录片你会发现人间值得！励志向纪录片TOP10</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>85.8万</span>
+                                <div class="view-logo2"></div>
+                                <span>8561</span>
+                                <div class="view-logo3"></div>
+                                <span>看不见的罗杰</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1938858</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data7">
+				        <div class="num">7</div>
+                        <img src="image/7.png" alt="">
+                        <div class="link">
+                            <a href="">《耗时半年!3000张板绘完成[石之海]三重特效动画》</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>244.8万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.8万</span>
+                                <div class="view-logo3"></div>
+                                <span>ZALSTGAMING</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1911442</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data8">
+				        <div class="num">8</div>
+                        <img src="image/8.png" alt="">
+                        <div class="link">
+                            <a href="">中美竞争的脚本：中国是市场经济，美国是计划经济？！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>126.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>8258</span>
+                                <div class="view-logo3"></div>
+                                <span>沈逸老师</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1799835</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data9">
+				        <div class="num">9</div>
+                        <img src="image/9.png" alt="">
+                        <div class="link">
+                            <a href="">【毕导】大学如何不虚度？清华辅导员的50条真诚建议</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>196.1万</span>
+                                <div class="view-logo2"></div>
+                                <span>7.4万</span>
+                                <div class="view-logo3"></div>
+                                <span>毕导THU</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1764525</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data10">
+				        <div class="num">10</div>
+                        <img src="image/10.png" alt="">
+                        <div class="link">
+                            <a href="">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>31.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>453</span>
+                                <div class="view-logo3"></div>
+                                <span>凉风Kaze</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1551255</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data11">
+				        <div class="num">11</div>
+                        <img src="image/11.png" alt="">
+                        <div class="link">
+                            <a href="">从木头里取出进击的巨人 兵长利威尔</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>97.7万</span>
+                                <div class="view-logo2"></div>
+                                <span>8671</span>
+                                <div class="view-logo3"></div>
+                                <span>卢正义的雕刻时光</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1440555</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data12">
+				        <div class="num">12</div>
+                        <img src="image/12.png" alt="">
+                        <div class="link">
+                            <a href="">【Clash动画短片】《丢失的皇冠》</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>103.1万</span>
+                                <div class="view-logo2"></div>
+                                <span>8375</span>
+                                <div class="view-logo3"></div>
+                                <span>Supercell游戏</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1326308</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				
+				<li>
+				    <div class="works" id="rank-data13">
+				        <div class="num">13</div>
+                        <img src="image/13.png" alt="">
+                        <div class="link">
+                            <a href="">女 装 全 B 站（一）</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>111.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.5万</span>
+                                <div class="view-logo3"></div>
+                                <span>机智的党妹</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1318826</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data14">
+				        <div class="num">14</div>
+                        <img src="image/14.png" alt="">
+                        <div class="link">
+                            <a href="">被判死刑 被告律师: 完全同意！请立刻执行！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>84.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>3978</span>
+                                <div class="view-logo3"></div>
+                                <span>逗比的雀巢</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1277899</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data15">
+				        <div class="num">15</div>
+                        <img src="image/15.png" alt="">
+                        <div class="link">
+                            <a href="">汽油桶+C4=？ 【C4快乐阴人流】</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>93.4万</span>
+                                <div class="view-logo2"></div>
+                                <span>2078</span>
+                                <div class="view-logo3"></div>
+                                <span>鲁大能</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1274697</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data16">
+				        <div class="num">16</div>
+                        <img src="image/16.png" alt="">
+                        <div class="link">
+                            <a href="">女朋友的秘密2</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>204.2万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.7万</span>
+                                <div class="view-logo3"></div>
+                                <span>小潮院长</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1272615</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data17">
+				        <div class="num">17</div>
+                        <img src="image/17.png" alt="">
+                        <div class="link">
+                            <a href="">【片片】《白夜追凶》最终案！神秘组织大开杀戒！是谁惨遭毒手？深度解析第</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>90.9万</span>
+                                <div class="view-logo2"></div>
+                                <span>6872</span>
+                                <div class="view-logo3"></div>
+                                <span>小片片说大片</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1236183</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data18">
+				        <div class="num">18</div>
+                        <img src="image/18.png" alt="">
+                        <div class="link">
+                            <a href="">Papi酱的周一放送——休完产假的我回来了</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>33.2万</span>
+                                <div class="view-logo2"></div>
+                                <span>1479</span>
+                                <div class="view-logo3"></div>
+                                <span>papi酱</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1209323</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data19">
+				        <div class="num">19</div>
+                        <img src="image/19.png" alt="">
+                        <div class="link">
+                            <a href="">跳水运动：3秒的奇迹</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>力元君</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1191186</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data20">
+				        <div class="num">20</div>
+                        <img src="image/20.png" alt="">
+                        <div class="link">
+                            <a href="">好起来了？2020十月新番毒奶推荐</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>瓶子君152</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1170656</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data21">
+				        <div class="num">21</div>
+                        <img src="image/21.png" alt="">
+                        <div class="link">
+                            <a href="">不 要 笑 挑 战 ！【第1000期】</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>徐大虾咯</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1118584</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data22">
+				        <div class="num">22</div>
+                        <img src="image/22.png" alt="">
+                        <div class="link">
+                            <a href="">无 限 火 力</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>55.6万</span>
+                                <div class="view-logo2"></div>
+                                <span>1538</span>
+                                <div class="view-logo3"></div>
+                                <span>百蝎奇天</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1056662</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				<li>
+				    <div class="works" id="rank-data23">
+				        <div class="num">23</div>
+                        <img src="image/23.png" alt="">
+                        <div class="link">
+                            <a href="">【火影人物志61】超越一切的羁绊，佐助和鸣人 救赎彼此的唯一！</a>
+                            <div class="view">
+                                <div class="view-logo1"></div>
+                                <span>85.7万</span>
+                                <div class="view-logo2"></div>
+                                <span>1.8万</span>
+                                <div class="view-logo3"></div>
+                                <span>四季萌芽</span>
+                            </div>
+                            <div class="zonghedefen">
+                                <div>1052438</div>
+                                <div class="text-zonghe">综合得分</div>
+                            </div>
+                        </div>
+				    </div>
+				</li>
+				
+            </ul>
+        </div>
+    </div>
+    <div class="bottom-box">
+    <div class="bottom-box1">
+        <div class="bottom-works">
+            <div class="bilibili">
+                <span>bilibili</span>
+                <ul>
+                    <a href="">关于我们</a>
+                    <a href="">联系我们</a>
+                    <a href="">用户协议</a>
+                    <a href="">加入我们</a>
+                    <a href="">友情链接</a>
+                    <a href="">隐私政策</a>
+                    <a href="">bilibili认证</a>
+                    <a href="">Invetor Rlations</a>
+                </ul> 
+            </div>
+            <div class="chuansongmen">
+                <span>传送门</span>
+                <ul>
+                    <a href="">帮助中心</a>
+                    <a href="">高级弹幕</a>
+                    <a href="">活动专题页</a>
+                    <a href="">侵权申诉</a>
+                    <a href="">活动中心</a>
+                    <a href="">用户反馈论坛</a>
+                    <a href="">壁纸站</a>
+                    <a href="">广告合作</a>
+                    <a href="">名人堂</a>
+                    <a href="">MCN管理中心</a>
+                </ul>
+            </div>
+        </div>
+        <div class="guanzhufangshi">
+            <div class="wraper">
+                <a href="" class="biliapp">
+                    <img src="image/下载App.PNG" alt="">
+                    <p>下载app</p>
+                    <div class="appimg"></div>
+                </a>
+            </div>
+            <div class="wraper">
+                <a href="" class="biliapp">
+                    <img src="image/新浪.PNG" alt="">
+                    <p>新浪微博</p>
+                    <div class="appimg"></div>
+                </a>
+            </div>
+            <div class="wraper">
+                <a href="" class="biliapp">
+                    <img src="image/微信.PNG" alt="">
+                    <p>官方微信</p>
+                    <div class="appimg"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="wrap-box">
+    <div class="pic-box">
+        <img src="image/合作机构.PNG" alt="">
+        <img src="image/96210.PNG" alt="">
+		<img src="image/服务.PNG" alt="">
+    </div>
+    <div class="text-con"><p>
+        <span>
+            <a href="">营业执照</a>
+        </span>
+        <span>信息网络传播视听节目许可证：0910417</span>
+        <span>网络文化经营许可证 沪网文【2019】3804-274号</span>
+        <span>广播电视节目制作经营许可证：（沪）字第01248号</span>
+        <span>增值电信业务经营许可证 沪B2-20100043</span>
+        <span>互联网ICP备案：
+            <a href="">沪ICP备13002172号-3</a>
+        </span>
+        <span>出版物经营许可证 沪批字第U6699 号</span>
+        <span>互联网药品信息服务资格证 沪-非经营性-2016-0143</span>
+        <span>营业性演出许可证 沪市文演（经）00-2253</span>
+      </p>
+      <p>违法不良信息举报邮箱：help@bilibili.com |违法不良信息举报电话：4000233233转3</p>
+      <p>
+          <i class="sprite bg1"></i>
+          <a href="">上海互联网举报中心</a> | 
+          <a href="" target="">12318全国文化市场举报网站</a> | 
+          <i class="sprite bg2"></i>
+          <a href="">沪公网安备31011002002436号</a> | 
+          <a href="">儿童色情信息举报专区</a> | 
+          <a href="">扫黄打非举报</a>
+        </p>
+      <p>网上有害信息举报专区：
+          <i class="sprite bg3"></i>
+          <a href="">中国互联网违法和不良信息举报中心</a>
+      </p>
+      <p>亲爱的市民朋友，上海警方反诈劝阻电话“962110”系专门针对避免您财产被骗受损而设，请您一旦收到来电，立即接听。</p>
+      <p>公司名称：上海宽娱数码科技有限公司|公司地址：上海市杨浦区政立路485号|电话：021-25099888</p>
+    </div>
+    </div>
+
+</div>
+</body>
+</html>

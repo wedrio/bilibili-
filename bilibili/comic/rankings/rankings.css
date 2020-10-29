@@ -1,0 +1,250 @@
+.ran-container {
+    width: 1160px;
+    max-width: 80%;
+    margin: 0 auto;
+    position: relative;
+    height: 600px; /*临时*/
+}
+
+.sidebar-container {
+    display: inline-block;
+    vertical-align: top;
+    width: 79px;
+    position: fixed;
+}
+
+.sidebar-ctnr {
+    border-right: 1px solid rgba(0, 0, 0, .12);
+    box-sizing: border-box;
+    width: 100%;
+    height: 288px;
+    position: relative;
+}
+
+.ran-container .layui-tab-title li {
+    padding: unset;
+}
+
+.ran-container .layui-tab-title {
+    white-space: unset;
+}
+
+.sidebar-item {
+    height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+    color: rgba(0, 0, 0, .56);
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.sidebar-container .layui-this .arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.sidebar-container .layui-this {
+    color: #32aaff !important;
+}
+
+.ran-container .layui-this:after {
+    border: none;
+}
+
+.sid-t {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.arrow {
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    transform: translateX(-50%);
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    background-image: url("../img/rankings/right.svg");
+    transition: all .4s cubic-bezier(.22, .58, .12, .98);
+    background-position: 50%;
+    display: inline-block;
+}
+
+.data-list-container {
+    padding-top: 8px;
+    margin-left: 113px;
+    width: calc(100% - 79px);
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.rank-title {
+    margin: 0;
+    font-size: 24px;
+    color: rgba(0, 0, 0, .87);
+    font-weight: 400;
+    display: inline-block;
+}
+
+.rank-hint {
+    font-size: 12px;
+    color: rgba(0, 0, 0, .34);
+    letter-spacing: 0;
+    margin-left: 12px;
+    display: inline-block;
+}
+
+.rank-item-wrapper {
+    margin-bottom: -32px;
+    margin-top: 9px;
+    font-size: 0;
+    background-size: 100% 376px;
+    background-position: 0 0;
+}
+
+.no-more-ctnr {
+    margin: 0;
+    font-size: 12px;
+    color: rgba(0, 0, 0, .34);
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 80px;
+    height: 80px;
+}
+
+.rank-item {
+    width: 332px;
+    height: 156px;
+    margin: 0 16px 32px 0;
+    padding: 20px 0 0 46px;
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+}
+
+.rank-digits {
+    top: 14px;
+    left: 8px;
+    position: absolute;
+}
+
+.digit-1-big {
+    background-image: url(../img/rankings/number/1.png);
+    width: 39px !important;
+    height: 64px !important;
+}
+
+.digit-item {
+    width: 20px;
+    height: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    display: inline-block;
+}
+
+.rank-item-content {
+    font-size: 0;
+    height: 136px;
+    position: relative;
+}
+
+.manga-cover {
+    width: 102px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    position: relative;
+}
+
+.manga-info-ctnr {
+    width: calc(100% - 102px);
+    padding-left: 16px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, .34);
+    letter-spacing: 0;
+    line-height: 24px;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    position: relative;
+}
+
+.manga-title {
+    margin: 0;
+    font-size: 18px;
+    line-height: 24px;
+    max-height: 48px;
+    overflow: hidden;
+    color: rgba(0, 0, 0, .87);
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.meta-ctnr {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    position: absolute;
+}
+
+.meta-ctnr a {
+    color: rgba(0, 0, 0, .34);
+    cursor: pointer;
+}
+
+.meta-ctnr a:hover {
+    color: #32aaff;
+}
+
+.meta-ctnr-t {
+    padding-left: 16px;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ran-container .layui-tab-item {
+    opacity: 0;
+    transform: translateY(5em)
+}
+
+.layui-show {
+    animation: move-in-top 1s cubic-bezier(.22,.58,.12,.98);
+    animation-fill-mode: forwards
+}
+
+@keyframes move-in-top {
+    0% {
+        opacity: .5;
+        transform: translateY(5em)
+    }
+    to {
+        opacity: 1;
+        transform: translate(0)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

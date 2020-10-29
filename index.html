@@ -1,0 +1,2532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</title>
+    <link rel="stylesheet" href="bilibili/indexx/css/index.css">
+    <link rel="stylesheet" href="bilibili/indexx/iconfont/iconfont.css">
+</head>
+<script src="bilibili/indexx/js/vue.js"></script>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<style>
+
+</style>
+
+<body>
+    <!-- 哔哩哔哩头部 -->
+    <header id="header">
+        <div style="min-width: 1300px;">
+            <div class="bac">
+                <!-- 哔哩哔哩头部左导航 -->
+                <div class="nav-head">
+                    <div>
+                        <a href="#">
+                            <i class="iconfont iconbilibili-line"></i>
+                            主站
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            番剧
+                        </a>
+                    </div>
+                    <div>
+                        <a href="bilibili/game-center/game.html">
+                            游戏中心
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            直播
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            会员购
+                        </a>
+                    </div>
+                    <div>
+                        <a href="bilibili/comic/index.html">
+                            漫画
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            赛事
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <i class="iconfont iconshouji"></i>
+                            下载APP
+                        </a>
+                    </div>
+                </div>
+                <!-- 头部搜索框 -->
+                <div class="sousuo">
+                    <input type="text" class="sousuo-kuang" placeholder="史上最快速的全网差评app">
+                    <a href="#">
+                        <div class="sousuo-r">
+                        </div>
+                        <i class="iconfont iconsousuo"></i>
+                    </a>
+                </div>
+                <!-- 头部右登录注册投稿 -->
+                <div class="nav-right">
+                    <a href="#">
+                        <img src="bilibili/indexx/images/peop_head.jpg" alt=""
+                             style="width: 30px;height: 30px;border-radius: 50%;margin-top: 5px;">
+                    </a>
+                    <div>
+                        <a href="#">
+                            登录
+                        </a>
+                    </div>
+                    <div>
+                        <a href="bilibili/list/注册.html">
+                            注册
+                        </a>
+                    </div>
+                    <div class="nav-right-tougao">
+                        <a href="#">
+                            投稿
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 哔哩哔哩logo -->
+            <div class="logo">
+                <div class="logo-img container">
+                    <a href="#">
+                        <img src="http://i0.hdslb.com/bfs/archive/e62b6b095ef38dfb742687f11e4b570dde420b5d.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main id="main">
+        <!-- 视频类型导航 -->
+        <div class="nav-type">
+            <!-- 导航左侧内容 -->
+            <div class="nav-type-l">
+                <ul class="con">
+                    <li>
+                        <a href="#">
+                            <div class="round a1">
+                                <i class="iconfont iconmenu-home-normal"></i>
+                            </div>
+                            <span>首页</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bilibili/dynamic/动态.html">
+                            <div class="round a2">
+                                <i class="iconfont iconfengche"></i>
+                            </div>
+                            <span>动态</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bilibili/list/b站训练.html">
+                            <div class="round a3">
+                                <i class="iconfont icon_huabanfuben"></i>
+                            </div>
+                            <span>排行榜</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bilibili/channel/bili.html">
+                            <div class="round a4">
+                                <i class="iconfont iconbilibili-line"></i>
+                            </div>
+                            <span>频道</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <span class="fen-ge-xian"></span>
+            <!-- 导航中间分类模块 -->
+            <div class="nav-type-m">
+                <span v-for="(item,index) in menu">
+                    <div class="items">
+                        <a href="#">
+                            <span>{{item.type}}<em>{{item.num}}</em>
+                            </span>
+                        </a>
+                    </div>
+                </span>
+            </div>
+            <span class="fen-ge-xian"></span>
+            <!-- 导航右侧板块内容 -->
+            <div class="nav-type-r">
+                <div>
+                    <a href="#" style="display: flex;">
+                        <i class="iconfont iconzhuanlan" style="color: skyblue;font-size: 20px;"></i>
+                        <span>专栏</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="#" style="display: flex;">
+                        <i class="iconfont iconzhibo" style="color: skyblue;font-size: 20px;"></i>
+                        <span>直播</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="#" style="display: flex;">
+                        <i class="iconfont iconhuodong" style="color: orange;font-size: 20px;"></i>
+                        <span>活动</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="#" style="display: flex;">
+                        <i class="iconfont iconketang" style="color: orange;font-size: 20px;"></i>
+                        <span>课堂</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="#" style="display: flex;">
+                        <i class="iconfont icontianping" style="color: orange;font-size: 20px;"></i>
+                        <span>小黑屋</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="#" style="display: flex;">
+                        <i class="iconfont iconyinle" style="color: skyblue;font-size: 20px;"></i>
+                        <span>音乐PLUS</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 视频列表 -->
+        <div class="video-list1">
+            <!-- 视频列表左轮播 -->
+            <div class="video-list1-l">
+                <a href="">
+                    <img :src="item" v-for="(item,index) in slideSwiper" :key="index" v-show="n == index"
+                        @mouseenter="clearGo" @mouseleave="Go" alt="">
+                </a>
+                <ul class="silde-index">
+                    <li v-for="(v,i) in slideSwiper" :key="i" :class="n == i ? 'active' : ''"></li>
+                </ul>
+            </div>
+            <!-- 视频列表右数据 -->
+            <div class="video-list1-r">
+                <div class="video-list1-r-div" v-for="(item,index) in list1">
+                    <a :href="item.link">
+                        <img :src="item.src" alt="">
+                        <div class="video-info">
+                            <p class="title">{{item.title}}</p>
+                            <p class="up">{{item.up}}</p>
+                            <p class="play">{{item.play}}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 推广板块 -->
+        <div id="toPromote">
+            <!-- 头部 -->
+            <div class="top">
+                <div class="top-l">
+                    <h3>推广</h3>
+                    <a>啊呜一口吃掉你</a>
+                </div>
+                <div class="top-r">
+                    <a href="//www.bilibili.com/video/online.html" target="_blank">在线列表</a>
+                </div>
+            </div>
+            <!-- 内容 -->
+            <div class="content">
+                <!-- 推广数据列表 -->
+                <div class="content-l">
+                    <div class="video-content" v-for="(item,index) in toPromote">
+                        <img :src="item.img" alt="">
+                        <span>{{item.time}}</span>
+                        <p class="text"><a href="#"> {{item.text}}</a></p>
+                        <p class="up"><a href="#"> {{item.up}}</a></p>
+                    </div>
+                </div>
+                <!-- 推广图片 -->
+                <div class="content-r">
+                    <img src="https://i0.hdslb.com/bfs/sycp/creative_img/202009/33b82c43e0f04d49b984314a62a815b7.jpg"
+                        alt="">
+                </div>
+            </div>
+        </div>
+        <!-- 直播板块 -->
+        <div id="isLive" class="box1 ">
+            <!-- 正在直播左边板块 -->
+            <div class="live-list">
+                <!-- 正在直播头部 -->
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">正在直播</a>
+                        <div class="text-info">
+                            <span>当前共有20328个在线直播</span>
+                        </div>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <!-- 正在直播列表数据 -->
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 正在直播右板块 -->
+            <div class="live-tabs">
+                <div class="tab-switch">
+                    <div class="tab-switch-item" @click="change(0)" :class="number == 0 ? 'on' : ''">直播排行</div>
+                    <div class="tab-switch-item" @click="change(1)" :class="number == 1 ? 'on' : ''"> 关注的主播</div>
+                    <div class="tab-switch-item" @click="change(2)" :class="number == 2 ? 'on' : ''">为你推荐</div>
+                </div>
+                <!-- 直播排行榜数据渲染 -->
+                <div class="live-rank" v-show="0===number">
+                    <a href="https://live.bilibili.com/461" target="_blank" class="live-rank-item"
+                        v-for="(item,index) in order">
+                        <div class="rank-face">
+                            <span class="number">{{index+1}}</span>
+                            <img :src="item.headImg" alt="">
+                            <div class="txt">
+                                <p>{{item.p}}</p>
+                                <p class="p2">{{item.p2}}</p>
+                            </div>
+                        </div>
+                        <div class="count">
+                            <i class="bilifont bili-icon_xinxi_renqi">
+
+                            </i>{{item.count}}</div>
+                    </a>
+                </div>
+                <!-- 关注的主播 -->
+                <div class="empty-state" v-show="1===number">
+                    <span>没有数据(-_-#)</span>
+                </div>
+                <!-- 为你推荐 -->
+                <div class="recommend-activity" v-show="2===number">
+                    <img src="https://i0.hdslb.com/bfs/live/0d4310e8658e65082984b82ecaaff7d74f715ebc.jpg@320w_330h_1c_100q.webp"
+                        alt="">
+                </div>
+            </div>
+        </div>
+        <!-- 动画板块 -->
+        <div id="animation" class="box2 ">
+            <!-- 列表 -->
+            <div class="live-list">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">动画</a>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 排行 -->
+            <div class="live-tabs">
+                <div class="rank-list">
+                    <header class="rank-header"><span class="name">排行榜</span><a href="/ranking/all/1/0/3"
+                            target="_blank" class="more">更多<i class="bilifont bili-icon_caozuo_qianwang"></i></a>
+                    </header>
+                    <div class="rank-wrap"><span class="number">1</span>
+                        <div class="preview">
+                            <div class="pic"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link"><img
+                                        src="https://i0.hdslb.com/bfs/archive/142d912ce62197a228155cd3d851b3f0aecf72f8.jpg@140w_79h_1c_100q.webp"
+                                        alt="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】"></a>
+                                <div class="watch-later-video van-watchlater black"><span class="wl-tips"
+                                        style="left: -21px; display: none;"></span></div>
+                            </div>
+                            <div class="txt"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link">
+                                    <p title="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</p>
+                                </a><span>综合得分：189.8万</span></div>
+                        </div>
+                    </div>
+                    <!-- 从第二开始排行榜数据 -->
+                    <div class="rank-wrap" v-for="(item,index) in animationRank"><span
+                            class="number">{{index+2}}</span><a :href="item.herf" target="_blank" class="link">
+                            <p :title="item.title" class="title">{{item.title}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 番剧板块 -->
+        <div id="hisPlay" class="box3 ">
+            <div class="time-line">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="//www.bilibili.com/anime/" target="_blank" class="name">番剧</a>
+                        <div class="tab-switch">
+                            <div class="tab-switch-item" @click="change(0)" :class="number2 == 0 ? 'on' : ''">最新</div>
+                            <div class="tab-switch-item" @click="change(1)" :class="number2 == 1 ? 'on' : ''">周一</div>
+                            <div class="tab-switch-item" @click="change(2)" :class="number2 == 2 ? 'on' : ''">周二</div>
+                            <div class="tab-switch-item" @click="change(3)" :class="number2 == 3 ? 'on' : ''">周三</div>
+                            <div class="tab-switch-item" @click="change(4)" :class="number2 == 4 ? 'on' : ''">周四</div>
+                            <div class="tab-switch-item" @click="change(5)" :class="number2 == 5 ? 'on' : ''">周五</div>
+                            <div class="tab-switch-item" @click="change(6)" :class="number2 == 6 ? 'on' : ''">周六</div>
+                            <div class="tab-switch-item" @click="change(7)" :class="number2 == 7 ? 'on' : ''">周日</div>
+                        </div>
+                    </div>
+                    <a href="//www.bilibili.com/anime/timeline/" target="_blank" class="tl-link">新番时间表 <i
+                            class=""></i></a>
+                </header>
+                <div style="position: relative;">
+                    <div class="zone-list-box" style="position: absolute;" v-show="0===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="1===number">
+                        <div class="time-line-card item" v-for="item in hisPlay.slice(0,6)"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="2===number">
+                        <div class="time-line-card item" v-for="item in hisPlay.slice(0,8)"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="3===number">
+                        <div class="time-line-card item" v-for="item in hisPlay.slice(3,7)"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="4===number">
+                        <div class="time-line-card item" v-for="item in hisPlay.slice(2,10)"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="5===number">
+                        <div class="time-line-card item" v-for="item in hisPlay.slice(3,12)"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="6===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="7===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pgc-rank">
+                <header class="rank-header">
+                    <span class="name">排行榜</span>
+                    <a href="/ranking/bangumi/13/0/3" target="_blank" class="more">
+                        更多
+                        <i class=""></i>
+                    </a>
+                </header>
+                <div class="pgc-rank-wrap" v-for="(item,index) in wereRank">
+                    <span class="number">{{index+1}}</span>
+                    <a :href="item.href" target="_blank" class="link">
+                        <p class="txt">
+                            <span :title="item.title" class="title">
+                                {{item.title}}</span>
+                            <span class="update">
+                                {{item.update}}
+                            </span>
+                        </p>
+                    </a></div>
+            </div>
+        </div>
+        <!-- 国创 -->
+        <div id="gen" class="box3">
+            <div class="time-line">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="//www.bilibili.com/anime/" target="_blank" class="name">国创</a>
+                        <div class="tab-switch">
+                            <div class="tab-switch-item" @click="change(0)" :class="number2 == 0 ? 'on' : ''">最新</div>
+                            <div class="tab-switch-item" @click="change(1)" :class="number2 == 1 ? 'on' : ''">周一</div>
+                            <div class="tab-switch-item" @click="change(2)" :class="number2 == 2 ? 'on' : ''">周二</div>
+                            <div class="tab-switch-item" @click="change(3)" :class="number2 == 3 ? 'on' : ''">周三</div>
+                            <div class="tab-switch-item" @click="change(4)" :class="number2 == 4 ? 'on' : ''">周四</div>
+                            <div class="tab-switch-item" @click="change(5)" :class="number2 == 5 ? 'on' : ''">周五</div>
+                            <div class="tab-switch-item" @click="change(6)" :class="number2 == 6 ? 'on' : ''">周六</div>
+                            <div class="tab-switch-item" @click="change(7)" :class="number2 == 7 ? 'on' : ''">周日</div>
+                        </div>
+                    </div>
+                    <a href="//www.bilibili.com/anime/timeline/" target="_blank" class="tl-link">新番时间表 <i
+                            class=""></i></a>
+                </header>
+                <div style="position: relative;">
+                    <div class="zone-list-box" style="position: absolute;" v-show="0===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="1===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="2===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="3===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="4===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="5===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="6===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="7===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pgc-rank">
+                <header class="rank-header">
+                    <span class="name">排行榜</span>
+                    <a href="/ranking/bangumi/13/0/3" target="_blank" class="more">
+                        更多
+                        <i class=""></i>
+                    </a>
+                </header>
+                <div class="pgc-rank-wrap" v-for="(item,index) in wereRank">
+                    <span class="number">{{index+1}}</span>
+                    <a :href="item.href" target="_blank" class="link">
+                        <p class="txt">
+                            <span :title="item.title" class="title">
+                                {{item.title}}</span>
+                            <span class="update">
+                                {{item.update}}
+                            </span>
+                        </p>
+                    </a></div>
+            </div>
+        </div>
+        <!-- 漫画 -->
+        <div id="comic" class="box2">
+            <!-- 列表 -->
+            <div class="live-list">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="bilibili/comic/index.html" target="_blank">漫画</a>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 排行 -->
+            <div class="live-tabs">
+                <div class="rank-list">
+                    <header class="rank-header"><span class="name">排行榜</span><a href="/ranking/all/1/0/3"
+                            target="_blank" class="more">更多<i class="bilifont bili-icon_caozuo_qianwang"></i></a>
+                    </header>
+                    <div class="rank-wrap"><span class="number">1</span>
+                        <div class="preview">
+                            <div class="pic"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link"><img
+                                        src="https://i0.hdslb.com/bfs/archive/142d912ce62197a228155cd3d851b3f0aecf72f8.jpg@140w_79h_1c_100q.webp"
+                                        alt="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】"></a>
+                                <div class="watch-later-video van-watchlater black"><span class="wl-tips"
+                                        style="left: -21px; display: none;"></span></div>
+                            </div>
+                            <div class="txt"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link">
+                                    <p title="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</p>
+                                </a><span>综合得分：189.8万</span></div>
+                        </div>
+                    </div>
+                    <!-- 从第二开始排行榜数据 -->
+                    <div class="rank-wrap" v-for="(item,index) in animationRank"><span
+                            class="number">{{index+2}}</span><a :href="item.herf" target="_blank" class="link">
+                            <p :title="item.title" class="title">{{item.title}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 音乐 -->
+        <div id="music" class="box2">
+            <!-- 列表 -->
+            <div class="live-list">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">音乐</a>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 排行 -->
+            <div class="live-tabs">
+                <div class="rank-list">
+                    <header class="rank-header"><span class="name">排行榜</span><a href="/ranking/all/1/0/3"
+                            target="_blank" class="more">更多<i class="bilifont bili-icon_caozuo_qianwang"></i></a>
+                    </header>
+                    <div class="rank-wrap"><span class="number">1</span>
+                        <div class="preview">
+                            <div class="pic"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link"><img
+                                        src="https://i0.hdslb.com/bfs/archive/142d912ce62197a228155cd3d851b3f0aecf72f8.jpg@140w_79h_1c_100q.webp"
+                                        alt="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】"></a>
+                                <div class="watch-later-video van-watchlater black"><span class="wl-tips"
+                                        style="left: -21px; display: none;"></span></div>
+                            </div>
+                            <div class="txt"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link">
+                                    <p title="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</p>
+                                </a><span>综合得分：189.8万</span></div>
+                        </div>
+                    </div>
+                    <!-- 从第二开始排行榜数据 -->
+                    <div class="rank-wrap" v-for="(item,index) in animationRank"><span
+                            class="number">{{index+2}}</span><a :href="item.herf" target="_blank" class="link">
+                            <p :title="item.title" class="title">{{item.title}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 舞蹈 -->
+        <div id="dance" class="box2">
+            <!-- 列表 -->
+            <div class="live-list">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">舞蹈</a>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 排行 -->
+            <div class="live-tabs">
+                <div class="rank-list">
+                    <header class="rank-header"><span class="name">排行榜</span><a href="/ranking/all/1/0/3"
+                            target="_blank" class="more">更多<i class="bilifont bili-icon_caozuo_qianwang"></i></a>
+                    </header>
+                    <div class="rank-wrap"><span class="number">1</span>
+                        <div class="preview">
+                            <div class="pic"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link"><img
+                                        src="https://i0.hdslb.com/bfs/archive/142d912ce62197a228155cd3d851b3f0aecf72f8.jpg@140w_79h_1c_100q.webp"
+                                        alt="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】"></a>
+                                <div class="watch-later-video van-watchlater black"><span class="wl-tips"
+                                        style="left: -21px; display: none;"></span></div>
+                            </div>
+                            <div class="txt"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link">
+                                    <p title="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</p>
+                                </a><span>综合得分：189.8万</span></div>
+                        </div>
+                    </div>
+                    <!-- 从第二开始排行榜数据 -->
+                    <div class="rank-wrap" v-for="(item,index) in animationRank"><span
+                            class="number">{{index+2}}</span><a :href="item.herf" target="_blank" class="link">
+                            <p :title="item.title" class="title">{{item.title}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 游戏 -->
+        <div id="game" class="box2">
+            <!-- 列表 -->
+            <div class="live-list">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">游戏</a>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 排行 -->
+            <div class="live-tabs">
+                <div class="rank-list">
+                    <header class="rank-header"><span class="name">排行榜</span><a href="/ranking/all/1/0/3"
+                            target="_blank" class="more">更多<i class="bilifont bili-icon_caozuo_qianwang"></i></a>
+                    </header>
+                    <div class="rank-wrap"><span class="number">1</span>
+                        <div class="preview">
+                            <div class="pic"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link"><img
+                                        src="https://i0.hdslb.com/bfs/archive/142d912ce62197a228155cd3d851b3f0aecf72f8.jpg@140w_79h_1c_100q.webp"
+                                        alt="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】"></a>
+                                <div class="watch-later-video van-watchlater black"><span class="wl-tips"
+                                        style="left: -21px; display: none;"></span></div>
+                            </div>
+                            <div class="txt"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link">
+                                    <p title="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</p>
+                                </a><span>综合得分：189.8万</span></div>
+                        </div>
+                    </div>
+                    <!-- 从第二开始排行榜数据 -->
+                    <div class="rank-wrap" v-for="(item,index) in animationRank"><span
+                            class="number">{{index+2}}</span><a :href="item.herf" target="_blank" class="link">
+                            <p :title="item.title" class="title">{{item.title}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 知识 -->
+        <div id="knowledge" class="box2">
+            <!-- 列表 -->
+            <div class="live-list">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">知识</a>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 排行 -->
+            <div class="live-tabs">
+                <div class="rank-list">
+                    <header class="rank-header"><span class="name">排行榜</span><a href="/ranking/all/1/0/3"
+                            target="_blank" class="more">更多<i class="bilifont bili-icon_caozuo_qianwang"></i></a>
+                    </header>
+                    <div class="rank-wrap"><span class="number">1</span>
+                        <div class="preview">
+                            <div class="pic"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link"><img
+                                        src="https://i0.hdslb.com/bfs/archive/142d912ce62197a228155cd3d851b3f0aecf72f8.jpg@140w_79h_1c_100q.webp"
+                                        alt="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】"></a>
+                                <div class="watch-later-video van-watchlater black"><span class="wl-tips"
+                                        style="left: -21px; display: none;"></span></div>
+                            </div>
+                            <div class="txt"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link">
+                                    <p title="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</p>
+                                </a><span>综合得分：189.8万</span></div>
+                        </div>
+                    </div>
+                    <!-- 从第二开始排行榜数据 -->
+                    <div class="rank-wrap" v-for="(item,index) in animationRank"><span
+                            class="number">{{index+2}}</span><a :href="item.herf" target="_blank" class="link">
+                            <p :title="item.title" class="title">{{item.title}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 课堂 -->
+        <div id="class" class="box1">
+            <!-- 正在直播左边板块 -->
+            <div class="live-list">
+                <!-- 正在直播头部 -->
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">课堂</a>
+                        <div class="text-info">
+                            <span>当前共有20328个在线直播</span>
+                        </div>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <!-- 正在直播列表数据 -->
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 正在直播右板块 -->
+            <div class="live-tabs">
+                <div class="tab-switch">
+                    <div class="tab-switch-item" @click="change(0)" :class="number == 0 ? 'on' : ''">直播排行</div>
+                    <div class="tab-switch-item" @click="change(1)" :class="number == 1 ? 'on' : ''"> 关注的主播</div>
+                    <div class="tab-switch-item" @click="change(2)" :class="number == 2 ? 'on' : ''">为你推荐</div>
+                </div>
+                <!-- 直播排行榜数据渲染 -->
+                <div class="live-rank" v-show="0===number">
+                    <a href="https://live.bilibili.com/461" target="_blank" class="live-rank-item"
+                        v-for="(item,index) in order">
+                        <div class="rank-face">
+                            <span class="number">{{index+1}}</span>
+                            <img :src="item.headImg" alt="">
+                            <div class="txt">
+                                <p>{{item.p}}</p>
+                                <p class="p2">{{item.p2}}</p>
+                            </div>
+                        </div>
+                        <div class="count">
+                            <i class="bilifont bili-icon_xinxi_renqi">
+
+                            </i>{{item.count}}</div>
+                    </a>
+                </div>
+                <!-- 关注的主播 -->
+                <div class="empty-state" v-show="1===number">
+                    <span>没有数据(-_-#)</span>
+                </div>
+                <!-- 为你推荐 -->
+                <div class="recommend-activity" v-show="2===number">
+                    <img src="https://i0.hdslb.com/bfs/live/0d4310e8658e65082984b82ecaaff7d74f715ebc.jpg@320w_330h_1c_100q.webp"
+                        alt="">
+                </div>
+            </div>
+        </div>
+        <!-- 数码 -->
+        <div id="digital" class="box2">
+            <!-- 列表 -->
+            <div class="live-list">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">数码</a>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 排行 -->
+            <div class="live-tabs">
+                <div class="rank-list">
+                    <header class="rank-header"><span class="name">排行榜</span><a href="/ranking/all/1/0/3"
+                            target="_blank" class="more">更多<i class="bilifont bili-icon_caozuo_qianwang"></i></a>
+                    </header>
+                    <div class="rank-wrap"><span class="number">1</span>
+                        <div class="preview">
+                            <div class="pic"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link"><img
+                                        src="https://i0.hdslb.com/bfs/archive/142d912ce62197a228155cd3d851b3f0aecf72f8.jpg@140w_79h_1c_100q.webp"
+                                        alt="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】"></a>
+                                <div class="watch-later-video van-watchlater black"><span class="wl-tips"
+                                        style="left: -21px; display: none;"></span></div>
+                            </div>
+                            <div class="txt"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link">
+                                    <p title="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</p>
+                                </a><span>综合得分：189.8万</span></div>
+                        </div>
+                    </div>
+                    <!-- 从第二开始排行榜数据 -->
+                    <div class="rank-wrap" v-for="(item,index) in animationRank"><span
+                            class="number">{{index+2}}</span><a :href="item.herf" target="_blank" class="link">
+                            <p :title="item.title" class="title">{{item.title}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 生活 -->
+        <div id="life" class="box2">
+            <!-- 列表 -->
+            <div class="live-list">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">生活</a>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 排行 -->
+            <div class="live-tabs">
+                <div class="rank-list">
+                    <header class="rank-header"><span class="name">排行榜</span><a href="/ranking/all/1/0/3"
+                            target="_blank" class="more">更多<i class="bilifont bili-icon_caozuo_qianwang"></i></a>
+                    </header>
+                    <div class="rank-wrap"><span class="number">1</span>
+                        <div class="preview">
+                            <div class="pic"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link"><img
+                                        src="https://i0.hdslb.com/bfs/archive/142d912ce62197a228155cd3d851b3f0aecf72f8.jpg@140w_79h_1c_100q.webp"
+                                        alt="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】"></a>
+                                <div class="watch-later-video van-watchlater black"><span class="wl-tips"
+                                        style="left: -21px; display: none;"></span></div>
+                            </div>
+                            <div class="txt"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link">
+                                    <p title="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</p>
+                                </a><span>综合得分：189.8万</span></div>
+                        </div>
+                    </div>
+                    <!-- 从第二开始排行榜数据 -->
+                    <div class="rank-wrap" v-for="(item,index) in animationRank"><span
+                            class="number">{{index+2}}</span><a :href="item.herf" target="_blank" class="link">
+                            <p :title="item.title" class="title">{{item.title}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 鬼畜 -->
+        <div id="ghostLivestock" class="box2">
+            <!-- 列表 -->
+            <div class="live-list">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">鬼畜</a>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 排行 -->
+            <div class="live-tabs">
+                <div class="rank-list">
+                    <header class="rank-header"><span class="name">排行榜</span><a href="/ranking/all/1/0/3"
+                            target="_blank" class="more">更多<i class="bilifont bili-icon_caozuo_qianwang"></i></a>
+                    </header>
+                    <div class="rank-wrap"><span class="number">1</span>
+                        <div class="preview">
+                            <div class="pic"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link"><img
+                                        src="https://i0.hdslb.com/bfs/archive/142d912ce62197a228155cd3d851b3f0aecf72f8.jpg@140w_79h_1c_100q.webp"
+                                        alt="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】"></a>
+                                <div class="watch-later-video van-watchlater black"><span class="wl-tips"
+                                        style="left: -21px; display: none;"></span></div>
+                            </div>
+                            <div class="txt"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link">
+                                    <p title="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</p>
+                                </a><span>综合得分：189.8万</span></div>
+                        </div>
+                    </div>
+                    <!-- 从第二开始排行榜数据 -->
+                    <div class="rank-wrap" v-for="(item,index) in animationRank"><span
+                            class="number">{{index+2}}</span><a :href="item.herf" target="_blank" class="link">
+                            <p :title="item.title" class="title">{{item.title}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 时尚 -->
+        <div id="fashion" class="box2">
+            <!-- 列表 -->
+            <div class="live-list">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">时尚</a>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 排行 -->
+            <div class="live-tabs">
+                <div class="rank-list">
+                    <header class="rank-header"><span class="name">排行榜</span><a href="/ranking/all/1/0/3"
+                            target="_blank" class="more">更多<i class="bilifont bili-icon_caozuo_qianwang"></i></a>
+                    </header>
+                    <div class="rank-wrap"><span class="number">1</span>
+                        <div class="preview">
+                            <div class="pic"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link"><img
+                                        src="https://i0.hdslb.com/bfs/archive/142d912ce62197a228155cd3d851b3f0aecf72f8.jpg@140w_79h_1c_100q.webp"
+                                        alt="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】"></a>
+                                <div class="watch-later-video van-watchlater black"><span class="wl-tips"
+                                        style="left: -21px; display: none;"></span></div>
+                            </div>
+                            <div class="txt"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link">
+                                    <p title="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</p>
+                                </a><span>综合得分：189.8万</span></div>
+                        </div>
+                    </div>
+                    <!-- 从第二开始排行榜数据 -->
+                    <div class="rank-wrap" v-for="(item,index) in animationRank"><span
+                            class="number">{{index+2}}</span><a :href="item.herf" target="_blank" class="link">
+                            <p :title="item.title" class="title">{{item.title}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 资讯 -->
+        <div id="information" class="box1">
+            <!-- 正在直播左边板块 -->
+            <div class="live-list">
+                <!-- 正在直播头部 -->
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">资讯</a>
+                        <div class="text-info">
+                            <span>当前共有20328个在线直播</span>
+                        </div>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <!-- 正在直播列表数据 -->
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 正在直播右板块 -->
+            <div class="live-tabs">
+                <div class="tab-switch">
+                    <div class="tab-switch-item" @click="change(0)" :class="number == 0 ? 'on' : ''">直播排行</div>
+                    <div class="tab-switch-item" @click="change(1)" :class="number == 1 ? 'on' : ''"> 关注的主播</div>
+                    <div class="tab-switch-item" @click="change(2)" :class="number == 2 ? 'on' : ''">为你推荐</div>
+                </div>
+                <!-- 直播排行榜数据渲染 -->
+                <div class="live-rank" v-show="0===number">
+                    <a href="https://live.bilibili.com/461" target="_blank" class="live-rank-item"
+                        v-for="(item,index) in order">
+                        <div class="rank-face">
+                            <span class="number">{{index+1}}</span>
+                            <img :src="item.headImg" alt="">
+                            <div class="txt">
+                                <p>{{item.p}}</p>
+                                <p class="p2">{{item.p2}}</p>
+                            </div>
+                        </div>
+                        <div class="count">
+                            <i class="bilifont bili-icon_xinxi_renqi">
+
+                            </i>{{item.count}}</div>
+                    </a>
+                </div>
+                <!-- 关注的主播 -->
+                <div class="empty-state" v-show="1===number">
+                    <span>没有数据(-_-#)</span>
+                </div>
+                <!-- 为你推荐 -->
+                <div class="recommend-activity" v-show="2===number">
+                    <img src="https://i0.hdslb.com/bfs/live/0d4310e8658e65082984b82ecaaff7d74f715ebc.jpg@320w_330h_1c_100q.webp"
+                        alt="">
+                </div>
+            </div>
+        </div>
+        <!-- 娱乐 -->
+        <div id="entertainment" class="box2">
+            <!-- 列表 -->
+            <div class="live-list">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">娱乐</a>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 排行 -->
+            <div class="live-tabs">
+                <div class="rank-list">
+                    <header class="rank-header"><span class="name">排行榜</span><a href="/ranking/all/1/0/3"
+                            target="_blank" class="more">更多<i class="bilifont bili-icon_caozuo_qianwang"></i></a>
+                    </header>
+                    <div class="rank-wrap"><span class="number">1</span>
+                        <div class="preview">
+                            <div class="pic"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link"><img
+                                        src="https://i0.hdslb.com/bfs/archive/142d912ce62197a228155cd3d851b3f0aecf72f8.jpg@140w_79h_1c_100q.webp"
+                                        alt="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】"></a>
+                                <div class="watch-later-video van-watchlater black"><span class="wl-tips"
+                                        style="left: -21px; display: none;"></span></div>
+                            </div>
+                            <div class="txt"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link">
+                                    <p title="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</p>
+                                </a><span>综合得分：189.8万</span></div>
+                        </div>
+                    </div>
+                    <!-- 从第二开始排行榜数据 -->
+                    <div class="rank-wrap" v-for="(item,index) in animationRank"><span
+                            class="number">{{index+2}}</span><a :href="item.herf" target="_blank" class="link">
+                            <p :title="item.title" class="title">{{item.title}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 专栏 -->
+        <div id="column" class="box3">
+            <div class="time-line">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="//www.bilibili.com/anime/" target="_blank" class="name">专栏</a>
+                        <div class="tab-switch">
+                            <div class="tab-switch-item" @click="change(0)" :class="number2 == 0 ? 'on' : ''">最新</div>
+                            <div class="tab-switch-item" @click="change(1)" :class="number2 == 1 ? 'on' : ''">周一</div>
+                            <div class="tab-switch-item" @click="change(2)" :class="number2 == 2 ? 'on' : ''">周二</div>
+                            <div class="tab-switch-item" @click="change(3)" :class="number2 == 3 ? 'on' : ''">周三</div>
+                            <div class="tab-switch-item" @click="change(4)" :class="number2 == 4 ? 'on' : ''">周四</div>
+                            <div class="tab-switch-item" @click="change(5)" :class="number2 == 5 ? 'on' : ''">周五</div>
+                            <div class="tab-switch-item" @click="change(6)" :class="number2 == 6 ? 'on' : ''">周六</div>
+                            <div class="tab-switch-item" @click="change(7)" :class="number2 == 7 ? 'on' : ''">周日</div>
+                        </div>
+                    </div>
+                    <a href="//www.bilibili.com/anime/timeline/" target="_blank" class="tl-link">新番时间表 <i
+                            class=""></i></a>
+                </header>
+                <div style="position: relative;">
+                    <div class="zone-list-box" style="position: absolute;" v-show="0===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="1===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="2===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="3===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="4===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="5===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="6===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-list-box" style="position: absolute;" v-show="7===number">
+                        <div class="time-line-card item" v-for="item in hisPlay"><a
+                                href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank" :title="item.title"
+                                class="pic"><img :src="item.img" :alt="item.title"></a>
+                            <div class="txt"><a href="//www.bilibili.com/bangumi/play/ss33026/" target="_blank"
+                                    :title="item.title" class="ss">{{item.title}}</a>
+                                <p class="update"><a href="//www.bilibili.com/bangumi/play/ep317868/" target="_blank"
+                                        class="published">{{item.update}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pgc-rank">
+                <header class="rank-header">
+                    <span class="name">排行榜</span>
+                    <a href="/ranking/bangumi/13/0/3" target="_blank" class="more">
+                        更多
+                        <i class=""></i>
+                    </a>
+                </header>
+                <div class="pgc-rank-wrap" v-for="(item,index) in wereRank">
+                    <span class="number">{{index+1}}</span>
+                    <a :href="item.href" target="_blank" class="link">
+                        <p class="txt">
+                            <span :title="item.title" class="title">
+                                {{item.title}}</span>
+                            <span class="update">
+                                {{item.update}}
+                            </span>
+                        </p>
+                    </a></div>
+            </div>
+        </div>
+        <!-- 电影 -->
+        <div id="movie" class="box2">
+            <!-- 列表 -->
+            <div class="live-list">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">电影</a>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 排行 -->
+            <div class="live-tabs">
+                <div class="rank-list">
+                    <header class="rank-header"><span class="name">排行榜</span><a href="/ranking/all/1/0/3"
+                            target="_blank" class="more">更多<i class="bilifont bili-icon_caozuo_qianwang"></i></a>
+                    </header>
+                    <div class="rank-wrap"><span class="number">1</span>
+                        <div class="preview">
+                            <div class="pic"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link"><img
+                                        src="https://i0.hdslb.com/bfs/archive/142d912ce62197a228155cd3d851b3f0aecf72f8.jpg@140w_79h_1c_100q.webp"
+                                        alt="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】"></a>
+                                <div class="watch-later-video van-watchlater black"><span class="wl-tips"
+                                        style="left: -21px; display: none;"></span></div>
+                            </div>
+                            <div class="txt"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link">
+                                    <p title="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</p>
+                                </a><span>综合得分：189.8万</span></div>
+                        </div>
+                    </div>
+                    <!-- 从第二开始排行榜数据 -->
+                    <div class="rank-wrap" v-for="(item,index) in animationRank"><span
+                            class="number">{{index+2}}</span><a :href="item.herf" target="_blank" class="link">
+                            <p :title="item.title" class="title">{{item.title}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 电视剧 -->
+        <div id="tvSeries" class="box2">
+            <!-- 列表 -->
+            <div class="live-list">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">电视剧</a>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 排行 -->
+            <div class="live-tabs">
+                <div class="rank-list">
+                    <header class="rank-header"><span class="name">排行榜</span><a href="/ranking/all/1/0/3"
+                            target="_blank" class="more">更多<i class="bilifont bili-icon_caozuo_qianwang"></i></a>
+                    </header>
+                    <div class="rank-wrap"><span class="number">1</span>
+                        <div class="preview">
+                            <div class="pic"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link"><img
+                                        src="https://i0.hdslb.com/bfs/archive/142d912ce62197a228155cd3d851b3f0aecf72f8.jpg@140w_79h_1c_100q.webp"
+                                        alt="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】"></a>
+                                <div class="watch-later-video van-watchlater black"><span class="wl-tips"
+                                        style="left: -21px; display: none;"></span></div>
+                            </div>
+                            <div class="txt"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link">
+                                    <p title="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</p>
+                                </a><span>综合得分：189.8万</span></div>
+                        </div>
+                    </div>
+                    <!-- 从第二开始排行榜数据 -->
+                    <div class="rank-wrap" v-for="(item,index) in animationRank"><span
+                            class="number">{{index+2}}</span><a :href="item.herf" target="_blank" class="link">
+                            <p :title="item.title" class="title">{{item.title}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 影视 -->
+        <div id="filmTelevision" class="box2">
+            <!-- 列表 -->
+            <div class="live-list">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">影视</a>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 排行 -->
+            <div class="live-tabs">
+                <div class="rank-list">
+                    <header class="rank-header"><span class="name">排行榜</span><a href="/ranking/all/1/0/3"
+                            target="_blank" class="more">更多<i class="bilifont bili-icon_caozuo_qianwang"></i></a>
+                    </header>
+                    <div class="rank-wrap"><span class="number">1</span>
+                        <div class="preview">
+                            <div class="pic"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link"><img
+                                        src="https://i0.hdslb.com/bfs/archive/142d912ce62197a228155cd3d851b3f0aecf72f8.jpg@140w_79h_1c_100q.webp"
+                                        alt="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】"></a>
+                                <div class="watch-later-video van-watchlater black"><span class="wl-tips"
+                                        style="left: -21px; display: none;"></span></div>
+                            </div>
+                            <div class="txt"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link">
+                                    <p title="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</p>
+                                </a><span>综合得分：189.8万</span></div>
+                        </div>
+                    </div>
+                    <!-- 从第二开始排行榜数据 -->
+                    <div class="rank-wrap" v-for="(item,index) in animationRank"><span
+                            class="number">{{index+2}}</span><a :href="item.herf" target="_blank" class="link">
+                            <p :title="item.title" class="title">{{item.title}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 纪录片 -->
+        <div id="documentary" class="box2">
+            <!-- 列表 -->
+            <div class="live-list">
+                <header class="storey-title">
+                    <div class="l-con">
+                        <a href="https://live.bilibili.com/" target="_blank">纪录片</a>
+                    </div>
+                    <div class="exchange-btn">
+                        <div class="btn-exchange">换一换</div>
+                        <a href="https://live.bilibili.com/" target="_blank">更多 ></a>
+                    </div>
+                </header>
+                <div class="zone-list-box">
+                    <div class="live-card" v-for="(item,index) in live">
+                        <a href="https://live.bilibili.com/9718717" target="_blank">
+                            <div class="pic">
+                                <img :src="item.pic" alt="">
+                                <p class="count">
+                                    <i></i>
+                                    {{item.count}}
+                                </p>
+                            </div>
+                            <div class="up">
+                                <div class="up-cover">
+                                    <img :src="item.face" alt="" class="face">
+                                </div>
+                                <div class="txt">
+                                    <p class="name">{{item.name}}</p>
+                                    <p :title="item.desc" class="desc">{{item.desc}}</p>
+                                    <p class="tag">{{item.tag}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 排行 -->
+            <div class="live-tabs">
+                <div class="rank-list">
+                    <header class="rank-header"><span class="name">排行榜</span><a href="/ranking/all/1/0/3"
+                            target="_blank" class="more">更多<i class="bilifont bili-icon_caozuo_qianwang"></i></a>
+                    </header>
+                    <div class="rank-wrap"><span class="number">1</span>
+                        <div class="preview">
+                            <div class="pic"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link"><img
+                                        src="https://i0.hdslb.com/bfs/archive/142d912ce62197a228155cd3d851b3f0aecf72f8.jpg@140w_79h_1c_100q.webp"
+                                        alt="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】"></a>
+                                <div class="watch-later-video van-watchlater black"><span class="wl-tips"
+                                        style="left: -21px; display: none;"></span></div>
+                            </div>
+                            <div class="txt"><a href="//www.bilibili.com/video/BV1Yt4y1i7hH" target="_blank"
+                                    class="link">
+                                    <p title="史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】">史上最高杰作！恋爱游戏里竟然没有妹子【阅片无数动漫篇09】</p>
+                                </a><span>综合得分：189.8万</span></div>
+                        </div>
+                    </div>
+                    <!-- 从第二开始排行榜数据 -->
+                    <div class="rank-wrap" v-for="(item,index) in animationRank"><span
+                            class="number">{{index+2}}</span><a :href="item.herf" target="_blank" class="link">
+                            <p :title="item.title" class="title">{{item.title}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 特别推荐 -->
+        
+        <!-- 右侧固定导航栏 -->
+        <div class="nav-ban">
+            <div v-for="(v,k) in ban">
+                <a :href="v.link">
+                    {{v.txt}}
+                </a>
+            </div>
+        </div>
+    </main>
+    <!-- 哔哩哔哩底部版权信息 -->
+    <footer id="footer">
+        <div class="link-box">
+            <div class="link-item link-a">
+                <span class="bt">bilibili</span>
+                <ul>
+                    <a target="_blank" href="//www.bilibili.com/blackboard/aboutUs.html">关于我们</a>
+                    <a target="_blank" href="//www.bilibili.com/blackboard/contact.html">联系我们</a>
+                    <a target="_blank" href="https://www.bilibili.com/protocal/licence.html">用户协议</a>
+                    <a target="_blank" href="//www.bilibili.com/blackboard/join.html">加入我们</a>
+                    <a target="_blank" href="//www.bilibili.com/blackboard/friends-links.html">友情链接</a>
+                    <a target="_blank" href="https://www.bilibili.com/blackboard/privacy-pc.html">隐私政策</a>
+                    <a target="_blank" href="//account.bilibili.com/account/official/home">bilibili认证</a>
+                    <a target="_blank" href="http://ir.bilibili.com">Investor Relations</a>
+                </ul>
+            </div>
+            <div class="link-item link-b">
+                <span class="bt">传送门</span>
+                <ul>
+                    <a target="_blank" href="//www.bilibili.com/blackboard/help.html">帮助中心</a>
+                    <a target="_blank" href="//www.bilibili.com/video/BV1Xx411c7cH/">高级弹幕</a>
+                    <a target="_blank" href="//www.bilibili.com/blackboard/topic_list.html">活动专题页</a>
+                    <a target="_blank" href="//www.bilibili.com/v/copyright/intro/">侵权申诉</a>
+                    <a target="_blank" href="//www.bilibili.com/blackboard/x/act_list/">活动中心</a>
+                    <a target="_blank"
+                        href="https://t.bilibili.com/topic/name/%E7%94%A8%E6%88%B7%E5%8F%8D%E9%A6%88%E8%AE%BA%E5%9D%9B/feed">用户反馈论坛</a>
+                    <a target="_blank" href="//space.bilibili.com/6823116#/album">壁纸站</a>
+                    <a target="_blank" href="//e.bilibili.com/">广告合作</a>
+                    <a target="_blank" href="//www.bilibili.com/blackboard/activity-S1jfy69Jz.html">名人堂</a>
+                </ul>
+            </div>
+            <div class="link-item link-c">
+                <div class="a-wraper">
+                    <a href="//app.bilibili.com/" target="_blank" class="biliapp">
+                        <div class="circle a1">
+                            <i class="iconfont iconxiazai">
+                            </i>
+                        </div>
+                        <p>下载APP</p>
+                        <div class="qrcode"></div>
+                    </a></div>
+                <div class="a-wraper"><a href="//weibo.com/bilibiliweb" target="_blank" class="weibo">
+                        <div class="circle a2">
+                            <i class="iconfont iconweibo"></i>
+                        </div>
+                        <p>新浪微博</p>
+                        <div class="qrcode"></div>
+                    </a></div>
+                <div class="a-wraper"><a href="#" class="weixin">
+                        <div class="circle a3">
+                            <i class="iconfont iconweixin"></i>
+                        </div>
+                        <p>官方微信</p>
+                        <div class="qrcode"></div>
+                    </a></div>
+            </div>
+        </div>
+        <div class="partner">
+            <div class="pic-box">
+                <img src="https://s1.hdslb.com/bfs/seed/jinkela/footer-v2/images/partner.png" class="pic">'
+                <img src="https://s1.hdslb.com/bfs/static/jinkela/long/images/pic962110.png" width="100" height="40"
+                    class="pic962110">
+            </div>
+            <div class="text-con">
+                <p>
+                    <span><a href="//static.hdslb.com/images/yyzz.png" target="_blank">营业执照</a></span>
+                    <span>信息网络传播视听节目许可证：0910417</span>
+                    <span>网络文化经营许可证 沪网文【2019】3804-274号</span>
+                    <span>广播电视节目制作经营许可证：（沪）字第01248号</span>
+                    <span>增值电信业务经营许可证 沪B2-20100043</span>
+                    <span>互联网ICP备案：<a href="http://beian.miit.gov.cn/" target="_blank">沪ICP备13002172号-3</a></span>
+                    <span>出版物经营许可证 沪批字第U6699 号</span>
+                    <span>互联网药品信息服务资格证 沪-非经营性-2016-0143</span>
+                    <span>营业性演出许可证 沪市文演（经）00-2253</span>
+                </p>
+                <p>违法不良信息举报邮箱：help@bilibili.com |违法不良信息举报电话：4000233233转3</p>
+                <p><i class=""></i><a href="http://www.shjbzx.cn" target="_blank">上海互联网举报中心</a> | <a
+                        href="http://jbts.mct.gov.cn/" target="_blank">12318全国文化市场举报网站</a> | <i class=""></i><a
+                        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011002002436"
+                        target="_blank">沪公网安备31011002002436号</a> | <a
+                        href="mailto:userreport@bilibili.com">儿童色情信息举报专区</a> | <a
+                        href="http://www.shdf.gov.cn/shdf/channels/740.html">扫黄打非举报</a></p>
+                <p>网上有害信息举报专区：<i class=""></i><a href="https://www.12377.cn/" target="_blank">中国互联网违法和不良信息举报中心</a></p>
+                <p>亲爱的市民朋友，上海警方反诈劝阻电话“962110”系专门针对避免您财产被骗受损而设，请您一旦收到来电，立即接听。</p>
+                <p>公司名称：上海宽娱数码科技有限公司|公司地址：上海市杨浦区政立路485号|电话：021-25099888</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    // js
+      $(window).scroll(function(event){
+        checkscroll()
+      });
+      function checkscroll(){
+        var winPos = $(window).scrollTop()+50; //屏幕位置
+        var maxwinPos = $(document).height();
+        var NodePos = [
+            $('#isLive').offset().top,
+            $('#animation').offset().top,
+            $('#hisPlay').offset().top,
+            $('#gen').offset().top,
+            $('#comic').offset().top,
+            $('#music').offset().top,
+            $('#dance').offset().top,
+            $('#game').offset().top,
+            $('#knowledge').offset().top,
+            $('#class').offset().top,
+            $('#digital').offset().top,
+            $('#life').offset().top,
+            $('#ghostLivestock').offset().top,
+            $('#fashion').offset().top,
+            $('#information').offset().top,
+            $('#entertainment').offset().top,
+            $('#column').offset().top,
+            $('#movie').offset().top,
+            $('#tvSeries').offset().top,
+            $('#filmTelevision').offset().top,
+            $('#documentary').offset().top],//提前获取好元素位置
+            length = NodePos .length; 
+       //console.log(NodePos)
+        if(winPos<=NodePos[1]){
+          $('.nav-ban div ').removeClass('active');
+          $('.nav-ban div:nth-child(1)').addClass('active');
+        }else{
+          for(var i = 1;i<length; i++){
+            if((i < length -1 && winPos<NodePos[i+1]&&winPos>=NodePos[i]) || (i == length -1 && winPos<=NodePos[i])){
+              $('.nav-ban div').removeClass('active');
+              $('.nav-ban div:nth-child('+(i+1)+')').addClass('active');
+              break;
+            }
+          }
+        }
+        if(winPos==0){
+            $('.nav-ban div').removeClass('active');
+        }
+      }
+
+</script>
+<script>
+    var vedio_list = new Vue({
+        el: "#main",
+        data: {
+            number: 2,
+            number2: 0,
+            menu: [{
+                    type: "动画",
+                    num: "999+"
+                },
+                {
+                    type: "音乐",
+                    num: "999+"
+                },
+                {
+                    type: "舞蹈",
+                    num: "786"
+                },
+                {
+                    type: "知识",
+                    num: "999+"
+                },
+                {
+                    type: "生活",
+                    num: "999+"
+                },
+                {
+                    type: "时尚",
+                    num: "999+"
+                },
+                {
+                    type: "娱乐",
+                    num: "999+"
+                },
+                {
+                    type: "放映厅",
+                    num: "13"
+                },
+                {
+                    type: "动物圈",
+                    num: "777"
+                },
+                {
+                    type: "单机",
+                    num: "999+"
+                },
+                {
+                    type: "番剧",
+                    num: "162"
+                },
+                {
+                    type: "国创",
+                    num: "465"
+                },
+                {
+                    type: "游戏",
+                    num: "999+"
+                },
+                {
+                    type: "数码",
+                    num: "852"
+                },
+                {
+                    type: "鬼畜",
+                    num: "214"
+                },
+                {
+                    type: "资讯",
+                    num: "190"
+                },
+                {
+                    type: "影视",
+                    num: "999+"
+                },
+                {
+                    type: "搞笑",
+                    num: "999+"
+                },
+                {
+                    type: "美食",
+                    num: "999+"
+                },
+                {
+                    type: "VLOG",
+                    num: ""
+                }
+            ],
+            slideSwiper: [
+                "http://i0.hdslb.com/bfs/archive/aec8907c464b1f896c8388cc46968e81bd8ef76f.jpg@880w_388h_1c_95q",
+                "http://i0.hdslb.com/bfs/archive/26e5b318b7c44ce5ce3a403037d93cc9a1c1c431.jpg@880w_388h_1c_95q",
+                "http://i0.hdslb.com/bfs/archive/181276609e185084ea80f8f0e1271946b05d559a.jpg@880w_388h_1c_95q",
+                "http://i0.hdslb.com/bfs/archive/5e1a0ac092be9683173bfd377ba9a4aa4bc9b299.jpg@880w_388h_1c_95q",
+                "http://i0.hdslb.com/bfs/archive/84280ba243738b13c61fa81eec4ee69aff1a2d4a.png@880w_388h_1c_95q",
+            ],
+            n: 0,
+            interId: null,
+            list1: [{
+                    link: "bilibili/videoPlay.html",
+                    src: "https://i1.hdslb.com/bfs/archive/d8338a078659052212e317da0021fa4ba926d52c.jpg@412w_232h_1c_100q.jpg",
+                    title: "【明日方舟】《灰蕈谜境》魔鬼填词&沙雕饶舌！",
+                    up: "渊渊的奇妙冒险",
+                    play: "2.4万播放"
+                },
+                {
+                    link: "bilibili/videoPlay.html",
+                    src: "https://i2.hdslb.com/bfs/archive/67005ac30cbbada868293b8bfe9e1e5bcf6dfead.jpg@412w_232h_1c_100q.jpg",
+                    title: "【散人】孙美琪疑案：特别篇 刘青春三破谋杀案",
+                    up: "逍遥散人",
+                    play: "6.9万播放"
+                },
+                {
+                    link: "bilibili/videoPlay.html",
+                    src: "https://i1.hdslb.com/bfs/archive/a17c0472948ec4c6141f6831510e26c7b5fffc96.jpg@412w_232h_1c_100q.jpg",
+                    title: "【巅峰之塔#3】不重复干员挑战第三期",
+                    up: "巅峰计划",
+                    play: "3.0万播放"
+                },
+                {
+                    link: "bilibili/videoPlay.html",
+                    src: "https://i0.hdslb.com/bfs/archive/1d75c15f9b56a45d1c8104b4d2e0cebcfc0709f9.jpg@412w_232h_1c_100q.jpg",
+                    title: "【跑团】巴别塔之茧11 | 我梦见你了",
+                    up: "整天摸鱼的三日坊主",
+                    play: "3.3万播放"
+                },
+                {
+                    link: "bilibili/videoPlay.html",
+                    src: "https://i1.hdslb.com/bfs/archive/ae6029f4e19c58deed72988bd00fe328f3f2ec93.jpg@412w_232h_1c_100q.jpg",
+                    title: "【Animenz】Hacking to the Gate - Steins;Gate OP",
+                    up: "Animenzzz",
+                    play: "4.9万播放"
+                },
+                {
+                    link: "bilibili/videoPlay.html",
+                    src: "https://i1.hdslb.com/bfs/archive/10acba5643532b2cfa01eeab18d775b756f9a59d.jpg@412w_232h_1c_100q.jpg",
+                    title: "【ChroNoiR】常夏★SkyScraper【原创曲】",
+                    up: "葛叶Official",
+                    play: "3.7万播放"
+                },
+            ],
+            toPromote: [{
+                    img: "http://i0.hdslb.com/bfs/archive/3ce56560ae2e2657f58a957924ab39b4e426d939.jpg@412w_232h_1c",
+                    time: "01:30",
+                    text: "【罗翔】请问您今天要来点案子吗？",
+                    up: "up 艾卡Aka"
+                },
+                {
+                    img: "http://i0.hdslb.com/bfs/archive/b1ef2eda5d2666c6dc41defdbd2178485a513a70.jpg@412w_232h_1c",
+                    time: "00:56",
+                    text: "敦敦的“好日子”要来了~",
+                    up: "up 白棕先生"
+                },
+                {
+                    img: "http://i0.hdslb.com/bfs/archive/f859efabc10d0b13e58fb1e692aff90f7a66a0dd.jpg@412w_232h_1c",
+                    time: "05:08",
+                    text: "【朱亚文】12反派渣渣线下碰头会，来人一锅端了啊#甭正面#10",
+                    up: "up 朱亚文"
+                },
+                {
+                    img: "http://i0.hdslb.com/bfs/archive/f9737b577fed55c1daf2fe14c6c80cdeacbc3d25.jpg@412w_232h_1c",
+                    time: "23:09",
+                    text: "周刊哔哩哔哩排行榜#534",
+                    up: "up 周刊娘"
+                },
+            ],
+            live: [{
+                    pic: "http://i0.hdslb.com/bfs/vc/ebab5b2932112e8ca3c11702929bffb23a8def71.jpg@206w_116h_1c_100q.webp",
+                    count: "36.7万",
+                    face: "http://i2.hdslb.com/bfs/face/6f2a63969240fa0d51a5b9373a16a82a019bfc91.jpg@36w_36h_1c_100q.webp",
+                    name: "BSM超级挑战赛",
+                    desc: "BSM和平精英超级挑战赛 A/B组",
+                    tag: "和平精英"
+                },
+                {
+                    pic: "http://i0.hdslb.com/bfs/live/user_cover/d6bf339e4410c4d62165bf76088a21b5e02874a1.jpg@206w_116h_1c_100q.webp",
+                    count: "5.9万",
+                    face: "http://i1.hdslb.com/bfs/face/ce0de39d17065ed455efb4932bb4dd109baea8bd.jpg@36w_36h_1c_100q.webp",
+                    name: "小饼肝033",
+                    desc: "冲个60船吧~",
+                    tag: "聊天电台"
+                },
+                {
+                    pic: "http://i0.hdslb.com/bfs/live/new_room_cover/ca76606e7aaa692b6efe1b1d774fc87fc744ad1f.jpg@206w_116h_1c_100q.webp",
+                    count: "2.1万",
+                    face: "http://i2.hdslb.com/bfs/face/8b99741e1b96cabf19fd06ee09755ac25d88090b.jpg@36w_36h_1c_100q.webp",
+                    name: "尖小呆",
+                    desc: "spellbreak魔法吃鸡",
+                    tag: "其他游戏"
+                },
+                {
+                    pic: "http://i0.hdslb.com/bfs/live/new_room_cover/f6852fcac765172f72898ee5fe2438585f586fdb.jpg@206w_116h_1c_100q.webp",
+                    count: "2.9万",
+                    face: "http://i2.hdslb.com/bfs/face/f1b2178aaa23a4b3a0dc4e370589217e5caf231b.jpg@36w_36h_1c_100q.webp",
+                    name: "尼奥喵Neil_Channel",
+                    desc: "RUA~!",
+                    tag: "虚拟主播"
+                },
+                {
+                    pic: "http://i0.hdslb.com/bfs/live/user_cover/0d1fd65ce5a237327e94f0877c92c842800010d2.jpg@206w_116h_1c_100q.webp",
+                    count: "13.2万",
+                    face: "http://i2.hdslb.com/bfs/face/0da1d54a6cfdb58ec3d982cc0e9d4fda6c953853.jpg@36w_36h_1c_100q.webp",
+                    name: "yakisa彭雅琦",
+                    desc: "嘿！来听小彭弹琴唱歌～",
+                    tag: "视频唱见"
+                },
+                {
+                    pic: "http://i0.hdslb.com/bfs/live/user_cover/13abd6c1c847cd892eaa4d44b91e577d59e847d8.jpg@206w_116h_1c_100q.webp",
+                    count: "1.8万",
+                    face: "http://i1.hdslb.com/bfs/face/2a2f5cf79e0ae820282249008d96e7815b9f5c53.jpg@36w_36h_1c_100q.webp",
+                    name: "一路向旺旺仙贝ouo前666",
+                    desc: "【声控】电一 餐车一等四",
+                    tag: "英雄联盟"
+                },
+                {
+                    pic: "http://i0.hdslb.com/bfs/live/new_room_cover/bff34d6386cc17d9df60a6c95f0cdcff7abff613.jpg@206w_116h_1c_100q.webp",
+                    count: "10.5万",
+                    face: "http://i0.hdslb.com/bfs/face/3cfa87bbe4198d20b0f064f12c82d92c32e843b6.jpg@36w_36h_1c_100q.webp",
+                    name: "总裁漓鸢",
+                    desc: "从头跳到尾总有你喜欢的舞 #舞见大集结#",
+                    tag: "舞见"
+                },
+                {
+                    pic: "http://i0.hdslb.com/bfs/live/user_cover/44f14645a63f39b3eca29981817cb3691cfe11bf.jpg@206w_116h_1c_100q.webp",
+                    count: "944",
+                    face: "http://i1.hdslb.com/bfs/face/d3b8258074a00c310a4668a4df1f58b57612e81c.jpg@36w_36h_1c_100q.webp",
+                    name: "某天我郁闷了",
+                    desc: "河南宝丰县监控直播天气变化",
+                    tag: "户外"
+                },
+            ],
+            order: [{
+                    headImg: 'https://i0.hdslb.com/bfs/face/58ef7be476b1067fdef4ac7f8c54192cf78c8d1c.jpg@55w_55h_1c_100q.webp',
+                    p: '游戏彩笔',
+                    p2: '零氪原神能玩的下去吗',
+                    count: '28.5万'
+                },
+                {
+                    headImg: 'https://i1.hdslb.com/bfs/face/66d337c6eb0c069e5ff18eba9d085b841c535333.jpg@55w_55h_1c_100q.webp',
+                    p: '棉花大哥哥',
+                    p2: '既然起了就月卡抽起来，10点648',
+                    count: '23.6万'
+                },
+                {
+                    headImg: 'https://i0.hdslb.com/bfs/face/2e105c5509562c3e99daefbe5a0af319a42ab039.jpg@55w_55h_1c_100q.webp',
+                    p: '完美世界电竞频道一',
+                    p2: '2020PAL秋季赛',
+                    count: '8.4万'
+                },
+                {
+                    headImg: 'https://i1.hdslb.com/bfs/face/78077508641f581ea48c8f744a39a3e98bca4fe2.jpg@55w_55h_1c_100q.webp',
+                    p: '青丘の白狐狸',
+                    p2: '黑暗之光 圣骑降临',
+                    count: '7.8万'
+                },
+                {
+                    headImg: 'https://i0.hdslb.com/bfs/face/69e2010468619ce704430300e4976aec1115ed71.jpg@55w_55h_1c_100q.webp',
+                    p: '-凌雪',
+                    p2: '6倍AK宠粉 开舰长返现，想要新舰长',
+                    count: '6.4万'
+                },
+                {
+                    headImg: 'https://i2.hdslb.com/bfs/face/badd34c848a4690de6e945fed369c444ce8f5a67.jpg@55w_55h_1c_100q.webp',
+                    p: '莫雨呀',
+                    p2: 'LOGO带粉~舰长返现~',
+                    count: '5.5万'
+                },
+            ],
+            animationRank: [{
+                    title: '好起来了？2020十月新番毒奶推荐',
+                    herf: '//www.bilibili.com/video/BV1d5411b7Nw'
+                },
+                {
+                    title: '符 华 上 天',
+                    herf: '//www.bilibili.com/video/BV1ny4y1y7Ue'
+                },
+                {
+                    title: '【火影人物志61】超越一切的羁绊，佐助和鸣人 救赎彼此的唯一！',
+                    herf: '//www.bilibili.com/video/BV1W5411b71E'
+                },
+                {
+                    title: '每月杀死一个恶人，我才能苟活于世…「第三章」',
+                    herf: '//www.bilibili.com/video/BV11h411R7xA'
+                },
+                {
+                    title: '十月番30多部 燃爆秋季！2020年10月新番导视！',
+                    herf: '//www.bilibili.com/video/BV1vZ4y1N7HX'
+                },
+                {
+                    title: '愣着干嘛，戴上耳机，这才是忍者世界的巅峰战力！！！',
+                    herf: '//www.bilibili.com/video/BV1aK4y1a7oT'
+                },
+                {
+                    title: '【进击的巨人】第四季11. 【地鸣】不再是威胁？人类恐将展开全面反击战？！（9月最新章）',
+                    herf: '//www.bilibili.com/video/BV1v5411b7ad'
+                },
+                {
+                    title: '⚓执 着 的 夸⚓',
+                    herf: '//www.bilibili.com/video/BV1TK4y1a7Vr'
+                },
+                {
+                    title: '评分9.9的神级动画！女主有逆天能力，无论是谁都会爱上她！？《鲁鲁修》剧情解说10',
+                    herf: '//www.bilibili.com/video/BV1ki4y177Dx'
+                },
+            ],
+            hisPlay: [{
+                    img: "https://i0.hdslb.com/bfs/bangumi/image/2375f21ad04d81b754b9c99c75d79c66bd8b7298.png@87w_88h_1c_100q.webp",
+                    title: "放学后海堤日记",
+                    update: "第11话"
+                },
+                {
+                    img: "https://i0.hdslb.com/bfs/bangumi/image/df7b39f8ccbf49a4c7af9ac3a208981f51b88d8c.png@87w_88h_1c_100q.webp",
+                    title: "放學後堤防日誌（僅限台灣地區）",
+                    update: "第11话"
+                },
+                {
+                    img: "https://i0.hdslb.com/bfs/bangumi/image/33e53ab7deed7cbf7113c314e3d398f67730a747.png@87w_88h_1c_100q.webp",
+                    title: "赛马娘四格",
+                    update: "第11话"
+                },
+                {
+                    img: "https://i0.hdslb.com/bfs/bangumi/image/03d6751a0a6dcd61aa31ef73ee921d3994834dc9.png@87w_88h_1c_100q.webp",
+                    title: "賽馬娘四格（僅限台灣地區）",
+                    update: "第11话"
+                },
+                {
+                    img: "https://i0.hdslb.com/bfs/bangumi/image/b94af13bdd10c1c1dd1912328d665333c4324d77.png@87w_88h_1c_100q.webp",
+                    title: "魔法律事务所 第二季",
+                    update: "第11话"
+                },
+                {
+                    img: "https://i0.hdslb.com/bfs/bangumi/image/d4a2e1687bc82defc3e97f5946e8c8797d06b3fd.png@87w_88h_1c_100q.webp",
+                    title: "魔法律事務所 第二季（僅限港澳台地區）",
+                    update: "第11话"
+                },
+                {
+                    img: "https://i0.hdslb.com/bfs/bangumi/image/f218be1ed65cc6a662c136d3f992892284c9def3.png@87w_88h_1c_100q.webp",
+                    title: "闇影詩章（僅限台灣地區）",
+                    update: "第11话"
+                },
+                {
+                    img: "https://i0.hdslb.com/bfs/bangumi/1d703634cd3ee35b625bf882f27289db301cae63.jpg@87w_88h_1c_100q.webp",
+                    title: "黑色四叶草",
+                    update: "第11话"
+                },
+                {
+                    img: "https://i0.hdslb.com/bfs/bangumi/image/31220048e2326b8190752b7f3575b4eca5ceb231.png@87w_88h_1c_100q.webp",
+                    title: "影之诗",
+                    update: "第11话"
+                },
+                {
+                    img: "https://i0.hdslb.com/bfs/bangumi/image/0461fa20c8bb42c31f899246facc076d01279fa4.png@87w_88h_1c_100q.webp",
+                    title: "女学。～圣女斯克威尔学院～",
+                    update: "第11话"
+                },
+                {
+                    img: "https://i0.hdslb.com/bfs/bangumi/image/50ae3da8e02efbbffba52f5c3406891cec8cb392.jpg@87w_88h_1c_100q.webp",
+                    title: "水果篮子 第二季",
+                    update: "第11话"
+                },
+                {
+                    img: "https://i0.hdslb.com/bfs/bangumi/image/82cbba4b6e35a2d70cf79aa7308b7637e43b8726.png@87w_88h_1c_100q.webp",
+                    title: "生肖奇缘 第二季（僅限台灣地區）",
+                    update: "第11话"
+                },
+                {
+                    img: "https://i0.hdslb.com/bfs/bangumi/image/7652424c287f03dffe1ba74cc392b14e47f32c3f.png@87w_88h_1c_100q.webp",
+                    title: "高校之神（僅限港澳台地區）",
+                    update: "第11话"
+                },
+                {
+                    img: "https://i0.hdslb.com/bfs/bangumi/image/46837ce59f8080da6597ac76a418bde16714835d.png@87w_88h_1c_100q.webp",
+                    title: "刃牙 大擂台赛篇",
+                    update: "第11话"
+                },
+                {
+                    img: "https://i0.hdslb.com/bfs/bangumi/image/7866dd0365087f3bbc6aeb61563935080b8c3be5.jpg@87w_88h_1c_100q.webp",
+                    title: "欢迎来到加帕里公园 第三季",
+                    update: "第11话"
+                },
+                {
+                    img: "https://i0.hdslb.com/bfs/bangumi/image/7ce258b0fc3b97b6fbee4076f98a2a56d4a68192.png@87w_88h_1c_100q.webp",
+                    title: "別冊 奧林匹克之環（僅限台灣地區）",
+                    update: "第11话"
+                },
+            ],
+            wereRank: [{
+                    href: 'https://www.bilibili.com/bangumi/play/ss32781',
+                    title: '刀剑神域 爱丽丝篇 异界战争-终章-',
+                    update: '更新至第22话'
+                },
+                {
+                    href: 'https://www.bilibili.com/bangumi/play/ss29325',
+                    title: '某科学的超电磁炮T',
+                    update: '更新至第23话'
+                },
+                {
+                    href: 'https://www.bilibili.com/bangumi/play/ss33802',
+                    title: 'Re：从零开始的异世界生活 第二季',
+                    update: '更新至第10话'
+                },
+                {
+                    href: 'https://www.bilibili.com/bangumi/play/ss33804',
+                    title: '魔物娘的医生',
+                    update: '更新至第10话'
+                },
+                {
+                    href: 'https://www.bilibili.com/bangumi/play/ss33800',
+                    title: '宇崎学妹想要玩！',
+                    update: '更新至第10话'
+                },
+                {
+                    href: 'https://www.bilibili.com/bangumi/play/ss32998',
+                    title: '我的青春恋爱物语果然有问题。完',
+                    update: '更新至第10话'
+                },
+                {
+                    href: 'https://www.bilibili.com/bangumi/play/ss33805',
+                    title: '炎炎消防队 贰之章',
+                    update: '更新至第11话'
+                },
+                {
+                    href: 'https://www.bilibili.com/bangumi/play/ss6422',
+                    title: '黑色四叶草',
+                    update: '更新至第143话'
+                },
+                {
+                    href: 'https://www.bilibili.com/bangumi/play/ss5978',
+                    title: '博人传 火影忍者新时代',
+                    update: '更新至第165话'
+                },
+                {
+                    href: 'https://www.bilibili.com/bangumi/play/ss33803',
+                    title: '没落要塞 / DECA-DENCE',
+                    update: '更新至第10话'
+                }
+            ],
+            comic:[
+                
+            ],
+            ban:[
+                { txt:"直播", link: "#isLive"},
+                {txt:"动画",link:"#animation"},
+                {txt:"番剧",link:"#hisPlay"},
+                {txt:"国创",link:"#gen"},
+                {txt:"漫画",link:"#comic"},
+                {txt:"音乐",link:"#music"},
+                {txt:"舞蹈",link:"#dance"},
+                {txt:"游戏",link:"#game"},
+                {txt:"知识",link:"#knowledge"},
+                {txt:"课堂",link:"#class"},
+                {txt:"数码",link:"#digital"},
+                {txt:"生活",link:"#life"},
+                {txt:"鬼畜",link:"#ghostLivestock"},
+                {txt:"时尚",link:"#fashion"},
+                {txt:"资讯",link:"#information"},
+                {txt:"娱乐",link:"#entertainment"},
+                {txt:"专栏",link:"#column"},
+                {txt:"电影",link:"#movie"},
+                {txt:"TV剧",link:"#tvSeries"},
+                {txt:"影视",link:"#filmTelevision"},
+                {txt:"纪录片",link:"#documentary"}
+            ],
+        },
+        methods: {
+            Go() {
+                // 开始改变变量n
+                this.interId = setInterval(() => {
+                    if (this.n == this.slideSwiper.length - 1) {
+                        this.n = 0;
+                    } else {
+                        this.n++;
+                    }
+                }, 2000)
+            },
+            clearGo() {
+                clearInterval(this.interId)
+            },
+            change(index) {
+                this.number = index;
+                this.number2 = index;
+            }
+        },
+        mounted() {
+            this.Go()
+        }
+    })
+</script>
+
+</html>

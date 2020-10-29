@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>排行榜-哔哩哔哩漫画</title>
+    <link rel="stylesheet" href="../js/layui/css/layui.css">
+    <link rel="stylesheet" href="../css/bilibili.css">
+    <link rel="stylesheet" href="../sort/sort.css">
+    <link rel="stylesheet" href="rankings.css">
+    <meta name="referrer" content="no-referrer">
+</head>
+<body>
+<div class="main">
+    <div id="header">
+        <div class="layui-header">
+            <div class="head-layout">
+                <ul class="layui-nav">
+                    <li class="layui-nav-item">
+                        <div>
+                            <img class="logo-img"
+                                 src="https://i0.hdslb.com/bfs/manga-static/manga-pc/img/c9219d816eacd.png">
+                            <span style="font-size: 16px">哔哩哔哩漫画</span>
+                        </div>
+                    </li>
+                </ul>
+                <div id="nav-box">
+                    <ul class="layui-nav">
+                        <li class="layui-nav-item"><a href="../../../index.html" id="logo-main">主站</a></li>
+                        <li class="layui-nav-item"><a href="../index.html">首页</a></li>
+                        <li class="layui-nav-item"><a href="../sort/sort.html">分类</a></li>
+                        <li class="layui-nav-item layui-this"><a href="#">排行榜</a></li>
+                        <li class="layui-nav-item"><a href="../update/update.html">更新</a></li>
+                    </ul>
+                    <ul class="layui-nav">
+                        <li class="layui-nav-item"><a href="#">冒险</a></li>
+                        <li class="layui-nav-item"><a href="#">热血</a></li>
+                        <li class="layui-nav-item"><a href="#">恋爱</a></li>
+                        <li class="layui-nav-item"><a href="#">少女</a></li>
+                        <li class="layui-nav-item"><a href="#">分类</a></li>
+                        <li class="layui-nav-item"><span class="layui-icon">&#xe602;</span></li>
+                        <li class="layui-nav-item"><a href="#">排行榜</a></li>
+                        <li class="layui-nav-item"><a href="#">更新</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="head-layout">
+                <ul class="layui-nav">
+                    <li class="layui-nav-item">
+                        <div class="layui-input-inline">
+                            <input type="text" placeholder="小魔头暴露啦！" id="head-input" class="layui-input"
+                                   title="人……人家才不想让你搜索呢！哼！(╯‵□′)╯︵┻━┻">
+                        </div>
+                    </li>
+                </ul>
+                <ul class="layui-nav">
+                    <li class="layui-nav-item"><a href="">下载APP</a></li>
+                    <li class="layui-nav-item"><a href="">历史</a>
+                        <div>
+                            <div class="nav-child nav-child2">
+                                <div class="user-info">
+                                    <div class="info-item2">您还没有看过漫画喔 ←◡←</div>
+                                </div>
+                                <div class="logout-btn-container">
+                                    <button class="logout-button">查看全部 ></button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="layui-nav-item"><a href="">追漫</a>
+                        <div>
+                            <div class="nav-child nav-child2">
+                                <div class="user-info">
+                                    <div class="info-item2">您还没有看过漫画喔 ←◡←</div>
+                                </div>
+                                <div class="logout-btn-container">
+                                    <button class="logout-button">查看全部 ></button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="#">
+                            <div class="my-head-animation">
+                                <img src="https://i2.hdslb.com/bfs/face/2db2b509c4d43d7335f98817c6d5279fa92409d0.jpg@120w.jpg"
+                                     class="layui-nav-img">
+                            </div>
+                        </a>
+                        <div>
+                            <div class="nav-child">
+                                <div class="user-info">
+                                    <div class="user-name">Miku-Y</div>
+                                    <div class="info-item">
+                                        <img src="data:image/png;base64,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"
+                                             class="item-icon">
+                                        <span class="item-text">漫币</span>
+                                        <span class="item-num">666</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <img src="data:image/png;base64,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"
+                                             class="item-icon">
+                                        <span class="item-text">漫读券</span>
+                                        <span class="item-num">5</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAAH7+Yj7AAAABGdBTUEAALGPC/xhBQAAB59JREFUWAntWE2IHEUUftXTM7Ozk53NbrKr+4ORaEyC5hCJqOAlIioq+BuEgCeVnDwIkVz1ZGLwIIJgSEAPIh68+XMRRC8iJhqMByUgmqi7Mc7+ZH9mZ3e62+97r6p7Mhu9BjS1292vXr2f7716VdU9Ildojryd597LOklVOmsVWcMVk5mkZXFJWXZtHJYscxIps1OWHY1hac4uKlMl2+dn5ZvOknQwmCQtyq1vbttXr/8WjU1OdDoVSFbl1x0PRXE0MjqRJLHc2tis9pY//SCNE3hNXFkycTIztwSbMSgRN/7ZO2knqUgCjM1HnlLs6z1dgWNR/vxulpaqMl4ZkkbcR4Pq054iX3933oLswF8KDOeWWvL97CUVIhZmgRfxaOAUykBO1gZkY6WCQfo2odMXMkmRwqvYNOrtZ09krtqPgErAEy4ECHr1/F8yff8zLt768StPumoNzEh2DlwnopH6YBDQt5gztkgSjEEoy0ryw9wMomdDxLjYoQG2KJGSCgVhWqSgaThJYUAFBYLUImMgrirz0mJLJ14T7i3GggDoNk0i2dLoV5cDdTwNg45RW6Oe/Pw40l9CEUOBSrSSMupImifPbJKXX55RV1flphCD55u/PPyWuPjGjBlLwSVczRSyzT6LEjGidn2sCCuTtekHn32M0pRQg1s/euXhyvaJj1yVtc2YnYxWGrKpUs+TZHPlVXziyPv24rLKJ39cXL3wwP6qzaKTPimxrC2BaRbJ9EpLWkmHFtA48WicWyIkSR6I3Zv70YFeFmnp6HrhFHL6XMRQUEVAyPDOXlrQ/q6NQzTnmxm1jjkiEBYUm+1RCDOCIQemGtS6LWhTNlQGVTNlJGRZGpcZpELhxXJ4Q39dBrG6rVl4Z348J4vLK54nctfuHUrTWGq7iE0KuO6GL46lpbFRkPTGUDzCK9GBpxE56Uz9KbMnT1/lgs3jvEb0ZsAKCtyhw/sGN91z5/vCwuYqwExyxegqwZPLkbSuCl3nLBX0F5ZPTD31wofBsBocfHX/0Oi9d8yUx0e1sFNdYlY2qW4KVptcPSx8M2702sU5yZoLh6Yff+41GtWVMrJ3z0x5YsTqTxeqk50bYFwRFb45ZHs1CSdTS6syNTwsa4k7AsZRjtoCpGct1lDQfDI8KrKxj0bkvrF/fX9F6jE2/5KejTpoBlXajFKJxn5ZmveqwUh40g9o76wcwUSXI28QRpTJiaBwJEudRM7Mzcpsu32ZAZuYgJPypAtnajCc/0y4IiRK72B+lSdjYSAncyOMLIzrnk55zpgZuYwmr5A1uotB0o49C5SiRcjqkeESvl104pyduL2hUlk9ICqLRjlWNgFdCDcU8Y7BhlSYdDggkpm5RaWpWqnEUq/VYBN/CoJcX4es+JL3ZIMR3jA3mgTu4TT/6ec/ct7I8KDctKWmEa0zSClDWeQyaGqJ+M7dt29XKhjgfDVbzHORQztTFlYOSWX+SDTEw8iMnm4yPO/AnzWhpArnGG+vSra0PAVhneu8gMY/efNgVOs/GvIYDivbIKDIlcRchdSoM3QT9/vso09MKvRrt2sZ+E9mIF8mITo9/vbuOYPtZUL4sqgDXH8kij2t6ION5WNnQvEM25MtevJDM1umz+WHEbxUZ4stHJsH9JQLknwWAF/cV9v29F1nJYomSsMNiapV231yUBQ342W8XErEdW28dWB0b7TxANAQch/gP84hXGvYqWzfAMbmnKTtNb40HLjw5PPHaJnNXq9BbL3vtodwtk7Em7Gnlu0b2qKGI76BODp0MlFtSKNsH8FdaVFj3fGqrt6KHHghBag0xqeW1mR6OZEI7wrZ3AJfSN7G2HFcuhMWmyw4zAij02fY9fzrkYIEr63fPpYJdaI3gjAgxKSZ9VksZEjBtpcLwY3VK/hGRylBngdxPu4V8wxqn0K4HE96b8ym0fjk/dlu6cXpHipX5Tp8ZJc43d6gEb1Z6x0PwvbUpMCeBqmBFeMFQP0QxkB+YBsojUiV2Kei54Nuomaa7XkZwOfcloE6w9dx3ov2b+B81j0onSUFWmjnAFmvsS4CZFCfnCqbugDMwPXysXCgwWLvbfl05ekNEh6Y74bpVftaUkGua5GQpYKaIYrSMZnMQABweRa7s0nR0CivEP4BGOXyIQaGTnjXo83ulmdQvxRVmALcTrwin1AK2TQaBsHn30gf6rBmP6KYYQOXA8i9FY51TG+Bh/ojSNg0P7lSsc2QZVFAOKxcBRf4gIatpupiGav3yYa495cwcxac935PFy5F7PVvrIsVZsaXS9dIkUEWIRrrzXLALJJTKPNDaqRe7QHXBUwN8CZyy9Zx7GlqgMmBFbNNKi5xxVpbhc35FfNhGQwj9swBJq322RIy1plflmhokPsy2nqQF1t4pQygmWH1zCyDABJ9qm0DEYI0dz5Y/F6TrmKTXsywr5KHk2WlrVeWyCnI6iZNHYVhynp3k5+88ZLrrx2J+vrE4bXePj+LLBYOzXAAFfhaQ1oaNN39aWV9ldNxC55ncXoJ79uddGr29Pe39f5U1wswx7rh6MHR2sDgYM7Iie4FkTOlXZCeurJcr5hLy8n8iRPn5dQpHMTX2v8wA38DUw/unxKk2VEAAAAASUVORK5CYII="
+                                             class="item-icon">
+                                        <span class="item-text">限免卡</span>
+                                        <span class="item-num">0</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAtUExURUxpcc8wX88yX88wX9YzZv+CmP9ea/99nP9Yb9AwX/9MeehTePVri9pBbP9ieGVJjOkAAAAFdFJOUwDIZb0ZCo6xpgAAAbJJREFUSMftlL9uwjAQh1HpS7B1ZevarS9heSCskV/AihBhjSpvtFLpiWSn7VxSBsYoygMgFKG+S8//kpAYWBj5ie0+fWcfzvV6t1wvdwNwZv6g6/dPcCJvzwrow++LzWr1VecbHhUw/GB1XTSRz1cFDNaMSUQI/AnRVMwVAJE1COloKkADvh9Fsp4RSklQJWwAWkAwnFJqiQbgRwbgdfkIYLWBcN4FmL4G1lUD7mjBrIGEOXe2kApZHwGkWJv+pccG3xo2AEsENkmrhTVQiAvAEUAcuA0e7MaQBxPV5wiQs1RH+BlhsUw6g2LWIIEpLNqAmmXVosAunRbmFmWC+nIZdA14DQkUAPEY9l3ADsrbHrKN7tAxMKLjQRxuD/mJFpgZpLKR+xZq2nhKedQWgMOsOniwn+E5WoA1TMysOoBvDlkmRAFpG4i0YQQL4m5hDAVk1PzpbcBXACzxVehn0wL0oMawI9Q8PLeBqLcd5sE5gHMa0HOA+jzoWQO5aOAuQ1YTpPX5V2F2Fek1AmYFVfVqmeEqQsSsoOF7BUSVQKzqJdaHtcsghF2DFxfpxVV8y1XyD/20X+Dx4T3YAAAAAElFTkSuQmCC"
+                                             class="item-icon">
+                                        <span class="item-text">打折卡</span>
+                                        <span class="item-num">0</span>
+                                    </div>
+                                    <div class="tooltip">下载 APP 领 5 张漫读券</div>
+                                </div>
+                                <div class="logout-btn-container">
+                                    <button class="logout-button">退出登录</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="a-placeholder"></div>
+    <div class="ran-container">
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+            <div class="sidebar-container">
+                <ul class="layui-tab-title sidebar-ctnr">
+                    <li class="layui-this sidebar-item">
+                        <span class="sid-t">日漫榜</span>
+                        <span class="arrow"></span>
+                    </li>
+                    <li class="sidebar-item">
+                        <span class="sid-t">国漫榜</span>
+                        <span class="arrow"></span>
+                    </li>
+                    <li class="sidebar-item">
+                        <span class="sid-t">月票榜</span>
+                        <span class="arrow"></span>
+                    </li>
+                    <li class="sidebar-item">
+                        <span class="sid-t">投喂榜</span>
+                        <span class="arrow"></span>
+                    </li>
+                    <li class="sidebar-item">
+                        <span class="sid-t">飙升榜</span>
+                        <span class="arrow"></span>
+                    </li>
+                    <li class="sidebar-item">
+                        <span class="sid-t">免费榜</span>
+                        <span class="arrow"></span>
+                    </li>
+                </ul>
+            </div>
+                <div class="layui-tab-content data-list-container">
+                    <div class="layui-tab-item layui-show">
+                        <div class="rank-title-row">
+                            <h1 class="rank-title">日漫榜</h1>
+                            <span class="rank-hint">热门日漫作品人气排行</span>
+                        </div>
+                        <div class="rank-item-wrapper">
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/1.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">租借女友</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">宫岛礼吏 讲谈社</p>
+                                            <p class="meta-ctnr-t">恋爱 日常 后宫</p>
+                                            <a class="meta-ctnr-t">更新至 157 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big" style="background-image: url(../img/rankings/number/2.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/2.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">辉夜大小姐想让我告白</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">赤坂明集英社</p>
+                                            <p class="meta-ctnr-t">恋爱 搞笑 校园 日常</p>
+                                            <a class="meta-ctnr-t">更新至 201 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big" style="background-image: url(../img/rankings/number/3.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/3.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">航海王</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">尾田荣一郎 集英社</p>
+                                            <p class="meta-ctnr-t">奇幻 热血 冒险</p>
+                                            <a class="meta-ctnr-t">更新至 991 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item " style="background-image: url(../img/rankings/number/4.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/4.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">鬼灭之刃</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">吾峠呼世晴 集英社</p>
+                                            <p class="meta-ctnr-t">冒险 奇幻</p>
+                                            <a class="meta-ctnr-t">共 207 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/5.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/5.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">碧蓝之海</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">井上坚二 吉冈公威 讲谈社</p>
+                                            <p class="meta-ctnr-t">搞笑 热血</p>
+                                            <a class="meta-ctnr-t">更新至 63 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/6.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/6.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">见面5秒开始战斗</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">肠才藏 都柏 小学馆</p>
+                                            <p class="meta-ctnr-t">冒险</p>
+                                            <a class="meta-ctnr-t">更新至 124 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/7.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/7.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">入间同学入魔了！</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">西修 秋田书店</p>
+                                            <p class="meta-ctnr-t">搞笑 校园 奇幻 热血</p>
+                                            <a class="meta-ctnr-t">更新至 173 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/8.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/8.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">总之就是非常可爱！</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">畑健二郎 小学馆</p>
+                                            <p class="meta-ctnr-t">日常 搞笑 恋爱</p>
+                                            <a class="meta-ctnr-t">更新至 126 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/9.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/9.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">路人女主的养成方法 恋爱节拍器</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">武者サブ  SE社</p>
+                                            <p class="meta-ctnr-t">恋爱 校园 后宫</p>
+                                            <a class="meta-ctnr-t">共 52 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="no-more-ctnr">没有更多啦~</p>
+                    </div>
+                    <div class="layui-tab-item">
+                        <div class="rank-title-row">
+                            <h1 class="rank-title">国漫榜</h1>
+                            <span class="rank-hint">热门国漫作品人气榜行</span>
+                        </div>
+                        <div class="rank-item-wrapper">
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/1.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">幽冥诡匠</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">木偶漫画 转轮手枪</p>
+                                            <p class="meta-ctnr-t">惊奇 悬疑 冒险</p>
+                                            <a class="meta-ctnr-t">更新至 300 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big" style="background-image: url(../img/rankings/number/2.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/2.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">元龙</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">原著: 任怨 闻源文化</p>
+                                            <p class="meta-ctnr-t">冒险 玄幻 热血</p>
+                                            <a class="meta-ctnr-t">更新至 102 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big" style="background-image: url(../img/rankings/number/3.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/3.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">天官赐福</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">白梦社 墨香铜臭 STARember 晋江文学城</p>
+                                            <p class="meta-ctnr-t">古风 纯爱</p>
+                                            <a class="meta-ctnr-t">更新至 041 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item " style="background-image: url(../img/rankings/number/4.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/4.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">怎么办！我穿越成了最弱小野怪</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">分子互动 编剧: 山灰 主笔: coin</p>
+                                            <p class="meta-ctnr-t">冒险 搞笑 奇幻</p>
+                                            <a class="meta-ctnr-t">更新至 056 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/5.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/5.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">正常人谁看Gay啊</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">不会吧不会吧</p>
+                                            <p class="meta-ctnr-t">还真有人看？</p>
+                                            <a class="meta-ctnr-t">恶心</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/6.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/6.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">本剑仙绝不吃软饭</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">风露社</p>
+                                            <p class="meta-ctnr-t">搞笑 玄幻 都市</p>
+                                            <a class="meta-ctnr-t">更新至 第133话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/7.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/7.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">小魔头暴露啦！</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">主笔: 树难栽 编剧: 注水怪象 鲜漫文化</p>
+                                            <p class="meta-ctnr-t">搞笑 热血 后宫</p>
+                                            <a class="meta-ctnr-t">更新至 63.2</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/8.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/8.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">我在皇宫当巨巨</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">白梦社 之臻 小球</p>
+                                            <p class="meta-ctnr-t">少女 古风 搞笑</p>
+                                            <a class="meta-ctnr-t">更新至 141 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/9.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/9.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">无能的奈奈</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">武者  SE社</p>
+                                            <p class="meta-ctnr-t">恋爱 校园</p>
+                                            <a class="meta-ctnr-t">共 552 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="no-more-ctnr">没有更多啦~</p>
+                    </div>
+                    <div class="layui-tab-item">
+                        <div class="rank-title-row">
+                            <h1 class="rank-title">月票榜</h1>
+                            <span class="rank-hint">优秀作品月票排行</span>
+                        </div>
+                        <div class="rank-item-wrapper">
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/1.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">幽冥诡匠</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">木偶漫画 转轮手枪</p>
+                                            <p class="meta-ctnr-t">惊奇 悬疑 冒险</p>
+                                            <a class="meta-ctnr-t">更新至 300 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big" style="background-image: url(../img/rankings/number/2.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/1.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">租借女友</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">宫岛礼吏 讲谈社</p>
+                                            <p class="meta-ctnr-t">恋爱 日常 后宫</p>
+                                            <a class="meta-ctnr-t">更新至 157 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big" style="background-image: url(../img/rankings/number/3.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/3.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">天官赐福</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">白梦社 墨香铜臭 STARember 晋江文学城</p>
+                                            <p class="meta-ctnr-t">古风 纯爱</p>
+                                            <a class="meta-ctnr-t">更新至 041 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item " style="background-image: url(../img/rankings/number/4.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/2.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">辉夜大小姐想让我告白</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">赤坂明集英社</p>
+                                            <p class="meta-ctnr-t">恋爱 搞笑 校园 日常</p>
+                                            <a class="meta-ctnr-t">更新至 201 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/5.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/5.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">碧蓝之海</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">井上坚二 吉冈公威 讲谈社</p>
+                                            <p class="meta-ctnr-t">搞笑 热血</p>
+                                            <a class="meta-ctnr-t">更新至 63 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/6.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/8.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">总之就是非常可爱！</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">畑健二郎 小学馆</p>
+                                            <p class="meta-ctnr-t">日常 搞笑 恋爱</p>
+                                            <a class="meta-ctnr-t">更新至 126 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/7.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/2.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">元龙</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">原著: 任怨 闻源文化</p>
+                                            <p class="meta-ctnr-t">冒险 玄幻 热血</p>
+                                            <a class="meta-ctnr-t">更新至 102 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/8.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/4.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">鬼灭之刃</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">吾峠呼世晴 集英社</p>
+                                            <p class="meta-ctnr-t">冒险 奇幻</p>
+                                            <a class="meta-ctnr-t">共 207 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/9.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/6.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">本剑仙绝不吃软饭</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">风露社</p>
+                                            <p class="meta-ctnr-t">搞笑 玄幻 都市</p>
+                                            <a class="meta-ctnr-t">更新至 第133话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="no-more-ctnr">没有更多啦~</p>
+                    </div>
+                    <div class="layui-tab-item">
+                        <div class="rank-title-row">
+                            <h1 class="rank-title">投喂榜</h1>
+                            <span class="rank-hint">距离榜单更新还有 6 天 04 时 51 分钟</span>
+                        </div>
+                        <div class="rank-item-wrapper">
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/1.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">租借女友</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">宫岛礼吏 讲谈社</p>
+                                            <p class="meta-ctnr-t">恋爱 日常 后宫</p>
+                                            <a class="meta-ctnr-t">更新至 157 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big" style="background-image: url(../img/rankings/number/2.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item3/2.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">辉夜大小姐想让我告白</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">赤坂明集英社</p>
+                                            <p class="meta-ctnr-t">恋爱 搞笑 校园 日常</p>
+                                            <a class="meta-ctnr-t">更新至 201 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big" style="background-image: url(../img/rankings/number/3.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/3.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">航海王</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">尾田荣一郎 集英社</p>
+                                            <p class="meta-ctnr-t">奇幻 热血 冒险</p>
+                                            <a class="meta-ctnr-t">更新至 991 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item " style="background-image: url(../img/rankings/number/4.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/4.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">鬼灭之刃</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">吾峠呼世晴 集英社</p>
+                                            <p class="meta-ctnr-t">冒险 奇幻</p>
+                                            <a class="meta-ctnr-t">共 207 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/5.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item3/5.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">碧蓝之海</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">井上坚二 吉冈公威 讲谈社</p>
+                                            <p class="meta-ctnr-t">搞笑 热血</p>
+                                            <a class="meta-ctnr-t">更新至 63 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/6.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/6.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">见面5秒开始战斗</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">肠才藏 都柏 小学馆</p>
+                                            <p class="meta-ctnr-t">冒险</p>
+                                            <a class="meta-ctnr-t">更新至 124 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/7.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/7.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">入间同学入魔了！</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">西修 秋田书店</p>
+                                            <p class="meta-ctnr-t">搞笑 校园 奇幻 热血</p>
+                                            <a class="meta-ctnr-t">更新至 173 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/8.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item3/8.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">总之就是非常可爱！</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">畑健二郎 小学馆</p>
+                                            <p class="meta-ctnr-t">日常 搞笑 恋爱</p>
+                                            <a class="meta-ctnr-t">更新至 126 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/9.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/9.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">路人女主的养成方法 恋爱节拍器</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">武者サブ  SE社</p>
+                                            <p class="meta-ctnr-t">恋爱 校园 后宫</p>
+                                            <a class="meta-ctnr-t">共 52 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="no-more-ctnr">没有更多啦~</p>
+                    </div>
+                    <div class="layui-tab-item">
+                        <div class="rank-title-row">
+                            <h1 class="rank-title">飙升榜</h1>
+                            <span class="rank-hint">优秀作品追漫排名</span>
+                        </div>
+                        <div class="rank-item-wrapper">
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item3/1.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">幽冥诡匠</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">木偶漫画 转轮手枪</p>
+                                            <p class="meta-ctnr-t">惊奇 悬疑 冒险</p>
+                                            <a class="meta-ctnr-t">更新至 300 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big" style="background-image: url(../img/rankings/number/2.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/2.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">元龙</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">原著: 任怨 闻源文化</p>
+                                            <p class="meta-ctnr-t">冒险 玄幻 热血</p>
+                                            <a class="meta-ctnr-t">更新至 102 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big" style="background-image: url(../img/rankings/number/3.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/3.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">天官赐福</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">白梦社 墨香铜臭 STARember 晋江文学城</p>
+                                            <p class="meta-ctnr-t">古风 纯爱</p>
+                                            <a class="meta-ctnr-t">更新至 041 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item " style="background-image: url(../img/rankings/number/4.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item3/4.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">怎么办！我穿越成了最弱小野怪</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">分子互动 编剧: 山灰 主笔: coin</p>
+                                            <p class="meta-ctnr-t">冒险 搞笑 奇幻</p>
+                                            <a class="meta-ctnr-t">更新至 056 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/5.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/5.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">正常人谁看Gay啊</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">不会吧不会吧</p>
+                                            <p class="meta-ctnr-t">还真有人看？</p>
+                                            <a class="meta-ctnr-t">恶心</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/6.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/6.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">本剑仙绝不吃软饭</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">风露社</p>
+                                            <p class="meta-ctnr-t">搞笑 玄幻 都市</p>
+                                            <a class="meta-ctnr-t">更新至 第133话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/7.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/7.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">小魔头暴露啦！</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">主笔: 树难栽 编剧: 注水怪象 鲜漫文化</p>
+                                            <p class="meta-ctnr-t">搞笑 热血 后宫</p>
+                                            <a class="meta-ctnr-t">更新至 63.2</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/8.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/8.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">我在皇宫当巨巨</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">白梦社 之臻 小球</p>
+                                            <p class="meta-ctnr-t">少女 古风 搞笑</p>
+                                            <a class="meta-ctnr-t">更新至 141 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/9.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item3/9.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">无能的奈奈</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">武者  SE社</p>
+                                            <p class="meta-ctnr-t">恋爱 校园</p>
+                                            <a class="meta-ctnr-t">共 552 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="no-more-ctnr">没有更多啦~</p>
+                    </div>
+                    <div class="layui-tab-item">
+                        <div class="rank-title-row">
+                            <h1 class="rank-title">免费榜</h1>
+                            <span class="rank-hint">免费漫画人气排名</span>
+                        </div>
+                        <div class="rank-item-wrapper">
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/1.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">幽冥诡匠</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">木偶漫画 转轮手枪</p>
+                                            <p class="meta-ctnr-t">惊奇 悬疑 冒险</p>
+                                            <a class="meta-ctnr-t">更新至 300 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big" style="background-image: url(../img/rankings/number/2.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/1.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">租借女友</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">宫岛礼吏 讲谈社</p>
+                                            <p class="meta-ctnr-t">恋爱 日常 后宫</p>
+                                            <a class="meta-ctnr-t">更新至 157 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item digit-1-big" style="background-image: url(../img/rankings/number/3.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/3.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">天官赐福</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">白梦社 墨香铜臭 STARember 晋江文学城</p>
+                                            <p class="meta-ctnr-t">古风 纯爱</p>
+                                            <a class="meta-ctnr-t">更新至 041 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item " style="background-image: url(../img/rankings/number/4.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/2.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">辉夜大小姐想让我告白</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">赤坂明集英社</p>
+                                            <p class="meta-ctnr-t">恋爱 搞笑 校园 日常</p>
+                                            <a class="meta-ctnr-t">更新至 201 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/5.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/5.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">碧蓝之海</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">井上坚二 吉冈公威 讲谈社</p>
+                                            <p class="meta-ctnr-t">搞笑 热血</p>
+                                            <a class="meta-ctnr-t">更新至 63 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/6.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/8.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">总之就是非常可爱！</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">畑健二郎 小学馆</p>
+                                            <p class="meta-ctnr-t">日常 搞笑 恋爱</p>
+                                            <a class="meta-ctnr-t">更新至 126 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/7.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/2.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">元龙</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">原著: 任怨 闻源文化</p>
+                                            <p class="meta-ctnr-t">冒险 玄幻 热血</p>
+                                            <a class="meta-ctnr-t">更新至 102 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/8.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item/4.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">鬼灭之刃</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">吾峠呼世晴 集英社</p>
+                                            <p class="meta-ctnr-t">冒险 奇幻</p>
+                                            <a class="meta-ctnr-t">共 207 话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rank-item">
+                                <div class="rank-digits">
+                                    <span class="digit-item" style="background-image: url(../img/rankings/number/9.png)"></span>
+                                </div>
+                                <div class="rank-item-content">
+                                    <div class="manga-cover"
+                                         style="background-image: url(../img/rankings/item2/6.jpg);">
+                                    </div>
+                                    <div class="manga-info-ctnr">
+                                        <a class="manga-title">本剑仙绝不吃软饭</a>
+                                        <div class="meta-ctnr">
+                                            <p class="meta-ctnr-t">风露社</p>
+                                            <p class="meta-ctnr-t">搞笑 玄幻 都市</p>
+                                            <a class="meta-ctnr-t">更新至 第133话</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="no-more-ctnr">没有更多啦~</p>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <!--悬浮条-->
+    <div class="back-to-top">
+        <div class="position-ruler">
+            <div class="back-container">
+                <div class="pocket-tv"></div>
+                <div class="back-to-content">
+                    <a href="../index.html" target="_blank">
+                        <div class="to-home back-to-button">
+                            <i class="icon home-img"></i>
+                            <div class="back-to-title">去首页</div>
+                        </div>
+                    </a>
+                    <div class="line"></div>
+                    <div class="to-top back-to-button">
+                        <i class="icon top-img"></i>
+                        <div class="back-to-title">置顶</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="comic-footer">
+        <div class="footer-content">
+            <div class="row-one">
+                <div class="left-part">
+                    <div class="comic-logo">
+                        <img src="https://i0.hdslb.com/bfs/manga-static/manga-pc/img/c9219d816eacd.png"
+                             class="logo-image">
+                        <span style="vertical-align: middle;">哔哩哔哩漫画</span>
+                    </div>
+                    <div class="url-links">
+                        <a href="https://www.bilibili.com/blackboard/aboutUs.html" class="url-link">关于我们</a>
+                        <a href="https://www.bilibili.com/blackboard/contact.html" class="url-link">联系我们</a>
+                        <a href="https://www.bilibili.com/blackboard/friends-links.html" class="url-link">友情链接</a>
+                        <a href="https://www.bilibili.com/blackboard/join.html" class="url-link">加入我们</a>
+                    </div>
+                </div>
+                <div class="divider2"></div>
+                <div class="right-part">
+                    <a href="//space.bilibili.com/326499679" class="link-item">
+                        <img src="../img/footer/gf.svg">
+                        <div class="item-text">B 站官号</div>
+                    </a>
+                    <a href="https://weibo.com/bilibilicomic" class="link-item">
+                        <img src="../img/footer/xl.png">
+                        <div class="item-text">新浪微博</div>
+                        <div class="ew-panel">
+                            <div class="ew-image" style="background-image: url(../img/footer/sina.png)"></div>
+                        </div>
+                    </a>
+                    <a href="https://manga.bilibili.com/app-download" class="link-item download">
+                        <img src="../img/footer/xz.png">
+                        <div class="item-text">下载 bilibili 漫画客户端</div>
+                        <div class="ew-panel">
+                            <div class="ew-image" style="background-image: url(../img/footer/download.png)"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="row-two">
+                <div class="logo-list">
+                    <img src="../img/footer/hz.png" class="footer-logo-img">
+                    <img src="../img/footer/kk.png" class="footer-logo-img">
+                </div>
+                <div class="text-info">
+                    <p>互联网 ICP 备案：沪 ICP17039440 号 - 1 | 网络文化经营许可证：沪网文 [2017]10251-781 号</p>
+                    <p>全国网安备案号：31011002003092 | 增值电信业务经营许可证 沪 B2-20190879</p>
+                    <p>
+                        <a href="http://jbts.mct.gov.cn/" target="_blank">12318 全国文化市场举报网站</a>
+                        <span style="margin: 0 5px;">|</span>
+                        <a href="http://www.shjbzx.cn" target="_blank">上海市互联网违法和不良信息举报中心</a>
+                    </p>
+                    <p>上海呵呵呵文化传播有限公司 | 地址：上海市杨浦区政立路485号 | 电话：021-25099888</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+
+
+<script src="../js/layui/layui.all.js"></script>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script>
+    //注意：导航 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function () {
+        var element = layui.element;
+    });
+
+    //滚动条到指定位置触发动画（jQuery）
+    function scroll_to(div, cssname, reElements, key, fset) {
+        var a, c, d;
+        c = $(reElements).offset().top;//元素相对于顶部的距离
+        a = eval(c + fset);
+        d = $(window).scrollTop();//监控窗口已滚动的距离;
+        switch (key) {
+            case 0:
+                if (d > a) {
+                    $((div)).addClass((cssname));
+                } else {
+                    $((div)).removeClass((cssname));
+                }
+                break;
+        }
+    }
+
+    //滚动条位置监听
+    $(document).ready(function () {
+        $(window).scroll(function () {
+                scroll_to(".position-ruler", 'bt-show', "#a-placeholder", 0, 10);
+            }
+        );
+    });
+    //监听鼠标滚轮前后滚动
+    $(document).on("mousewheel DOMMouseScroll", function (e) {
+        var delta = (e.originalEvent.wheelDelta && (e.originalEvent.wheelDelta > 0 ? 1 : -1)) || // chrome & ie
+            (e.originalEvent.detail && (e.originalEvent.detail > 0 ? -1 : 1)); // firefox
+        if (delta > 0) {
+            // 向上滚
+            $('#nav-box').removeClass('up50');
+
+        } else if (delta < 0) {
+            // 向下滚
+            $('#nav-box').addClass('up50');
+        }
+    });
+
+    //监听滚动条上下滑动
+    let currentVal = 0;
+    let scrollVal = 0;
+    $(window).scroll(function () {
+        currentVal = scrollVal;
+        scrollVal = $(window).scrollTop();
+        if (currentVal < scrollVal) {
+            //滚动条下滑
+            $('#nav-box').addClass('up50');
+        } else {
+            //滚动条上滑
+            $('#nav-box').removeClass('up50');
+        }
+    });
+
+    //导航条点击跳转
+    function nav_to(div, clickId) {
+        var a;
+        a = $(div).offset().top;//元素相对于顶部的距离
+        $(clickId).click(function () {
+            $('html,body').animate({scrollTop: a}, 500);
+        })
+    }
+
+    nav_to("#a-placeholder", ".to-top");
+
+</script>
+</html>

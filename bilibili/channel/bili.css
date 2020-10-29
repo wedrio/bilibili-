@@ -1,0 +1,781 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+header{
+    height: 58px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #EEEEEE;
+    box-shadow: 1px 2px 2px #EEEEEE;
+    position: relative;
+    line-height: 58px;
+}
+.bili-header-left{
+    width: 600px;
+    height: 58px;
+    position: absolute;
+    left: 0;
+}
+.bili-header-logo{
+    width: 158px;
+    height: 58px;
+    background: url(image/header/logo.png) no-repeat 22px 8px;
+}
+.zhuzhan{
+    display:inline-table;
+    width: 52px;
+    height: 20px;
+    color: #000000;
+    font-size: 14px;
+    /*font-family: "微软雅黑";*/
+    margin-left:110px;
+    background: url(image/header/jiantou.png) no-repeat 30px center;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+.bili-header-box{
+    width: 670px;
+    height: 372px;
+    position: relative;
+    left: 25px;
+    border: 1px solid #EEEEEE;
+    box-shadow: 2px 2px 4px #EEEEEE;
+    padding: 10px 5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s;
+    transition-delay: 0.3s;
+    -webkit-transition: all 0.2s;
+    -webkit-transition-delay: 0.3s;
+    background-color: #FFFFFF;
+    z-index: 99;
+}
+.bili-header-logo:hover span{
+    color: #00A1D6;
+}
+.bili-header-logo:hover .bili-header-box{
+    visibility: visible;
+    opacity: 1;
+}
+.text{
+    width: 436px;
+    height: 352px;
+    float: left;
+    border-right: 1px solid #E7E7E7;
+}
+.item{
+    display: block;
+    width: 212px;
+    height: 44px;
+    float: left;
+    font: 14px/44px "微软雅黑";
+    text-indent: 60px;
+    border-radius:5px;
+    color: #000000;
+    transition: color 0.2s;
+    -webkit-transition: color 0.2s;
+}
+.item:hover{
+    color: #00A1D6;
+    background-color: #F4F4F4;
+}
+.item span{
+    color: #999999;
+    font-size:12px ;
+    margin-left:75px ;
+}
+.ls{
+    margin-left:60px ;
+}
+.bili-header-left ul{
+    width: 443px;
+    position: absolute;
+    top: 0px;
+    left: 158px;
+}
+.bili-header-left ul li{
+    float: left;
+    text-align: center;
+}
+.bili-header-left ul li a{
+    margin: 0px 8px;
+    color: #000000;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+.zhuli{
+    color: #00A1D6;
+}
+.game-box{
+    width: 468px;
+    height: 258px;
+    position: absolute;
+    top: 59px;
+    left: 10px;
+    border: 1px solid #EEEEEE;
+    box-shadow: 2px 2px 4px #EEEEEE;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s;
+    transition-delay: 0.3s;
+    -webkit-transition: all 0.2s;
+    -webkit-transition-delay: 0.3s;
+    background-color: #FFFFFF;
+    z-index: 99;
+}
+.games:hover .game-box{
+    visibility: visible;
+    opacity: 1;
+}
+.game-card{
+    width: 245px;
+    height: 244px;
+    margin-top: 10px;
+    padding: 0px 10px;
+    float: left;
+}
+.game-card img{
+    border-radius: 4px;
+}
+.ig{
+    height: 20px;
+    width: 96%;
+    line-height: 20px;
+    text-indent: 10px;
+    font-size: 14px;
+    background-color: rgba(0,0,0,0.3);
+    position: relative;
+    top: -45px;
+    text-align: left;
+    color: #FFFFFF;
+    margin-left: 5px;
+}
+.game-card a{
+    width: 88px;
+    height: 100px;
+    float: left;
+    margin: -30px -4px;
+    color: #000000;
+}
+.game-card a:hover{
+    background-color: #E5E9EF;
+}
+.game-card a img{
+    width: 66px;
+    height: 66px;
+    border-radius: 10px;
+}
+.game-card a p{
+    line-height: 20px;
+    margin-top: -20px;
+}
+.game-text{
+    width: 180px;
+    height: 231px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 20px;
+    box-shadow: -3px 0px 2px #DFDFDF;
+}
+.game-text ul{
+    width: 180px;
+    height: 200px;
+    position: absolute;
+    top: 40px;
+    left: 290px;
+    outline: 0px;
+}
+.game-text ul li{
+    height: 28px;
+    width: 100%;
+    clear: both;
+    line-height: 28px;
+    text-align: left;
+    transition: all 0s;
+    -webkit-transition: all 0s;
+}
+.game-text ul li a{
+    color: #000000;
+}
+.game-text img{
+    position: absolute;
+    left: 277px;
+    top: 9px;
+}
+.game-text ul li img{
+    position: absolute;
+    left: 165px;
+    top: -10px;
+    display: none;
+}
+.game-text ul li:hover{
+    background-color: #E5E9EF;
+}
+.game-text ul li:hover a{
+    color: #00A1D6;
+}
+.game-text ul li:hover img{
+    display: block;
+}
+.live-box{
+    width: 505px;
+    height: 225px;
+    position: absolute;
+    top: 59px;
+    left: 80px;
+    border: 1px solid #EEEEEE;
+    box-shadow: 2px 2px 4px #EEEEEE;
+    padding: 20px 0px 20px 20px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s;
+    transition-delay: 0.3s;
+    -webkit-transition: all 0.2s;
+    -webkit-transition-delay: 0.3s;
+    background-color: #FFFFFF;
+    z-index: 99;
+    color: #000000;
+}
+.zhibo:hover .live-box{
+    visibility: visible;
+    opacity: 1;
+}
+.live-left{
+    width: 257px;
+    height: 224px;
+    border-right: 1px solid #EEEEEE;
+    float: left;
+}
+ .live-box h3{
+    text-align: left;
+    line-height: 20px;
+    color: #EA759F;
+    font-size: 14px;
+}
+.live-list{
+    height: 200px;
+    margin-top: 10px;
+}
+.live-list a{
+    display: list-item;
+    float: left;
+    margin-top: 5px;
+    position: relative;
+    color: #000000;
+}
+.live-list a img{
+    height: 66px;
+    width: 66px;
+    border-radius: 33px;
+
+}
+.live-list a p{
+    line-height: 20px;
+    margin-top: -20px;
+    font-size: 12px;
+}
+.live-list a .zhibo-hover{
+    height: 66px;
+    width: 66px;
+    border-radius: 33px;
+    position: absolute;
+    top: 0px;
+    background: rgba(0,0,0,0.5) url(image/header/yuan.png) no-repeat 10px center;
+    color: #FFFFFF;
+    line-height: 66px;
+    text-indent: 12px;
+    font-weight: 700;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+}
+.live-list a:hover .zhibo-hover{
+    transform: scale(1);
+    -webkit-transform: scale(1);
+}
+.live-right {
+    float: left;
+    width: 246px;
+    height: 240px;
+}
+.live-right-card{
+    height: 100px;
+    margin: 5px 0px;
+}
+.live-right-card img{
+    margin-top: 10px;
+}
+.live-right-card:hover{
+    background-color: rgb(234,234,234);
+}
+.cartoon-card{
+    width: 498px;
+    height: 237px;
+    position: absolute;
+    top: 58px;
+    left: 180px;
+    border: 1px solid #EEEEEE;
+    box-shadow: 2px 2px 4px #EEEEEE;
+    padding: 12px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s;
+    transition-delay: 0.3s;
+    -webkit-transition: all 0.2s;
+    -webkit-transition-delay: 0.3s;
+    background-color: #FFFFFF;
+    z-index: 99;
+}
+.manhua:hover .cartoon-card{
+    visibility: visible;
+    opacity: 1;
+}
+.cartoon-left{
+    width: 320px;
+    height: 240px;
+    border-right: 1px solid #EEEEEE;
+    float: left;
+}
+.mh{
+    width: 136px;
+    height: 100px;
+    float: left;
+    line-height: 100px;
+    padding: 8px 8px;
+    margin: 0px 0px;
+    border-radius: 4px;
+}
+.mh:hover{
+    background-color: rgb(244,244,244);
+}
+.mh img{
+    width:136px;
+    height: 77px;
+    margin-top: 5px;
+}
+.mh  p{
+    line-height: 20px;
+    position: relative;
+    top: -42px;
+    font-size: 12px;
+    float: left;
+}
+.cartoon-right{
+    float:left;
+    width: 170px;
+    height: 233px;
+    margin-top: -10px;
+}
+.cartoon-right p{
+    text-align: left;
+    text-indent: 20px;
+    font-family: "微软雅黑";
+}
+.cartoon-right ol{
+    width: 170px;
+    height: 180px;
+}
+.cartoon-right ol li{
+    text-indent: 40px;
+    list-style: circle;
+    text-align: left;
+    width: 100%;
+    height: 30px;
+    clear: both;
+    line-height: 30px;
+    display: block;
+}
+.cartoon-right ol li a{
+    color: #000000;
+}
+.cartoon-right ol li:hover {
+    background-color: rgb(244,244,244);
+}
+.cartoon-right ol li img{
+    position: absolute;
+    width: 162px;
+    height: 216px;
+    border-radius: 4px;
+    right: -140px;
+    top: 40px;
+    display: none;
+}
+.cartoon-right ol li:hover img{
+    display: block;
+}
+.bili-header-down a{
+    margin-left: 5px;
+    padding-left: 18px;
+    background: url(image/header/shouji.png) no-repeat 0px center;
+}
+.down{
+    width: 275px;
+    height: 203px;
+    background: url(image/header/app-download.png) no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 58px;
+    right: -90px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s;
+    transition-delay: 0.3s;
+    -webkit-transition: all 0.2s;
+    -webkit-transition-delay: 0.3s;
+    z-index: 99;
+}
+.bili-header-down:hover .down{
+    visibility: visible;
+    opacity: 1;
+}
+.bili-header-list{
+    width: 224px;
+    height: 352px;
+    float: left;
+}
+.bili-header-right{
+    width: 500px;
+    height: 58px;
+    position: absolute;
+    right: 0;
+}
+.login{
+    font-size: 14px;
+    position: absolute;
+    right: 190px;
+}
+.register{
+    font-size: 14px;
+    position: absolute;
+    right: 150px;
+}
+.bili-banner-keyword{
+    border-radius: 5px;
+    position: absolute;
+    background-color: rgb(244,244,244);
+    width: 484px;
+    height: 34px;
+    top: 10px;
+    left:570px ;
+    border:1px solid rgb(231,231,231);
+}
+.bili-banner-keyword-background{
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 35px;
+    cursor:pointer;
+    background-color: #E7E7E7;
+}
+.bili-banner-keyword-logo{
+    position: absolute;
+    right: 17px;
+    width: 14px;
+    height: 14px;
+    top: 10px;
+    cursor:pointer;
+}
+.rul li{
+    float: left;
+    margin: 0 6px;
+}
+.rul li a{
+    color: #000000;
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+.submit{
+    width: 100px;
+    height: 37px;
+    background-color: #FB7299;
+    position: absolute;
+    right: 40px;
+    border-radius: 4px;
+    margin: 10px 0;
+    text-align: center;
+    line-height: 37px;
+}
+.submit a{
+    width: 100px;
+    height: 37px;
+    color: #FFFFFF;
+    font-size: 14px;
+    display: block;
+}
+.submit-box{
+    width: 308px;
+    height: 80px;
+    position: relative;
+    left: -186px;
+    top: 13px;
+    border: 1px solid #EEEEEE;
+    box-shadow: 2px 2px 4px #EEEEEE;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s;
+    transition-delay: 0.3s;
+    -webkit-transition: all 0.2s;
+    -webkit-transition-delay: 0.3s;
+    background-color: #FFFFFF;
+    z-index: 99;
+}
+.submit:hover .submit-box{
+    visibility: visible;
+    opacity: 1;
+}
+.submit-box ul{
+    width: 100%;
+    height: 100%;
+}
+.submit-box ul li{
+    width: 77px;
+    float: left;
+    height: 100%;
+    text-align: center;
+}
+.submit-box ul li:nth-child(3){
+    margin-top: 2px;
+}
+.submit-box ul li a{
+    color: #000000;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.submit-box ul li a img{
+    margin: 20px 20px -15px;
+}
+.submit-box ul li:hover{
+    background-color: #F4F4F4;
+}
+.bili-nav{
+    /*margin-left:1px;*/
+    overflow-y:scroll;
+    position: absolute;
+    left: auto;
+    width: 21%;
+    height: 100%;
+    /*background-color: #c0ff79;*/
+}
+.bili-nav-keywordbox{
+    height: 67px;
+    background-color: white;
+}
+.bili-nav-keyword{
+    font-size: 14px;
+    position: absolute;
+    border-radius: 3px;
+    height: 33px;
+    width: 208px;
+    background-color: white;
+    left: 10px;
+    top: 20px;
+    border:1px solid rgb(231,231,231);
+    text-align: left;
+    line-height: 30px;
+    color: rgb(153,153,153);
+    padding-left: 20px;
+}
+.bili-nav-keyword-logo{
+    position: absolute;
+    top:10px;
+    right: 10px;
+    width: 14px;
+    height: 14px;
+    cursor:pointer;
+}
+.bili-nav-find{
+    color: #222222;
+    position: absolute;
+    background-color: rgb(231,231,231);
+    top: 67px;
+    height: 44px;
+    width: 240px;
+    line-height: 43px;
+    padding-left: 20px;
+    /*鼠标悬停，改变*/
+    cursor:pointer;
+}
+.bili-main{
+    overflow-y:scroll;
+    position: absolute;
+    top: 60px;
+    left: 268px;
+    /*background-color: red;*/
+    background-color: rgb(244,244,244);
+    width: 82%;
+    height: 100%;
+}
+.bili-main-header{
+    position: relative;
+    width: 890px;
+    height: 41px;
+    /*background-color: #ebed64;*/
+    top: 39px;
+    left: 106px;
+}
+.bili-main-header-title{
+    font-size: 19px;
+    width: 85px;
+}
+.bili-main-header-change-btn{
+    float: right;
+    top: 10px;
+    text-align: center;
+    width: 70px;
+    font-size: 13px;
+    line-height: 0;
+    border:1px solid rgb(192,192,192);
+    cursor:pointer;
+}
+.bili-main-hot-box{
+    position: relative;
+    top: 30px;
+    width: 890px;
+    height: 100px;
+    /*background-color: #FF0000;*/
+    display: flex;
+}
+.bili-main-hot{
+    font-size: 14px;
+    text-align: center;
+    width: 172px;
+    height: 85px;
+    cursor: pointer;
+    /*background-color: #18B4ED;*/
+}
+.bili-main-content{
+    position: relative;
+    width: 890px;
+    height: 1000px;
+    justify-content: space-between;
+    align-items: center;
+}
+.bili-main-content-box{
+    position: relative;
+    top: 80px;
+    width: 890px;
+    height: 243px;
+}
+.bili-main-content-header{
+    width: 890px;
+    height: 48px;
+    cursor:pointer;
+}
+.bili-main-content-desc{
+    position: absolute;
+    width: 190px;
+    height: 20px;
+    font-size: 12px;
+    top: 30px;
+    left: 60px;
+}
+.bili-main-content-header-order{
+    position: absolute;
+    top: 10px;
+    left: 675px;
+    text-align: center;
+    width: 120px;
+    height: 24px;
+    background-color: white;
+    border:1px solid #00A1D6;
+}
+.bili-main-content-header-enter{
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 85px;
+    height: 24px;
+    background-color: white;
+    border:1px solid #00A1D6;
+    text-align: center;
+}
+.bili-main-content-header-text{
+    position: absolute;
+    width: 85px;
+    height: 20px;
+    top: 0;
+    left: 60px;
+    cursor:pointer;
+}
+.bili-main-content-listboxs{
+    position: relative;
+    top: 10px;
+    width: 890px;
+    height: 192px;
+    display: flex;
+    justify-content: space-between;
+    /*background-color: #18B4ED;*/
+}
+.bili-main-content-list{
+    position: relative;
+    width: 170px;
+    height: 96px;
+    cursor:pointer;
+}
+.bili-main-content-list img{
+    width: 170px;
+    height: 96px;
+}
+.bili-nav-list{
+    width: 264px;
+    height: 598px;
+    /*background-color: yellow;*/
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.bili-nav-list-item{
+    cursor:pointer;
+    width: 111px;
+    height: 45px;
+    /*background-color: red;*/
+    line-height: 40px;
+    padding-left: 20px;
+    font-size: 14px;
+    color: #222222;
+}
+.bili-nav-pack{
+    /*background-color: #12B7F5;*/
+    text-align: center;
+    height: 38px;
+    width: 260px;
+    line-height: 43px;
+    /*鼠标悬停，改变*/
+    cursor:pointer;
+    border-bottom:1px red;
+}
+.bili-nav-takebox{
+    height: 194px;
+    width: 260px;
+}
+.bili-nav-take{
+    /*background-color: #66676B;*/
+    height: 44px;
+    width: 240px;
+    line-height: 43px;
+    padding-left: 20px;
+}
+.bili-nav-login-btn{
+    height: 35px;
+    width: 100px;
+    font-size: 14px;
+    background-color: rgb(0,161,214);
+    position: relative;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 35px;
+    color: white;
+    cursor:pointer;
+    top: 30px;
+    left: 80px;
+}

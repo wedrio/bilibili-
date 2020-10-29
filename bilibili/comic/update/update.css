@@ -1,0 +1,18 @@
+.layui-carousel:hover .layui-carousel-arrow, .layui-carousel[lay-arrow=always] .layui-carousel-arrow{
+    left: 0;
+}
+.layui-carousel:hover .layui-carousel-arrow[lay-type=add], .layui-carousel[lay-arrow=always] .layui-carousel-arrow[lay-type=add]{
+    right: 0;
+}
+.discover .title {
+    padding: 10px 0 20px;
+}
+.layui-tab-title li {
+    padding: 0 4px;
+}
+.discover .tab-title {
+    font-size: 15px;
+}
+.layui-tab-title {
+    left: 10px;
+}

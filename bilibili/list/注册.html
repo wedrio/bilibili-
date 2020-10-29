@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>哔哩哔哩弹幕视频网 - ( ゜- ゜)つロ 乾杯~ - bilibili</title>
+    <meta name="referrer" content="no-referrer">
+    <meta charset="utf-8">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .top-box{
+        width: 100%;
+        height: 60px;
+        border: 1px solid black;
+    }
+    .text-box{
+        position: relative;
+        width: 32%;
+        height: 550px;
+        margin: 0 auto;
+    } 
+    .top-banner{
+        background-size:auto;
+        background-color:#00a0d8;
+        height:86px;
+        text-align:center;
+        margin-top: -50px;
+        margin-bottom: 20px;
+    }
+    .title-line{
+        width:980px;
+        height:28px;
+        margin:0 auto;
+        border-bottom:1px solid #ddd;
+        margin-bottom:28px;
+        text-align:center;
+    }
+    .tit{
+        font-size: 30px;
+        height:56px;
+        line-height:56px;
+        margin:0 auto;
+        padding:0 20px;
+        font-size:40px;
+        background:#fff;
+        text-align:center;
+    }
+    .nc-box input,.mm-box input
+    {
+        
+		width: 100%;
+    }
+    .nc-box input,.mm-box input,
+    .txsj-box select,.txsj-box input,
+    .yzm-srk,.zc-box input{
+        height: 40px;
+        border-radius: 5px;
+        margin-top: 40px;
+        border:1px solid #00a1d6;
+    }
+    .txsj-box select{
+        width: 30%;
+    }
+    .txsj-box input{
+        height: 39px;
+        margin-left: -6px;
+        display: inline-block;
+        width: 70%;
+    }
+    .yzm-srk{
+        width: 100%;
+    }
+    .yzm-hq{
+        border-radius: 5px;
+        position: relative;
+        top: -40px;
+        left: 70%;
+        color: white;
+        background-color: #00a1d6;
+        width: 30%;
+        height: 36px;
+        cursor: pointer;
+    }
+    .yty-box{
+        margin-top: -25px;
+        font-size: 14px;
+        
+    }
+    .zc-box input{
+        color: rgba(0, 0, 0, 0.25);
+        width: 100%;
+        background-color: #f5f5f5;
+        position: relative;
+        top: -30px;
+        cursor: pointer;
+    }
+    .yyzh-box a{
+        float: right;
+        margin-top: -20px;
+        font-size: 14px;
+    }
+    .yyzh-box a,.zc-box input,
+    .yty-box,.bilibili span,
+    .chuansongmen span,.top-nav ul li,
+    .login-box ul li{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .bottom-box{
+        line-height:normal;
+        font-family:"Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+        position:relative;
+        background-color:#f6f9fa;
+        padding:30px;
+    }
+    .bottom-box1{
+        font-size:14px;
+        display:flex;
+        justify-content:space-between;
+        width: 100%;
+        margin:0 auto;
+    }
+    .bottom-works{
+        flex-grow:4;
+        flex-shrink:1;
+        flex-basis:0%;
+        display:flex;
+        justify-content:space-between;
+    }
+    .bilibili,.chuansongmen{
+        flex-grow:2;
+        flex-shrink:1;
+        flex-basis:0%;
+        padding-right:40px;
+        margin-right:40px;
+        border-right:1px solid #eee;
+    }
+    .guanzhufangshi{
+        width: 250px;
+        height: 180px;
+        display: inline-flex;
+        text-align: center;
+        padding-left: 20px;
+    }
+    .bilibili ul,.chuansongmen ul{
+        height: 140px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        list-style: none;
+    }
+    .bilibili span,.chuansongmen span{
+        font-size:16px;
+        color:#999;
+        display:block;
+        height:20px;
+        margin-bottom:20px;
+    }
+    .bilibili ul a,.chuansongmen ul a{
+        display:inline-block;
+        margin-bottom:10px;
+        height:20px;
+        cursor:pointer;
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+        transition-property:color;
+        transition-duration:0.3s;
+        transition-timing-function:ease;
+        transition-delay:0s;
+    }
+    .bilibili ul a{
+        width: 50%;
+    }
+    .chuansongmen ul a{
+        width: 33%;
+    }
+    .wraper{
+        margin-left: 30px;
+        display: inline-flex;
+        text-align: center;
+        align-items: center;
+    }
+    .wraper a{
+        color: black;
+    }
+    .top-box,.nav-box{
+        display: flex;
+    }
+    .top-nav,.search-box,.login-box,.contribution-box{
+        height: 36px; 
+    }
+    .top-nav{
+        margin-left: 130px;
+        margin-top: 10px;
+        width: 440px;
+    }
+    .search-box{
+        margin-top: 10px;
+        width: 500px;
+    }
+    .login-box{
+        margin-left: 10px;
+        margin-top: 10px;
+        width: 140px;
+    }
+    .contribution-box{
+        margin-top: 10px;
+        width: 100px;
+        background-color: #FB7299;
+        line-height: 36px;
+        text-align: center;
+        cursor: pointer;
+        color: white;
+        border-radius: 2px;
+        display: block;
+    }
+    .blili-logo{
+        position: relative;
+        top: -55px;
+        left:20px;
+        width: 70px;
+        height: 50px;
+        background-image: url('image/bililogo2.PNG');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    .top-nav ul,.login-box ul{
+        list-style: none;
+    }
+    .top-nav ul li,.login-box ul li{
+        font-size: 14px;
+        line-height: 36px;
+        float: left;
+        cursor: pointer;
+    }
+   .top-nav ul li,.login-box ul li{
+        margin-left: 10px;
+    }
+    .top-nav ul li img{
+        width: 20px;
+        height: 25px;
+        display: inline;
+        vertical-align: middle;
+    }
+    .search-button,.search-text{
+        display: inline-block;
+    }
+    .search-text{
+        width: 88%;
+        height: 95%;
+        vertical-align: top;
+    }
+    .search-button{
+        margin-left: -7px;
+        width: 10%; 
+        height: 100%;
+        background-color: #E7E7E7;
+        cursor: pointer;
+    }
+    .login-box img{
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        vertical-align: middle;
+        display: inline;
+    }
+    .pic-box{
+        width: 200px;
+        margin-right: 20px;
+    }
+    .text-con{
+
+        color: #999;
+        font-size: 12px;
+    }
+    .text-con a{
+        color: #999;
+    }
+    .text-con p,.text-con span{
+        line-height: 24px;
+    }
+    .text-con span{
+        margin-right: 15px;
+        display: inline-block;
+    }
+    .wrap-box{ 
+        width: 100%;
+        display: flex;
+        margin: 0 auto;
+    }
+    .wraper a,.chuansongmen ul a,
+    .bilibili ul a,.yty-box a,
+    .yyzh-box a{
+        text-decoration: none;
+    }
+    .text-con a:hover,.chuansongmen ul a:hover,
+    .bilibili ul a:hover{
+        color: #00a1d6;
+    }
+</style>
+<script>
+</script>
+<body>
+    <div class="top-box">
+        <div class="top-nav">
+            <ul>
+                <a href="../../index.html" style="text-decoration: none;color: black"><li>主站</li></a>
+                <li>番剧</li>
+                <li>游戏中心</li>
+                <li>直播</li>
+                <li>会员购</li>
+                <a href="../comic/index.html" style="text-decoration: none;color: white"><li>漫画</li></a>
+                <li>赛事</li>
+                <li><img src="image/手机.png">下载APP</li>
+            </ul>
+        </div>
+        <div class="search-box">
+            <input type="text" class="search-text" placeholder="新款机器人vs Siri 谁胜？">
+            <input type="button" class="search-button" value="搜索">
+        </div>
+        <div class="login-box"> 
+            <ul>
+                <li><img src="image/头像.PNG" alt="">登录</li>
+                <li>注册</li>
+            </ul>
+        </div>
+        <div class="contribution-box">投稿</div>
+        
+    </div>
+    <div class="blili-logo"></div>
+    <div class="top-banner" data-v-258c41ba="">
+        <img src="image/注册img.PNG">
+    </div>
+    <div class="title-line" data-v-258c41ba="">
+        <span class="tit" style="font-size: 38px;">注册</span>
+    </div>
+    <div class="text-box">
+        <div class="nc-box">
+            <input type="text" placeholder="昵称">
+        </div>
+        <div class="mm-box">
+            <input type="text" placeholder="密码(6-16个字符组成，区分大小写)">
+        </div>
+        <div class="txsj-box">
+            <select>
+                <option value="">中国大陆</option>
+                <option value="">中国香港</option>
+                <option value="">中国台湾</option>
+                <option value="">美国</option>
+            </select>
+            <input type="text" placeholder="填写常用手机号">
+        </div>
+        <div class="yzm-box">
+            <input class="yzm-srk" type="password" placeholder="请输入短信验证码">
+                <input class="yzm-hq" type="button" value="点击获取">
+            </input>
+        </div>
+        <div class="yty-box">
+            <label for="">
+                <input type="checkbox">
+            </label>
+            我已同意
+            <a href="">《哔哩哔哩弹幕用户使用协议》</a>和
+            <a href="">哔哩哔哩隐私政策</a>
+        </div>
+        <div class="zc-box">
+            <input type="button" value="注册">
+        </div>
+        <div class="yyzh-box">
+            <a href="">已有账号，直接登录></a>
+        </div>
+    </div>
+    <div class="bottom-box">
+    <div class="bottom-box1">
+        <div class="bottom-works">
+            <div class="bilibili">
+                <span>bilibili</span>
+                <ul>
+                    <a href="">关于我们</a>
+                    <a href="">联系我们</a>
+                    <a href="">用户协议</a>
+                    <a href="">加入我们</a>
+                    <a href="">友情链接</a>
+                    <a href="">隐私政策</a>
+                    <a href="">bilibili认证</a>
+                    <a href="">Invetor Rlations</a>
+                </ul> 
+            </div>
+            <div class="chuansongmen">
+                <span>传送门</span>
+                <ul>
+                    <a href="">帮助中心</a>
+                    <a href="">高级弹幕</a>
+                    <a href="">活动专题页</a>
+                    <a href="">侵权申诉</a>
+                    <a href="">活动中心</a>
+                    <a href="">用户反馈论坛</a>
+                    <a href="">壁纸站</a>
+                    <a href="">广告合作</a>
+                    <a href="">名人堂</a>
+                    <a href="">MCN管理中心</a>
+                </ul>
+            </div>
+        </div>
+        <div class="guanzhufangshi">
+            <div class="wraper">
+                <a href="" class="biliapp">
+                    <img src="image/下载App.PNG" alt="">
+                    <p>下载app</p>
+                    <div class="appimg"></div>
+                </a>
+            </div>
+            <div class="wraper">
+                <a href="" class="biliapp">
+                    <img src="image/新浪.PNG" alt="">
+                    <p>新浪微博</p>
+                    <div class="appimg"></div>
+                </a>
+            </div>
+            <div class="wraper">
+                <a href="" class="biliapp">
+                    <img src="image/微信.PNG" alt="">
+                    <p>官方微信</p>
+                    <div class="appimg"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="wrap-box">
+    <div class="pic-box">
+        <img src="image/合作机构.PNG" alt="">
+        <img src="image/96210.PNG" alt="">
+		<img src="image/服务.PNG" alt="">
+    </div>
+    <div class="text-con"><p>
+        <span>
+            <a href="">营业执照</a>
+        </span>
+        <span>信息网络传播视听节目许可证：0910417</span>
+        <span>网络文化经营许可证 沪网文【2019】3804-274号</span>
+        <span>广播电视节目制作经营许可证：（沪）字第01248号</span>
+        <span>增值电信业务经营许可证 沪B2-20100043</span>
+        <span>互联网ICP备案：
+            <a href="">沪ICP备13002172号-3</a>
+        </span>
+        <span>出版物经营许可证 沪批字第U6699 号</span>
+        <span>互联网药品信息服务资格证 沪-非经营性-2016-0143</span>
+        <span>营业性演出许可证 沪市文演（经）00-2253</span>
+      </p>
+      <p>违法不良信息举报邮箱：help@bilibili.com |违法不良信息举报电话：4000233233转3</p>
+      <p>
+          <i class="sprite bg1"></i>
+          <a href="">上海互联网举报中心</a> | 
+          <a href="" target="">12318全国文化市场举报网站</a> | 
+          <i class="sprite bg2"></i>
+          <a href="">沪公网安备31011002002436号</a> | 
+          <a href="">儿童色情信息举报专区</a> | 
+          <a href="">扫黄打非举报</a>
+        </p>
+      <p>网上有害信息举报专区：
+          <i class="sprite bg3"></i>
+          <a href="">中国互联网违法和不良信息举报中心</a>
+      </p>
+      <p>亲爱的市民朋友，上海警方反诈劝阻电话“962110”系专门针对避免您财产被骗受损而设，请您一旦收到来电，立即接听。</p>
+      <p>公司名称：上海宽娱数码科技有限公司|公司地址：上海市杨浦区政立路485号|电话：021-25099888</p>
+    </div>
+    </div>
+    
+</div>
+</body>
+</html>

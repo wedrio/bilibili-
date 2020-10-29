@@ -1,0 +1,138 @@
+.style-section{
+    margin: 24px 0;
+    line-height: 2;
+    user-select: none;
+}
+.style-section .tag-block:nth-of-type(1){
+    margin-bottom: 25px;
+}
+.style-section .tag-block{
+    font-size: 14px;
+    white-space: nowrap;
+}
+.style-section .tag-block .block-title{
+    margin-right: 14px;
+    color: rgba(0,0,0,.34);
+    display: inline-block;
+    vertical-align: top;
+}
+.style-section .tag-block .tag-containers{
+    white-space: normal;
+    display: inline-block;
+    vertical-align: top;
+}
+.style-section .tag-block .tag-containers .style-tag{
+    padding: 0 10px;
+    margin: 0 4px;
+    color: rgba(0,0,0,.87);
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+.style-section .layui-tab-title li {
+    line-height: 30px!important;
+    min-width: 30px!important;
+}
+.style-section .layui-tab-title .layui-this {
+    border-style: none;
+    color: #32aaff!important;
+}
+.style-section .layui-tab-title .layui-this:after {
+    content: '';
+    width: 100%;
+    height: 41px;
+    border: 0;
+}
+
+.back-to-top{
+    margin: 180px 0 0 10px;
+    top: 0;
+    right: 0;
+    width: calc(50% - 650px);
+    min-width: 8%;
+    position: absolute;
+    z-index: 600;
+    height: 100%;
+}
+.position-ruler{
+    position: fixed;
+    bottom: -20px;
+    opacity: 0;
+    transition: all .2s;
+}
+.bt-show{
+     opacity: 1;
+     bottom: 0;
+ }
+
+.back-container{
+    width: 50px;
+    margin: 0 auto;
+}
+.back-to-top .pocket-tv{
+    width: 50px;
+    height: 52px;
+    background-size: cover;
+    background-image: url("../img/sort/bilitv.png");
+}
+.back-to-content{
+    width: 43px;
+    height: 122px;
+    margin: 0 auto;
+    border-radius: 2px;
+    background: #fff;
+    box-shadow: 0 1px 10px rgba(106,115,133,.1);
+}
+.back-to-button{
+    height: 60px;
+    width: 43px;
+    padding-top: 12px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: transparent;
+    border: 0;
+    transform-origin: center center;
+    cursor: pointer;
+}
+.back-to-content .icon{
+    width: 18px;
+    height: 18px;
+    background-size: cover;
+    display: inline-block;
+    transition: all .1s;
+}
+
+.home-img{
+    background-image: url("../img/sort/home.png");
+}
+.to-home:hover .home-img{
+    background-image: url("../img/sort/home2.png");
+}
+.top-img{
+    background-image: url("../img/sort/top.png");
+}
+.to-top:hover .top-img{
+    background-image: url("../img/sort/top2.png");
+}
+
+.back-to-title{
+    font-size: 12px;
+}
+.back-to-content .line{
+    width: 27px;
+    height: .5px;
+    margin: 0 auto;
+    background: #dadada;
+}
+
+
+
+
+
+
+
+
+
+
+

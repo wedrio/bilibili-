@@ -1,0 +1,433 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>动态</title>
+        <meta name="referrer" content="no-referrer">
+	</head>
+	<style>
+		.b-daohanglan {
+			width: 100%;
+			height: 3.75rem;
+			display: flex;
+			background-color: white;
+		}
+
+		.b-daohanglan-zuo {
+			width: 37.5rem;
+			height: 3.75rem;
+			display: flex;
+			line-height: 3.75rem;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.b-daohanglan-search {
+			width: 25rem;
+			display: inline-block;
+			height: 2.8125rem;
+			overflow: auto;
+			background: white;
+			border: 1px solid #D3D3D3;
+			border-radius: 5px;
+			position: relative;
+			top: 0.625rem;
+			margin-top: - 1.40625rem;
+		}
+
+		.b-daohanglan-search button {
+			width: 3.125rem;
+			height: 2.8125rem;
+			float: right;
+			border: none;
+			line-height: 2.8125rem;
+			background: #D3D3D3;
+			color: #fff;
+		}
+
+		.b-daohanglan-you {
+			width: 31.25rem;
+			height: 3.75rem;
+			line-height: 3.75rem;
+			display: flex;
+		}
+
+		.b-daohanglan-you touxiang {
+			width: 2.5rem;
+			height: 2.5rem;
+			border-radius: 0.625rem;
+			background-color: #D3D3D3;
+			border: #D3D3D3;
+		}
+
+		.b-daohanglan-you button {
+			width: 7.8125rem;
+			height: 2.8125rem;
+			align-items: center;
+			background: #FB7299;
+			border: none;
+		}
+
+		.b-xiabufen {
+			width: 100%;
+			height: 2000px;
+			background: url(img/background.bc725153.png);
+			background-attachment: fixed;
+		}
+
+		.b-xiabufen-zhongjian {
+			width: 1100px;
+			height: 2000px;
+			margin: 0 auto;
+			display: flex;
+		}
+
+		.b-gerenziliao {
+			width: 250px;
+			height: 200px;
+			background: white;
+			border-radius: 5px;
+			margin-top: 10px;
+			margin-right: 10px;
+		}
+
+		.b-toubutupian {
+			width: 250px;
+			height: 60px;
+			background: url("https://i0.hdslb.com/bfs/space/768cc4fd97618cf589d23c2711a1d1a729f42235.png@.webp");
+			border-radius: 5px;
+		}
+
+		.b-dongtailan-fabulan-1 {
+			width: 600px;
+			height: 125px;
+			background: white;
+			border-radius: 5px;
+			margin-top: 10px;
+		}
+
+		.b-dongtailan-fabulan-2 {
+			width: 600px;
+			height: 140px;
+			background: white;
+			border-radius: 5px;
+			margin-top: 10px;
+		}
+
+		.b-dongtailan-fabulan-3 {
+			width: 600px;
+			height: 60px;
+			background: white;
+			border-radius: 5px;
+			margin-top: 10px;
+		}
+
+		.b-dongtailan-fabulan-1-1 {
+			width: 200px;
+			height: 30px;
+		}
+
+		.b-dongtailan-fabulan-1 button {
+			position: relative;
+			float: right;
+			margin-right: 10px;
+		}
+
+		.b-dongtailan-dongtai1 {
+			width: 600px;
+			height: 300px;
+			border-radius: 5px;
+			background: white;
+			margin-top: 10px;
+		}
+
+		.b-dongtailan-dongtai2 {
+			width: 600px;
+			height: 300px;
+			border-radius: 5px;
+			background: white;
+			margin-top: 10px;
+		}
+
+		.b-dongtailan-dongtai3 {
+			width: 600px;
+			height: 300px;
+			border-radius: 5px;
+			background: white;
+			margin-top: 10px;
+		}
+
+		.b-dongtailan-dongtai4 {
+			width: 600px;
+			height: 300px;
+			border-radius: 5px;
+			background: white;
+			margin-top: 10px;
+		}
+
+		.b-youbian {
+			width: 250px;
+			height: 600px;
+		}
+
+		.b-gonggaolan {
+			width: 250px;
+			height: 160px;
+			background: white;
+			border-radius: 5px;
+			margin-top: 10px;
+			margin-left: 10px;
+		}
+
+		.b-gonggaolan img {
+			width: 220px;
+			height: 110px;
+			border-radius: 5px;
+			display: block;
+			margin: auto;
+			position: relative;
+			top: 15px;
+		}
+
+		.b-huatilan {
+			width: 250px;
+			height: 270px;
+			background: white;
+			border-radius: 5px;
+			margin-top: 10px;
+			margin-left: 10px;
+		}
+
+		.b-huatilan img {
+			width: 48px;
+			height: 18px;
+			border-radius: 90px;
+		}
+
+		.b-huatilan div {
+			width: 250px;
+			height: 35px;
+			display: flex;
+		}
+	</style>
+	<body>
+		<div class="b-daohanglan">
+			<div class="b-daohanglan-zuo">
+				<img src="img/BILIBILI_LOGO2.png" style="width: 70px;	height: 32px;"  >
+				<div><a href="../../index.html" style="text-decoration: none;color: #0C0C0C">主站 &ensp;</a></div>
+				<div>番剧 &ensp;</div>
+				<div><a href="../game-center/game.html" style="text-decoration: none;color: #0C0C0C">游戏中心 &ensp;</a></div>
+				<div>直播 &ensp;</div>
+				<div>会员购 &ensp;</div>
+				<div><a href="../comic/index.html" style="text-decoration: none;color: #0C0C0C">漫画 &ensp;</a></div>
+				<div>赛事 &ensp;</div>
+				<img src="img/手机%20(2).png" width="30px" height="30px" />
+				<div>下载APP &ensp;</div>
+			</div>
+			<div class="b-daohanglan-search">
+				<button style="background-image: url(img/搜索.png);"></button>
+			</div>
+			<div class="b-daohanglan-you">
+				<div class="touxiang"></div>
+				<div>&ensp;</div>
+				<div>&ensp;</div>
+				<div style="width: 40px;height: 40px;border-radius: 90px;background: blue;position: relative;top: 10px;"></div>
+				<div>&ensp;</div>
+				<div>大会员 &ensp;</div>
+				<div>消息&ensp;</div>
+				<div>动态&ensp;</div>
+				<div>收藏&ensp;</div>
+				<div>历史&ensp;</div>
+				<div>创作中心&ensp;</div>
+				<div>
+					<button style="border-radius: 5px;color: white;">
+						投稿
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="b-xiabufen">
+			<div class="b-xiabufen-zhongjian">
+				<div class="b-gerenziliao">
+					<div class="b-toubutupian"></div>
+					<a href="个人中心.html">
+						<div class="touxiang" style="width: 60px; height: 60px;border-radius: 90px;background: blue;position: relative;bottom: 15px;left: 10px;"></div>
+					</a>
+					<div style="font-size: 13px;text-align: center;position: relative;bottom: 45px;right: 10px;"> 登录</div>
+					<div style="width: 150px; height: 80px; display: flex; justify-content: space-between; margin: auto;">
+						<div style="position: relative;">
+							<div style="font-size: 14px;position: relative;bottom: 20px;">10</div>
+							<div style="font-size: 12px;color: #D3D3D3;">关注</div>
+						</div>
+						<div style="position: relative;">
+							<div style="font-size: 14px;position: relative;bottom: 20px;">0</div>
+							<div style="font-size: 12px;color: #D3D3D3;">粉丝</div>
+						</div>
+						<div style="position: relative;">
+							<div style="font-size: 14px;position: relative;bottom: 20px;">0</div>
+							<div style="font-size: 12px;color: #D3D3D3;">动态</div>
+						</div>
+					</div>
+				</div>
+				<div class="b-dongtailan">
+					<div class="b-dongtailan-fabulan-1">
+						<div>&ensp;</div>
+						<div style="font-size: 14px; color: #D3D3D3;position: relative;left: 20px;">有什么和大家分享的？</div>
+						<div>&ensp;</div>
+						<div style="position: relative;top: 30px;left: 10px;">
+							<img src="img/表情.png" width="20px" height="20px" />
+							<img src="img/图片.png" width="20px" height="20px" />
+							<img src="img/井号.png" width="20px" height="20px" />
+							<img src="img/排行%20(2).png" width="40px" height="20px" />
+							<img src="img/闹钟.png" width="20px" height="20px" />
+							<button style="width: 90px; height: 40px; color: white; position: relative; bottom: 15px;right: 10px; background: #FFAEC9; border: #FFAEC9; border-radius: 5px;">发布</button>
+						</div>
+					</div>
+					<div style="display: flex;" class="b-dongtailan-fabulan-2">
+						<div style="color: #A0A9B0;line-height: 150px;">〈</div>
+						<div style="width: 40px;height: 40px;border-radius: 90px;background: yellow;position: relative;top: 35px;left: 10px;"></div>
+						<div style="font-size: 12px;position: relative;right: 30px;top:85px;width: 55px;">全部动态</div>
+						<div style="width: 40px;height: 40px;border-radius: 90px;background: yellow;position: relative;top: 35px;left: 10px;"></div>
+						<div style="font-size: 12px;position: relative;right: 30px;top:85px;width: 50px;">夕寒君</div>
+						<div style="width: 40px;height: 40px;border-radius: 90px;background: yellow;position: relative;top: 35px;left: 10px;"></div>
+						<div style="font-size: 12px;position: relative;right: 30px;top:85px;width: 55px;">土味角虫</div>
+						<div style="color: #A0A9B0;line-height: 150px;margin-left:300px;">〉</div>
+					</div>
+					<div style="display: flex;" class="b-dongtailan-fabulan-3">
+						<div style="font-size: 14px;color: #A0A9B0;margin-left: 30px;line-height: 60px;">全部</div>
+						<div style="font-size: 14px;color: #A0A9B0;margin-left: 30px;line-height: 60px;">投稿视频</div>
+						<div style="font-size: 14px;color: #A0A9B0;margin-left: 30px;line-height: 60px;">追番追剧</div>
+						<div style="font-size: 14px;color: #A0A9B0;margin-left: 30px;line-height: 60px;">专栏</div>
+					</div>
+					<div class="b-dongtailan-dongtai1">
+						<a href="https://space.bilibili.com/366314/dynamic">
+						<div class="b-dongtailan-dongtai1-touxiang" style="width: 45px; height: 45px; border-radius: 90px;background: blue;position: relative;left: 20px;top: 20px;"></div></a>
+							<div style="width: 50px;position: relative;left: 80px;bottom: 20px;">夕寒君</div>
+							<div style="font-size: 12px;color:#A0A9B0;position: relative;left: 80px;bottom: 20px;">8小时前</div>
+							<img src="img/选项1.png" width="20px" height="20px" style="position: relative;bottom: 50px;left: 550px;" />
+							<div style="width: 600px;position: relative;left: 30px;bottom: 25px;">舔狗的下场分析的很透彻了吧</div>
+						
+						<div class="b-dongtailan-dongtai1-neirong" style="width: 545px;height: 150px;border-radius: 5px; position: relative;left: 30px;bottom: 15px; border:1px #A0A9B0 solid; ">
+							<img src="https://i1.hdslb.com/bfs/archive/45a6a118940f42a825cced47faeda064b1985063.jpg@203w_127h_1e_1c.webp"
+							 width="250px" height="150px" style="border-radius: 5px;" />
+							<div style="font-size: 14px;position: relative;bottom: 140px;left: 270px; ">周淑怡恋爱教室来啦:男生不要当舔狗哦</div>
+							<div style="font-size: 12px; margin-top: 70px;color: #D3D3D3;width: 500px;position: relative;bottom: 160px;left: 270px;">周周生动形象的分析起来了</div>
+						</div>
+						<div class="b-dongtailan-dongtai1-dibu" style="width: 250px;position: relative;left: 50px; bottom: 10px; display: flex; justify-content: space-between;">
+							<img src="img/转发.png" width="20px" height="20px" />
+							<img src="img/评论.png" width="20px" height="20px" />
+							<img src="img/点赞%20(1).png" width="20px" height="20px" />
+						</div>
+					</div>
+					<div class="b-dongtailan-dongtai2">
+						<a href="https://space.bilibili.com/366314/dynamic">
+						<div class="b-dongtailan-dongtai1-touxiang" style="width: 45px; height: 45px; border-radius: 90px;background: blue;position: relative;left: 20px;top: 20px;"></div></a>
+							<div style="width: 50px;position: relative;left: 80px;bottom: 20px;">夕寒君</div>
+							<div style="font-size: 12px;color:#A0A9B0;position: relative;left: 80px;bottom: 20px;">8小时前</div>
+							<img src="img/选项1.png" width="20px" height="20px" style="position: relative;bottom: 50px;left: 550px;" />
+							<div style="width: 600px;position: relative;left: 30px;bottom: 25px;">舔狗的下场分析的很透彻了吧</div>
+						
+						<div class="b-dongtailan-dongtai1-neirong" style="width: 545px;height: 150px;border-radius: 5px; position: relative;left: 30px;bottom: 15px; border:1px #A0A9B0 solid; ">
+							<img src="https://i2.hdslb.com/bfs/archive/a487345d8e411c1288f7ada9176965bd28022520.jpg@203w_127h_1e_1c.webp"
+							 width="250px" height="150px" style="border-radius: 5px;" />
+							<div style="font-size: 14px;position: relative;bottom: 140px;left: 270px; ">周淑怡恋爱教室来啦:男生不要当舔狗哦</div>
+							<div style="font-size: 12px; margin-top: 70px;color: #D3D3D3;width: 500px;position: relative;bottom: 160px;left: 270px;">周周生动形象的分析起来了</div>
+						</div>
+						<div class="b-dongtailan-dongtai1-dibu" style="width: 250px;position: relative;left: 50px; bottom: 10px; display: flex; justify-content: space-between;">
+							<img src="img/转发.png" width="20px" height="20px" />
+							<img src="img/评论.png" width="20px" height="20px" />
+							<img src="img/点赞%20(1).png" width="20px" height="20px" />
+						</div>
+					</div>
+					<div class="b-dongtailan-dongtai3">
+						<a href="https://space.bilibili.com/366314/dynamic">
+						<div class="b-dongtailan-dongtai1-touxiang" style="width: 45px; height: 45px; border-radius: 90px;background: blue;position: relative;left: 20px;top: 20px;"></div></a>
+							<div style="width: 50px;position: relative;left: 80px;bottom: 20px;">夕寒君</div>
+							<div style="font-size: 12px;color:#A0A9B0;position: relative;left: 80px;bottom: 20px;">8小时前</div>
+							<img src="img/选项1.png" width="20px" height="20px" style="position: relative;bottom: 50px;left: 550px;" />
+							<div style="width: 600px;position: relative;left: 30px;bottom: 25px;">舔狗的下场分析的很透彻了吧</div>
+						
+						<div class="b-dongtailan-dongtai1-neirong" style="width: 545px;height: 150px;border-radius: 5px; position: relative;left: 30px;bottom: 15px; border:1px #A0A9B0 solid; ">
+							<img src="https://i2.hdslb.com/bfs/archive/a487345d8e411c1288f7ada9176965bd28022520.jpg@203w_127h_1e_1c.webp"
+							 width="250px" height="150px" style="border-radius: 5px;" />
+							<div style="font-size: 14px;position: relative;bottom: 140px;left: 270px; ">周淑怡恋爱教室来啦:男生不要当舔狗哦</div>
+							<div style="font-size: 12px; margin-top: 70px;color: #D3D3D3;width: 500px;position: relative;bottom: 160px;left: 270px;">周周生动形象的分析起来了</div>
+						</div>
+						<div class="b-dongtailan-dongtai1-dibu" style="width: 250px;position: relative;left: 50px; bottom: 10px; display: flex; justify-content: space-between;">
+							<img src="img/转发.png" width="20px" height="20px" />
+							<img src="img/评论.png" width="20px" height="20px" />
+							<img src="img/点赞%20(1).png" width="20px" height="20px" />
+						</div>
+					</div>
+					<div class="b-dongtailan-dongtai4">
+						<a href="https://space.bilibili.com/366314/dynamic">
+						<div class="b-dongtailan-dongtai1-touxiang" style="width: 45px; height: 45px; border-radius: 90px;background: blue;position: relative;left: 20px;top: 20px;"></div></a>
+							<div style="width: 50px;position: relative;left: 80px;bottom: 20px;">夕寒君</div>
+							<div style="font-size: 12px;color:#A0A9B0;position: relative;left: 80px;bottom: 20px;">8小时前</div>
+							<img src="img/选项1.png" width="20px" height="20px" style="position: relative;bottom: 50px;left: 550px;" />
+							<div style="width: 600px;position: relative;left: 30px;bottom: 25px;">舔狗的下场分析的很透彻了吧</div>
+						
+						<div class="b-dongtailan-dongtai1-neirong" style="width: 545px;height: 150px;border-radius: 5px; position: relative;left: 30px;bottom: 15px; border:1px #A0A9B0 solid; ">
+							<img src="https://i2.hdslb.com/bfs/archive/a487345d8e411c1288f7ada9176965bd28022520.jpg@203w_127h_1e_1c.webp"
+							 width="250px" height="150px" style="border-radius: 5px;" />
+							<div style="font-size: 14px;position: relative;bottom: 140px;left: 270px; ">周淑怡恋爱教室来啦:男生不要当舔狗哦</div>
+							<div style="font-size: 12px; margin-top: 70px;color: #D3D3D3;width: 500px;position: relative;bottom: 160px;left: 270px;">周周生动形象的分析起来了</div>
+						</div>
+						<div class="b-dongtailan-dongtai1-dibu" style="width: 250px;position: relative;left: 50px; bottom: 10px; display: flex; justify-content: space-between;">
+							<img src="img/转发.png" width="20px" height="20px" />
+							<img src="img/评论.png" width="20px" height="20px" />
+							<img src="img/点赞%20(1).png" width="20px" height="20px" />
+						</div>
+					</div>
+
+				</div>
+				<div class="b-youbian">
+					<div class="b-gonggaolan">
+						<div style="font-size: 16px;position: relative;top: 10px;margin-left: 10px;">公告栏</div>
+						<img src="https://i0.hdslb.com/bfs/album/6160f9ad45afa002cc05fa063145ebb5b28cb93c.jpg" />
+					</div>
+                    <div class="b-huatilan" style="position: fixed;top: 55%;margin-top:-140px;">
+						<div>
+							<div style="font-size: 16px;position: relative;top: 10px;margin-left: 10px;">话题</div>
+							<div style="font-size: 12px;color: #D3D3D3;float: right;position: relative;top:12px;left:65px;">更多></div>
+						</div>
+						<div style="margin-left: 15px;position: relative;top: 15px;" id="111">
+							<img style="width: 16px;height: 16px;" src="https://i0.hdslb.com/bfs/app-res/9b596b67468b8abf635cc6fe4b6b7feb727f22dc.png@16w_16h.webp" />
+							<div style="font-size: 12px;color: #D3D3D3;">话题</div>
+							<div style="font-size: 14px;float: left;position: relative;right: 85px;">#XXXXX#</div>
+						</div>
+						<div style="margin-left: 15px;position: relative;top: 15px;" class="111">
+							<img style="width: 16px;height: 16px;" src="https://i0.hdslb.com/bfs/app-res/9b596b67468b8abf635cc6fe4b6b7feb727f22dc.png@16w_16h.webp" />
+							<div style="font-size: 12px;color: #D3D3D3;">话题</div>
+							<div style="width:250px; 14px;float: left;position: relative;right: 85px;">#XXXX#</div>
+						</div>
+						<div style="margin-left: 15px;position: relative;top: 15px;" class="111">
+							<img style="width: 16px;height: 16px;" src="https://i0.hdslb.com/bfs/app-res/9b596b67468b8abf635cc6fe4b6b7feb727f22dc.png@16w_16h.webp" />
+							<div style="font-size: 12px;color: #D3D3D3;">话题</div>
+							<div style="font-size: 14px;float: left;position: relative;right: 85px;">#XXXXX#</div>
+						</div>
+						<div style="margin-left: 15px;position: relative;top: 15px;" class="111">
+							<img style="width: 16px;height: 16px;" src="https://i0.hdslb.com/bfs/app-res/9b596b67468b8abf635cc6fe4b6b7feb727f22dc.png@16w_16h.webp" />
+							<div style="font-size: 12px;color: #D3D3D3;">话题</div>
+							<div style="font-size: 14px;float: left;position: relative;right: 85px;">#XXXXX#</div>
+						</div>
+						<div style="margin-left: 15px;position: relative;top: 15px;" class="111">
+							<img style="width: 16px;height: 16px;" src="https://i0.hdslb.com/bfs/app-res/9b596b67468b8abf635cc6fe4b6b7feb727f22dc.png@16w_16h.webp" />
+							<div style="font-size: 12px;color: #D3D3D3;">话题</div>
+							<div style="font-size: 14px;float: left;position: relative;right: 85px;">#XXXXX#</div>
+						</div>
+						<div style="margin-left: 15px;position: relative;top: 15px;" class="111">
+							<img style="width: 16px;height: 16px;" src="https://i0.hdslb.com/bfs/app-res/9b596b67468b8abf635cc6fe4b6b7feb727f22dc.png@16w_16h.webp" />
+							<div style="font-size: 12px;color: #D3D3D3;">话题</div>
+							<div style="font-size: 14px;float: left;position: relative;right: 85px;">#XXXXX#</div>
+						</div>
+					</div>
+
+				</div>
+				<a href="#top" target="_self">
+					<img src="https://s2.hdslb.com/bfs/static/blive/blfe-dynamic-web/static/img/rocket_top.bcc748c3.png" width="160px" height="180px" style="position:fixed;top: 600px;"/>
+				</a>
+			</div>
+		</div>
+	</body>
+</html>
